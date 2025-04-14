@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Catálogo de productos</title>
+  <link rel="stylesheet" href="../style/styles2.css">
 </head>
 <body>
 
   <header>
-    <img src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png" alt="Logo Copypro" width="250">
+    <img src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png" alt="Logo Copypro" class="logo-ancho"> <!--configure la class logo-ancho para ponerla en css a toodo el ancho de la pantalla-->
   </header>
 
   <main>
     <section>
-      <h1>Agregar nuevo producto</h1>
 
-      <h3>Filtrar por</h3>
+    
+      <h1 class= "titulo">Agregar nuevo producto</h1>
+
+      <h3 class="subtitulo">Filtrar por</h3> <!--agrego la clase para tocarla desde el Css-->
       <fieldset>
         <legend>Características</legend>
         <fieldset>
@@ -94,10 +97,12 @@
         <br><br>
 
         <strong>Imágenes de referencia:</strong><br>
-
+        
+        <div class = "listadoImpresoras" >  
+          
         <p>HP LaserJet Pro P1102w</p>
         <img src="https://cdn-tp1.mozu.com/21830-33325/cms/33325/files/5b842b6e-4dce-4364-92d8-d3a65deab89f?max=200&_mzcb=_1741920801328" alt="HP LaserJet Pro P1102w" width="200"><br><br>
-
+      
         <p>Brother MFC-L5900DW</p>
         <img src="https://silex.com.ar/wp-content/uploads/2022/03/Impresora-HP-1102w.jpg" alt="Brother MFC-L5900DW" width="200"><br><br>
 
@@ -107,6 +112,8 @@
         <p>Lexmark MX812DFE</p>
         <img src="https://www.jtfcorp.com/media/catalog/product/cache/6168b91b1ca5df2ffc6bc1e571dd3bea/m/x/mx812dfe-l.jpg" alt="Lexmark MX812DFE" width="230"><br><br>
 
+      </div>
+
         <!-- Contacto -->
         <h3>Contactate con nosotros</h3>
         <p>Email: <a href="mailto:Copypro@gmail.com">Copypro@gmail.com</a></p>
@@ -115,8 +122,8 @@
         <br>
 
         <!-- Botones -->
-        <input type="submit" value="Enviar producto">
-        <input type="reset" value="Limpiar formulario">
+        <input type="submit" value="Enviar producto"> 
+        <input type="reset" value="Limpiar formulario">      <!--es una buena practica, ya que al apretar este boton, borro todo el form-->
       </form>
     </section>
   </main>

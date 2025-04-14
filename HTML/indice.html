@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo de Productos</title>
     <link rel="stylesheet" href="./styles/styles.css">
-
 </head>
 <body>
-    <header> <!--la parte de arriba de nuestra web -->
+    <header>
         <h1>Titulo de la web</h1>
         <nav>
             <ul>
@@ -18,31 +17,31 @@
             </ul>
         </nav>
     </header>
-    <div class="container"> <!--div de CLASE CONTAINER, donde vamos a tener todo el contenido de los prod y nuestro menu lateral aside-->
-        <aside> <!-- una etiqueta semantica, llamada aside-->
+    <div class="container">
+        <aside>
             <h2>Filtros</h2>
-            <input type="text" placeholder="Buscar productos"> <!-- le ponemos un imput  -->
-            <label><input type="checkbox">Ofertas</label><!-- hacemos label  y dentro del label imput tipo checkbox , ofertas y otro envios gratis-->
+            <input type="text" placeholder="Buscar productos">
+            <label><input type="checkbox">Ofertas</label>
             <label><input type="checkbox">Envio gratis</label>
         </aside>
         
-        <main> <!-- Para definir clases o id . se pone con Minuscula separado con -->
-            <section class="product-grid"><!-- al ponerle el nombre a la clase, los elementos que usen esa clase tmb cambian el style-->
-                <article class="product-card"><!-- al ponerle el nombre a la clase, los elementos que usen esa clase tmb cambian el style-->
+        <main>
+            <section class="product-grid">
+                <article class="product-card">
                     <img src="./img/image-google.png" alt="Nombre del producto">
                     <h3>Nombre del producto</h3>
                     <p>Descripción del producto</p>
                     <p>Precio: $100</p>
                     <button>Comprar</button>
-                </article> <!--A TODOS los articule le ponemos la misma clase xq queremos q se vean todas iguales-->
-                <article class="product-card"> <!-- al ponerle el nombre a la clase, los elementos que usen esa clase tmb cambian el style-->
+                </article>
+                <article class="product-card">
                     <img src="./img/image-google.png" alt="Nombre del producto">
                     <h3>Producto 3</h3>
                     <p>Descripción del producto</p>
                     <p>Precio: $100</p>
                     <button>Comprar</button>
                 </article>
-                <article class="product-card"><!-- al ponerle el nombre a la clase, los elementos que usen esa clase tmb cambian el style-->
+                <article class="product-card">
                     <img src="./img/image-google.png" alt="Nombre del producto">
                     <h3>Nombre del producto</h3>
                     <p>Descripción del producto</p>
@@ -55,6 +54,7 @@
             <section>
                 <table>
                         <tr>
+                            <thead>
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Precio</th>
@@ -84,6 +84,7 @@
                             <td></td>
                         </tr>
                         <manuel>Hola</manuel>
+                    </thead>
                 </table>
             </section>
         </main>
