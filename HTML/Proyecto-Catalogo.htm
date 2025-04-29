@@ -11,20 +11,21 @@
     <img src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png" alt="Logo Copypro" class="logo-ancho">
   </header>
 
-  <main class="contenedor">
+  <main class="contenedor"> <!--class="contenedor" te permite aplicar estilos CSS a todo este bloque.-->
 
     <!-- ASIDE para filtros -->
-    <aside class="filtro-productos">
+    <aside class="filtro-productos"> <!--aside se usa para contenido complementario-->
       <h3 class="subtitulo">Filtrar por</h3>
-      <fieldset>
+      <fieldset> <!--agrupa elementos relacionados-->
         <legend>Color</legend>
-        <input type="checkbox" id="Negro" value="Negro">
+        <input type="checkbox" id="Negro" value="Negro"> 
         <label for="Negro">Negro</label><br>
         <input type="checkbox" id="Gris" value="Gris">
         <label for="Gris">Gris</label><br>
         <input type="checkbox" id="Blanco" value="Blanco">
         <label for="Blanco">Blanco</label>
       </fieldset>
+
       <br>
       <label for="precio">Precio Máximo:</label>
       <input type="number" id="precio" name="precio" step="100" value="0"><br><br>
@@ -82,63 +83,45 @@
         <label for="descripcion-producto">Descripción:</label>
         <textarea name="descripcion" id="descripcion-producto" rows="6" cols="60"></textarea>
 
-        <!-- Imágenes -->
+        <!-- Imágenes 
         <label for="imagenes">Cargá una imagen del producto:</label>
         <input type="file" id="imagenes" name="imagenes" multiple>
+               -->
 
+               
+        <!-- Galería de productos en tarjetas -->
         <strong>Imágenes de referencia:</strong>
         <div class="listadoImpresoras">
-          <p>HP LaserJet Pro P1102w</p>
-          <img src="https://cdn-tp1.mozu.com/21830-33325/cms/33325/files/5b842b6e-4dce-4364-92d8-d3a65deab89f?max=200&_mzcb=_1741920801328" alt="HP LaserJet Pro P1102w" width="200"><br>
-
-          <p>Brother MFC-L5900DW</p>
-          <img src="https://silex.com.ar/wp-content/uploads/2022/03/Impresora-HP-1102w.jpg" alt="Brother MFC-L5900DW" width="200"><br>
-
-          <p>Xerox B235 Multifunción</p>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9MRDHG5OXpuZ7VljjMB65yszLph2A_dCp5Q&s" alt="Xerox B235" width="230"><br>
-
-          <p>Lexmark MX812DFE</p>
-          <img src="https://www.jtfcorp.com/media/catalog/product/cache/6168b91b1ca5df2ffc6bc1e571dd3bea/m/x/mx812dfe-l.jpg" alt="Lexmark MX812DFE" width="230"><br>
+          <div>
+            <p>HP LaserJet Pro P1102w</p>
+            <img src="https://cdn-tp1.mozu.com/21830-33325/cms/33325/files/5b842b6e-4dce-4364-92d8-d3a65deab89f?max=200&_mzcb=_1741920801328" alt="HP LaserJet Pro P1102w">
+          </div>
+          <div>
+            <p>HP LaserJet Pro M12w</p>
+            <img src="https://http2.mlstatic.com/D_NQ_NP_848713-MLU70638797451_072023-O.webp" alt="HP LaserJet Pro m12w">
+          </div>
+          <div>
+            <p>Brother MFC-L5900DW</p>
+            <img src="https://silex.com.ar/wp-content/uploads/2022/03/Impresora-HP-1102w.jpg" alt="Brother MFC-L5900DW">
+          </div>
+          <div>
+            <p>Xerox B235 Multifunción</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9MRDHG5OXpuZ7VljjMB65yszLph2A_dCp5Q&s" alt="Xerox B235">
+          </div>
+          <div>
+            <p>Lexmark MX812DFE</p>
+            <img src="https://www.jtfcorp.com/media/catalog/product/cache/6168b91b1ca5df2ffc6bc1e571dd3bea/m/x/mx812dfe-l.jpg" alt="Lexmark MX812DFE">
+          </div>
+          <div>
+            <p>HP LaserJet Pro p1006</p>
+            <img src="https://images-cdn.ubuy.com.ar/653dcf55ae36611f597c15d0-hp-laserjet-p1006-laser-monochrome.jpg" alt="HP LaserJet Pro P1006">
+          </div>
+          <div>
+            <p>Brother DCP 8080DN</p>
+            <img src="https://http2.mlstatic.com/D_NQ_NP_705358-MLA32285211836_092019-O.webp" alt="Brother DCP 8080DN">
+            
+          </div>
         </div>
-
-        <!-- Tabla -->
-        <table>
-          <caption>Productos disponibles</caption>
-          <thead>
-            <tr>
-              <th>Brother</th>
-              <th>HP</th>
-              <th>Ricoh</th>
-              <th>Lexmark</th>
-              <th>Minolta</th>
-              <th>Xerox</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>5600</td>
-              <td>MFC - 477fdw</td>
-              <td>5540</td>
-              <td>710</td>
-              <td>Konica</td>
-              <td>B235</td>
-            </tr>
-            <tr>
-              <td>1212w</td>
-              <td>LaserJet p1102w</td>
-              <td>5540</td>
-              <td>710</td>
-              <td>Konica</td>
-              <td>B235</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th colspan="1">Resumen</th>
-              <td>Total</td>
-            </tr>
-          </tfoot>
-        </table>
 
         <!-- Contacto -->
         <h3>Contactate con nosotros</h3>

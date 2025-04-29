@@ -1,10 +1,8 @@
-/*Acá vamos a ir llenando todo los estilos de  mi proyecto-->*/
-
 /* Estilo al título principal */
 .titulo {
   color: #0026ff;
   font-size: 30px;
-  text-align: center; /*clave el titulo centrado*/
+  text-align: center;
   margin-top: 20px;
 }
 
@@ -14,32 +12,36 @@
   margin-top: 30px;
 }
 
+/* Logo */
 .logo-ancho {
   width: 100%;
   max-width: 600px;
   height: auto;
   display: block;
   margin: 0 auto;
-  border-radius: 15px; /*bordes mas redondeados*/
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Fondo general */
+ Fondo general 
 body {
-  background-color: #e0f7fa;
-  font-family: Arial, sans-serif;
+  background: #111; /* Negro suave, menos agresivo que el #000 */
+  color: #f0f0f000;    /* Texto claro para contrastar */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* todos los parrafos hijos de un div , SI esta fuera d div NO lo aplica */
+
+
+/* Parrafos hijos de div */
 div p {
   background-color: rgb(215, 215, 250);
   padding: 8px;
   border-radius: 4px;
 }
 
-/* probamos el efecto del :IS , le damos el mismo  Estilo a todos los h1 y h3 */
+/* Estilo unificado a h1 y h3 */
 :is(h1, h3) {
   color: #0026ff;
 }
@@ -80,24 +82,44 @@ input[type="reset"]:hover {
   background-color: #005fa3;
 }
 
-/* Imágenes */
+/* Galería de productos */
+.listadoImpresoras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.listadoImpresoras > div {
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 200px;
+}
+
 .listadoImpresoras img {
+  width: 100%;
+  height: auto;
   border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /*agregarsombras alrededor de los elementos de un bloque*/
-  transition: transform 0.3s ease; /*permite que los cambios de propiedades CSS se realicen de forma gradual, en lugar de de forma brusca*/
-  margin-bottom: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  margin-top: 5px;
 }
 
 .listadoImpresoras img:hover {
   transform: scale(1.05);
 }
 
+/* Header */
 header {
   text-align: center;
   padding: 20px;
 }
 
-/* Tabla */
+/* Tabla (si se usa más adelante) */
 table {
   margin: 20px auto;
   border-collapse: collapse;
@@ -115,8 +137,7 @@ th, td {
   text-align: center;
 }
 
-/* DISEÑO RESPONSIVE CON FLEXBOX */
-
+/* Diseño responsive con Flexbox */
 main {
   display: flex;
   flex-direction: row;
@@ -124,7 +145,7 @@ main {
   padding: 20px;
 }
 
-/* aside a la derecha */
+/* Aside a la derecha */
 aside {
   flex: 1;
   background-color: #ffffff;
@@ -138,14 +159,14 @@ section {
   flex: 3;
 }
 
-/* MEDIA QUERY para móviles */
+/* Media query para móviles */
 @media screen and (max-width: 768px) {
   main {
     flex-direction: column;
   }
 
   aside {
-    order: -1; /* el aside se muestra arriba en móviles */
+    order: -1;
     max-width: 100%;
   }
 
@@ -156,9 +177,19 @@ section {
   .logo-ancho {
     max-width: 100%;
   }
+
+  .listadoImpresoras {
+    justify-content: center;
+  }
+
+
+
+
+
+
+  
 }
 
 
-/*nota En pantallas grandes, voy a ver  el contenido a la izquierda y el filtro a la derecha.
-
-En móviles o tablets, el filtro bajará debajo del contenido para una mejor visualización.*/
+/*nota: En pantallas grandes, veo contenido a la izquierda y filtro a la derecha.
+En móviles, el filtro baja debajo del contenido.*/
