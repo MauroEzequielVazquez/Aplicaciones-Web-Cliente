@@ -1,106 +1,164 @@
-
-
 /*Acá vamos a ir llenando todo los estilos de  mi proyecto-->*/
 
 /* Estilo al título principal */
 .titulo {
-    color: #0026ff; 
-    font-size: 30px; 
-    text-align: center; /*clave el titulo centrado*/
-    margin-top: 20px;
-  }
-  
-  .subtitulo {
-    text-align: center;
-    color: #004080;
-    margin-top: 30px;
-  }
+  color: #0026ff;
+  font-size: 30px;
+  text-align: center; /*clave el titulo centrado*/
+  margin-top: 20px;
+}
 
-  .logo-ancho {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 15px; /*bordes mas redondeados*/
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave */
-  }
+.subtitulo {
+  text-align: center;
+  color: #0026ff;
+  margin-top: 30px;
+}
 
+.logo-ancho {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px; /*bordes mas redondeados*/
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave */
+}
 
 /* Fondo general */
 body {
-    background-color: #e0f7fa;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+  background-color: #e0f7fa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  div p {  /*todos los parrafos hijos de un div , SI esta fuera d div NO lo aplica */
+/* todos los parrafos hijos de un div , SI esta fuera d div NO lo aplica */
+div p {
+  background-color: rgb(215, 215, 250);
+  padding: 8px;
+  border-radius: 4px;
+}
 
-    background-color: rgb(215, 215, 250);
-    padding: 8px;
-    border-radius: 4px;
-  }
+/* probamos el efecto del :IS , le damos el mismo  Estilo a todos los h1 y h3 */
+:is(h1, h3) {
+  color: #0026ff;
+}
 
-  /* probamos el efecto del :IS , le damos el mismo  Estilo a todos los h1 y h3*/
-
-  :is(h1, h3) {
-    color: #0026ff;
-  }
-
-  /* Formulario */
+/* Formulario */
 form {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  /* Inputs y selects */
-  input, select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Botones */
-  input[type="submit"],
-  input[type="reset"] {
-    width: auto;
-    padding: 10px 20px;
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover,
-  input[type="reset"]:hover {
-    background-color: #005fa3;
-  }
-  
-  /* Imágenes */
-  .listadoImpresoras img {
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    margin-bottom: 10px;
-  }
-  header {
-    text-align: center;
-    padding: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Inputs y selects */
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Botones */
+input[type="submit"],
+input[type="reset"] {
+  width: auto;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #005fa3;
+}
+
+/* Imágenes */
+.listadoImpresoras img {
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /*agregarsombras alrededor de los elementos de un bloque*/
+  transition: transform 0.3s ease; /*permite que los cambios de propiedades CSS se realicen de forma gradual, en lugar de de forma brusca*/
+  margin-bottom: 10px;
+}
+
+.listadoImpresoras img:hover {
+  transform: scale(1.05);
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Tabla */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+
+/* DISEÑO RESPONSIVE CON FLEXBOX */
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* aside a la derecha */
+aside {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 300px;
+}
+
+section {
+  flex: 3;
+}
+
+/* MEDIA QUERY para móviles */
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
   }
 
-  .listadoImpresoras img {
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /*agregarsombras alrededor de los elementos de un bloque*/
-    transition: transform 0.3s ease; /*permite que los cambios de propiedades CSS se realicen de forma gradual, en lugar de de forma brusca*/
+  aside {
+    order: -1; /* el aside se muestra arriba en móviles */
+    max-width: 100%;
   }
-  
-  .listadoImpresoras img:hover {
-    transform: scale(1.05);
+
+  section {
+    width: 100%;
   }
+
+  .logo-ancho {
+    max-width: 100%;
+  }
+}
+
+
+/*nota En pantallas grandes, voy a ver  el contenido a la izquierda y el filtro a la derecha.
+
+En móviles o tablets, el filtro bajará debajo del contenido para una mejor visualización.*/

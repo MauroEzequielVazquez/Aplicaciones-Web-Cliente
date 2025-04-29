@@ -8,34 +8,38 @@
 <body>
 
   <header>
-    <img src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png" alt="Logo Copypro" class="logo-ancho"> <!--configure la class logo-ancho para ponerla en css a toodo el ancho de la pantalla-->
+    <img src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png" alt="Logo Copypro" class="logo-ancho">
   </header>
 
-  <main>
-    <section>
+  <main class="contenedor">
 
-    
-      <h1 class= "titulo">Agregar nuevo producto</h1>
-
-      <h3 class="subtitulo">Filtrar por</h3> <!--agrego la clase para tocarla desde el Css-->
+    <!-- ASIDE para filtros -->
+    <aside class="filtro-productos">
+      <h3 class="subtitulo">Filtrar por</h3>
       <fieldset>
-        <legend>Características</legend>
-        <fieldset>
-          <legend>Color</legend>
-          <input type="checkbox" name="color" id="Negro" value="Negro">
-          <label for="Negro">Negro</label><br>
-          <input type="checkbox" name="color" id="Gris" value="Gris">
-          <label for="Gris">Gris</label><br>
-          <input type="checkbox" name="color" id="Blanco" value="Blanco">
-          <label for="Blanco">Blanco</label>
-        </fieldset>
+        <legend>Color</legend>
+        <input type="checkbox" id="Negro" value="Negro">
+        <label for="Negro">Negro</label><br>
+        <input type="checkbox" id="Gris" value="Gris">
+        <label for="Gris">Gris</label><br>
+        <input type="checkbox" id="Blanco" value="Blanco">
+        <label for="Blanco">Blanco</label>
       </fieldset>
+      <br>
+      <label for="precio">Precio Máximo:</label>
+      <input type="number" id="precio" name="precio" step="100" value="0"><br><br>
 
-      <br><br>
+      <label for="precio-min">Precio Mínimo:</label>
+      <input type="number" id="precio-min" name="precio-min" step="100" value="0">
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="contenido-principal">
+      <h1 class="titulo">Agregar nuevo producto</h1>
 
       <form action="" method="post">
         <!-- Marca -->
-        <label for="marca">Marca del producto:</label><br>
+        <label for="marca">Marca del producto:</label>
         <select name="marca" id="marca">
           <option value="">-- Seleccionar marca --</option>
           <option value="Brother">Brother</option>
@@ -48,10 +52,8 @@
           <option value="Samsung">Samsung</option>
         </select>
 
-        <br><br>
-
         <!-- Categoría -->
-        <label for="categorias">Categoría del producto:</label><br>
+        <label for="categorias">Categoría del producto:</label>
         <select name="categorias" id="categorias">
           <optgroup label="Impresoras">
             <option value="simple función/monocromática">Simple función / Monocromática</option>
@@ -59,73 +61,96 @@
             <option value="multi-función/monocromática">Multifunción / Monocromática</option>
             <option value="multifunción-color">Multifunción / Color</option>
             <option value="simple-función-sistema-continuo">Simple función / Sistema continuo</option>
-            <option value="accesorios">Accesorios</option>
+            <option value="accesorios">Otros</option>
           </optgroup>
           <optgroup label="Insumos">
             <option value="toner">Tóner</option>
             <option value="fusores">Fusores</option>
             <option value="unidad de imagen">Unidad de imagen</option>
-            <option value="varios">Varios</option>
+            <option value="varios">Otros</option>
           </optgroup>
           <optgroup label="Servicio técnico">
             <option value="Revisión/reparación">Revisión / Reparación</option>
             <option value="Alquileres">Alquileres</option>
             <option value="Recargas">Recargas</option>
             <option value="Cotización">Cotización</option>
+            <option value="Otros">Otros</option>
           </optgroup>
         </select>
 
-        <br><br>
-
-        <!-- Precios -->
-        <label for="precio">Precio Máximo:</label><br>
-        <input type="number" id="precio" name="precio" step="100" value="0"><br><br>
-
-        <label for="precio-min">Precio Mínimo:</label><br>
-        <input type="number" id="precio-min" name="precio-min" step="100" value="0"><br><br>
-
         <!-- Descripción -->
-        <label for="descripcion-producto">Descripción:</label><br>
+        <label for="descripcion-producto">Descripción:</label>
         <textarea name="descripcion" id="descripcion-producto" rows="6" cols="60"></textarea>
 
-        <br><br>
-
         <!-- Imágenes -->
-        <label for="imagenes">Cargá una imagen del producto:</label><br>
+        <label for="imagenes">Cargá una imagen del producto:</label>
         <input type="file" id="imagenes" name="imagenes" multiple>
 
-        <br><br>
+        <strong>Imágenes de referencia:</strong>
+        <div class="listadoImpresoras">
+          <p>HP LaserJet Pro P1102w</p>
+          <img src="https://cdn-tp1.mozu.com/21830-33325/cms/33325/files/5b842b6e-4dce-4364-92d8-d3a65deab89f?max=200&_mzcb=_1741920801328" alt="HP LaserJet Pro P1102w" width="200"><br>
 
-        <strong>Imágenes de referencia:</strong><br>
-        
-        <div class = "listadoImpresoras" >  
-          
-        <p>HP LaserJet Pro P1102w</p>
-        <img src="https://cdn-tp1.mozu.com/21830-33325/cms/33325/files/5b842b6e-4dce-4364-92d8-d3a65deab89f?max=200&_mzcb=_1741920801328" alt="HP LaserJet Pro P1102w" width="200"><br><br>
-      
-        <p>Brother MFC-L5900DW</p>
-        <img src="https://silex.com.ar/wp-content/uploads/2022/03/Impresora-HP-1102w.jpg" alt="Brother MFC-L5900DW" width="200"><br><br>
+          <p>Brother MFC-L5900DW</p>
+          <img src="https://silex.com.ar/wp-content/uploads/2022/03/Impresora-HP-1102w.jpg" alt="Brother MFC-L5900DW" width="200"><br>
 
-        <p>Xerox B235 Multifunción</p>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9MRDHG5OXpuZ7VljjMB65yszLph2A_dCp5Q&s" alt="Xerox B235" width="230"><br><br>
+          <p>Xerox B235 Multifunción</p>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9MRDHG5OXpuZ7VljjMB65yszLph2A_dCp5Q&s" alt="Xerox B235" width="230"><br>
 
-        <p>Lexmark MX812DFE</p>
-        <img src="https://www.jtfcorp.com/media/catalog/product/cache/6168b91b1ca5df2ffc6bc1e571dd3bea/m/x/mx812dfe-l.jpg" alt="Lexmark MX812DFE" width="230"><br><br>
+          <p>Lexmark MX812DFE</p>
+          <img src="https://www.jtfcorp.com/media/catalog/product/cache/6168b91b1ca5df2ffc6bc1e571dd3bea/m/x/mx812dfe-l.jpg" alt="Lexmark MX812DFE" width="230"><br>
+        </div>
 
-      </div>
+        <!-- Tabla -->
+        <table>
+          <caption>Productos disponibles</caption>
+          <thead>
+            <tr>
+              <th>Brother</th>
+              <th>HP</th>
+              <th>Ricoh</th>
+              <th>Lexmark</th>
+              <th>Minolta</th>
+              <th>Xerox</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5600</td>
+              <td>MFC - 477fdw</td>
+              <td>5540</td>
+              <td>710</td>
+              <td>Konica</td>
+              <td>B235</td>
+            </tr>
+            <tr>
+              <td>1212w</td>
+              <td>LaserJet p1102w</td>
+              <td>5540</td>
+              <td>710</td>
+              <td>Konica</td>
+              <td>B235</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="1">Resumen</th>
+              <td>Total</td>
+            </tr>
+          </tfoot>
+        </table>
 
         <!-- Contacto -->
         <h3>Contactate con nosotros</h3>
         <p>Email: <a href="mailto:Copypro@gmail.com">Copypro@gmail.com</a></p>
-        <p>Teléfono: <a href="tel:+5411-37802708">1137802708</a></p>
-
-        <br>
+        <p>Teléfono: <a href="tel:+541137802708">1137802708</a></p>
 
         <!-- Botones -->
-        <input type="submit" value="Enviar producto"> 
-        <input type="reset" value="Limpiar formulario">      <!--es una buena practica, ya que al apretar este boton, borro todo el form-->
+        <input type="submit" value="Enviar producto">
+        <input type="reset" value="Limpiar formulario">
       </form>
     </section>
+
   </main>
 
 </body>
