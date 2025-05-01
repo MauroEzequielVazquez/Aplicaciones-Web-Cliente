@@ -12,7 +12,7 @@
   margin-top: 30px;
 }
 
-/* Logo */
+/* Logo  de Copypro */
 .logo-ancho {
   width: 100%;
   max-width: 600px;
@@ -41,6 +41,21 @@ div p {
   border-radius: 4px;
 }
 
+/* Enlaces mejorados */
+a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #003d80;
+}
+
+
+
 /* Estilo unificado a h1 y h3 */
 :is(h1, h3) {
   color: #0026ff;
@@ -56,7 +71,7 @@ form {
 }
 
 /* Inputs y selects */
-input, select, textarea {
+input, select, textarea { /*agrupo diferentes etiquetas que comparten estilos comunes.*/
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -66,7 +81,7 @@ input, select, textarea {
 }
 
 /* Botones */
-input[type="submit"],
+input[type="submit"],    /*agrupo selectores para no repetirlos xq tanto submit cmo reset tienen las mismas caract*/
 input[type="reset"] {
   width: auto;
   padding: 10px 20px;
@@ -77,7 +92,7 @@ input[type="reset"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover,
+input[type="submit"]:hover,  /*agrupo selectores para no repetirlos xq tanto submit cmo reset tienen las mismas caract*/
 input[type="reset"]:hover {
   background-color: #005fa3;
 }
@@ -90,27 +105,43 @@ input[type="reset"]:hover {
   justify-content: flex-start;
   margin-top: 20px;
 }
-
-.listadoImpresoras > div {
+.listadoImpresoras > div { /*tengo que combinar selectores, porque sino afecta solo al primer div, si digo que la clase es hijo directo de div aplica a todas mis tarjetas*/
   background-color: #f0f8ff;
   padding: 10px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 320px; /* altura fija o mínima sugerida */
 }
 
 .listadoImpresoras img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-  margin-top: 5px;
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
 .listadoImpresoras img:hover {
   transform: scale(1.05);
+}
+
+.listadoImpresoras button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listadoImpresoras button:hover {
+  background-color: #0056b3;
 }
 
 /* Header */
@@ -119,12 +150,13 @@ header {
   padding: 20px;
 }
 
-/* Tabla (si se usa más adelante) */
+/* Tabla - por ahora la cancele pero mas adelante vere 
 table {
   margin: 20px auto;
   border-collapse: collapse;
   border: 1px solid #000;
 }
+  */
 
 caption {
   font-weight: bold;
