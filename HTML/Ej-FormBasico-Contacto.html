@@ -1,39 +1,45 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
- </head>
- <body>
-     <h2>Contactanos</h2>
- 
-     <form action="" method="post">
-         <!-- Nombre-->
-         <label for="nombre">Nombre:</label>
-         <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required> <!-- required es requerido, si o si tiene q estar-->
-         <br>
-         <!--E-mail-->
-         <label for="email">Email:</label>
-         <input type="email" name="email" id="email" required> <!-- si el imput es de tipo email me va a validar x ej el  Arroba -->
-         <br>                         <!--AL MENOS QUE USE NOVALIDATE y me salteo las validaciones-->
-         <label for="mensaje">Mensaje:</label>  
-         <textarea name="mensaje" id="mensaje" rows="10"></textarea>
-         <br>
-         <!-- Nombre del producto -->
-<label for="nombre-producto por el cuál esta interesado">ombre-producto por el cuál esta interesado:</label>
-<input type="text" id="nombre-producto" name="nombre-producto" required>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="../style/FormContacto.css"> <!-- Vinculo a tu hoja de estilos -->
+</head>
+<body>
 
-<!-- Precio -->
-<label for="precio-producto">Precio:</label>
-<input type="number" id="precio-producto" name="precio-producto" step="100" required>
+    <h2>Contactanos</h2>
 
-<!-- Botón enviar -->
-<br><br>
-<input type="submit" value="Agregar producto">
-         <input type="submit" value="Enviar">
-         <input type="reset" value="Limpiar formulario">      <!--es una buena practica, ya que al apretar este boton, borro todo el form-->
-         
-     </form>
- </body>
- </html>
+    <form action="" method="post">
+        <!-- Nombre -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required> <!-- required es requerido, si o si tiene que estar -->
+        <br>
+
+        <!-- E-mail -->
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required> <!-- si el input es de tipo email me va a validar por ejemplo el arroba -->
+        <br> <!-- AL MENOS QUE USE novalidate y me salteo las validaciones -->
+
+        <!-- Mensaje -->
+        <label for="mensaje">Mensaje:</label>
+        <textarea name="mensaje" id="mensaje" rows="10"></textarea>
+        <br>
+
+        <!-- Nombre del producto -->
+        <label for="nombre-producto">Nombre del producto por el cuál está interesado:</label>
+        <input type="text" id="nombre-producto" name="nombre-producto" required>
+
+        <!-- Precio -->
+        <label for="precio-producto">Precio:</label>
+        <input type="number" id="precio-producto" name="precio-producto" step="100" required>
+
+        <!-- Botones -->
+        <br><br>
+        <input type="submit" value="Agregar producto">
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar formulario"> <!-- es una buena práctica, ya que al apretar este botón, borro todo el form -->
+    </form>
+
+</body>
+</html>
