@@ -1,8 +1,6 @@
-
-
 body {
-  background: #ffffff; /* Negro suave, menos agresivo que el #000 */
-  color: #000;    /* Texto claro para contrastar */
+  background: #ffffff;
+  color: #000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
@@ -12,8 +10,8 @@ main {
   flex-direction: row;
   gap: 20px;
   padding: 20px;
+  flex-wrap: wrap; /* agregado para que los elementos se acomoden mejor en pantallas pequeñas */
 }
-
 
 label {
   color : #000;
@@ -36,12 +34,9 @@ fieldset{
   margin-top: 30px;
 }
 
-
 .filtros-color div{
-
   display: flex;
   justify-content: space-between;
-
 }
 
 .filtro-productos button{
@@ -55,7 +50,7 @@ fieldset{
   flex-direction: column;
 }
 
-/* Logo  de Copypro */
+/* Logo de Copypro */
 .logo-ancho {
   width: 100%;
   max-width: 480px;
@@ -66,11 +61,7 @@ fieldset{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
-/* Parrafos hijos de div */
+/* Párrafos hijos de div */
 div p {
   background-color: rgb(215, 215, 250);
   padding: 8px;
@@ -90,8 +81,6 @@ a:hover {
   color: #003d80;
 }
 
-
-
 /* Estilo unificado a h1 y h3 */
 :is(h1, h3) {
   color: #0026ff;
@@ -107,7 +96,7 @@ form {
 }
 
 /* Inputs y selects */
-select, textarea { /*agrupo diferentes etiquetas que comparten estilos comunes.*/
+select, textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -134,7 +123,7 @@ input[type="text"]:focus {
 }
 
 /* Botones */
-input[type="submit"],    /*agrupo selectores para no repetirlos xq tanto submit cmo reset tienen las mismas caract*/
+input[type="submit"],
 input[type="reset"] {
   width: auto;
   padding: 10px 20px;
@@ -145,7 +134,7 @@ input[type="reset"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover,  /*agrupo selectores para no repetirlos xq tanto submit cmo reset tienen las mismas caract*/
+input[type="submit"]:hover,
 input[type="reset"]:hover {
   background-color: #005fa3;
 }
@@ -158,7 +147,7 @@ input[type="reset"]:hover {
   justify-content: flex-start;
   margin-top: 20px;
 }
-.listadoImpresoras > div { /*tengo que combinar selectores, porque sino afecta solo al primer div, si digo que la clase es hijo directo de div aplica a todas mis tarjetas*/
+.listadoImpresoras > div {
   background-color: #f0f8ff;
   padding: 10px;
   border-radius: 10px;
@@ -168,7 +157,7 @@ input[type="reset"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 320px; /* altura fija o mínima sugerida */
+  height: 320px;
 }
 
 .listadoImpresoras img {
@@ -182,20 +171,6 @@ input[type="reset"]:hover {
   transform: scale(1.05);
 }
 
-.listadoImpresoras button {
-  margin-top: 8px;
-  padding: 6px 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.listadoImpresoras button:hover {
-  background-color: #0056b3;
-}
 
 /* Header */
 header {
@@ -209,7 +184,27 @@ table {
   border-collapse: collapse;
   border: 1px solid #000;
 }
-  */
+*/
+
+
+.boton-vermas {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.boton-vermas:hover {
+  background-color: #0056b3;
+}
+
 
 caption {
   font-weight: bold;
@@ -221,8 +216,6 @@ th, td {
   padding: 8px;
   text-align: center;
 }
-
-
 
 /* Aside a la derecha */
 aside {
@@ -239,8 +232,6 @@ section {
   flex: 3;
 }
 
-
-
 /* Media query para móviles */
 @media screen and (max-width: 768px) {
   main {
@@ -249,6 +240,7 @@ section {
 
   aside {
     order: -1;
+    width: 100%; /* aseguramos que ocupe todo el ancho disponible */
   }
 
   section {
@@ -262,22 +254,39 @@ section {
   .listadoImpresoras {
     justify-content: center;
   }
-
-
-
-
-
-
-  
 }
 
-footer{
-
-background-color: #f1f1f1;
-text-align: center;
-padding: 20px;
-margin-top: 40px;
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
 }
 
-/*nota: En pantallas grandes, veo contenido a la izquierda y filtro a la derecha.
-En móviles, el filtro baja debajo del contenido.*/
+
+
+.listadoImpresoras button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listadoImpresoras button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.listadoImpresoras a {
+  text-decoration: none; /* Quita el subrayado */
+  display: inline-block; /* Permite aplicar padding/margen correctamente */
+}
+
+
+/* nota: En pantallas grandes, veo contenido a la izquierda y filtro a la derecha.
+En móviles, el filtro baja debajo del contenido. */
