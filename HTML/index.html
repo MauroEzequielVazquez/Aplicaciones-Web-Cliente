@@ -2,17 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Catálogo de productos</title>
+    <title>Catálogo de impresoras</title>
     <link rel="stylesheet" href="../style/styles2.css" />
   </head>
   <body>
-    <header>
-      <img
-        src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png"
-        alt="Logo Copypro"
-        class="logo-ancho"
-      />
-    </header>
+  <header class="encabezado">
+  <img
+    src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png"
+    alt="Logo Copypro"
+    class="logo-ancho"
+  />
+  <h1 class="titulo">Agregar nuevo producto</h1>
+</header>
 
     <div class="contenedor-principal">
       <!-- ASIDE para filtros -->
@@ -72,7 +73,7 @@
 
         <!-- CONTENIDO PRINCIPAL -->
         <section class="contenido-principal">
-          <h1 class="titulo">Agregar nuevo producto</h1>
+        
 
           <!-- Categoría -->
           <label for="categorias">Categoría del producto:</label>
@@ -155,8 +156,10 @@
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpCtcTWWsVZur7UZ9QFRYoWbohZps3ZkUrLw&s"
                 alt="Brother MFC MFC-L5900DW"
               />
-              <a href="brother5900.html" class="boton-vermas">Ver más</a>
-
+              <a href="../impresoras/impresora1.html" class="boton-vermas"
+                >Ver más</a
+              >
+              <!-- le damos esta funcion para apretar el boton y que nos muestre la info y saco el boton  ver mas que tenia-->
             </div>
             <div>
               <p>HP LaserJet S/F Pro M12w</p>
@@ -164,7 +167,9 @@
                 src="https://images.fravega.com/f1000/2ba3460542959e228ee238602f4b06f4.jpg"
                 alt="HP LaserJet Pro m12w"
               />
-              <button>Ver más</button>
+              <a href="../impresoras/impresora2.html" class="boton-vermas"
+                >Ver más</a
+              >
             </div>
             <div>
               <p>HP LaserJet S/F Pro P1102w</p>
@@ -172,7 +177,9 @@
                 src="https://silex.com.ar/wp-content/uploads/2022/03/Impresora-HP-1102w.jpg"
                 alt="HP LaserJet Pro P1102w"
               />
-              <button>Ver más</button>
+              <a href="../impresoras/impresora3.html" class="boton-vermas"
+                >Ver más</a
+              >
             </div>
             <div>
               <p>Xerox M/F B235 Multifunción</p>
@@ -180,7 +187,9 @@
                 src="https://intermaco.com.ar/productos/B235V_DNI.jpg"
                 alt="Xerox B235"
               />
-              <button>Ver más</button>
+              <a href="../impresoras/impresora4.html" class="boton-vermas"
+                >Ver más</a
+              >
             </div>
             <div>
               <p>Lexmark M/F MX812DFE</p>
@@ -188,15 +197,20 @@
                 src="https://www.jtfcorp.com/media/catalog/product/cache/6168b91b1ca5df2ffc6bc1e571dd3bea/m/x/mx812dfe-l.jpg"
                 alt="Lexmark MX812DFE"
               />
-              <button>Ver más</button>
+              <a href="../impresoras/impresora5.html" class="boton-vermas"
+                >Ver más</a
+                >
             </div>
             <div>
               <p>HP LaserJet S/F Pro p1006</p>
               <img
-                src="https://m.media-amazon.com/images/I/417AFoNnBXL._SS1000_.jpg"
+                src="https://img.drz.lazcdn.com/static/pk/p/dfa66d9eba0fd6b63394dda2185aacc4.jpg_720x720q80.jpg"
                 alt="HP LaserJet Pro P1006"
               />
-              <button>Ver más</button>
+                 <a href="../impresoras/impresora6.html" class="boton-vermas"
+                >Ver más</a
+                >
+            
             </div>
             <div>
               <p>Brother M/F DCP 8080DN</p>
@@ -204,7 +218,9 @@
                 src="https://http2.mlstatic.com/D_NQ_NP_705358-MLA32285211836_092019-O.webp"
                 alt="Brother DCP 8080DN"
               />
-              <button>Ver más</button>
+                  <a href="../impresoras/impresora7.html" class="boton-vermas"
+                >Ver más</a
+                >       
             </div>
             <div>
               <p>Brother S/F 1212w</p>
@@ -212,7 +228,10 @@
                 src="https://images.fravega.com/f300/2f590ca0527ae3e804410a6a82de0c55.jpg.webp"
                 alt="Brother 1212w"
               />
-              <button>Ver más</button>
+                  <a href="../impresoras/impresora8.html  " class="boton-vermas"
+                >Ver más</a
+                >      
+          
             </div>
             <div>
               <p>Oki S/F C562DN</p>
@@ -220,7 +239,11 @@
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJmQM9vAwQCVpkQPbsL5HkUkgfosF20qfs1g&s"
                 alt="Oki C562DN"
               />
-              <button>Ver más</button>
+                <a href="../impresoras/impresora9.html  " class="boton-vermas"
+                >Ver más</a
+                >      
+          
+             
             </div>
             <div>
               <p>Ricoh M/F 3710SF</p>
@@ -356,10 +379,10 @@
             >Formulario de contacto</a
           >
         </p>
- <!--me abre el contenido en una nueva pag, es necesario*-->
+        <!--me abre el contenido en una nueva pag, es necesario*-->
         <p style="margin-top: 30px">
           Lista de insumos:
-           <a href="MantenimientoCatalogo.html" target="_blank"
+          <a href="MantenimientoCatalogo.html" target="_blank"
             >Lista de insumos</a
           >
         </p>
@@ -373,7 +396,6 @@
     <!--footer-->
 
     <footer>
-
       <p>&copy; 2025 Copypro. Todos los derechos reservados.</p>
       <p>
         <a href="https://copypro.com.ar" target="_blank">Sitio oficial</a> |

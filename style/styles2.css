@@ -7,10 +7,12 @@ body {
 }
 main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
   padding: 20px;
   flex-wrap: wrap; /* agregado para que los elementos se acomoden mejor en pantallas pequeñas */
+   align-items:  center; 
+
 }
 
 label {
@@ -22,7 +24,7 @@ fieldset{
 }
 /* Estilo al título principal */
 .titulo {
-  color: #0026ff;
+  color: #0056b3;
   font-size: 30px;
   text-align: center;
   margin-top: 20px;
@@ -30,7 +32,7 @@ fieldset{
 
 .subtitulo {
   text-align: center;
-  color: #0026ff;
+  color: #0056b3;
   margin-top: 30px;
 }
 
@@ -59,6 +61,7 @@ fieldset{
   margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
 }
 
 /* Párrafos hijos de div */
@@ -78,22 +81,29 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #003d80;
+  color: #0056b3;
 }
 
 /* Estilo unificado a h1 y h3 */
 :is(h1, h3) {
-  color: #0026ff;
+  color:  #0056b3;
+  text-align: center;
 }
 
 /* Formulario */
 form {
-  background-color: #ffffff;
+  background-color: black;
   padding: 20px;
   margin: 20px 0;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+.logo-ancho {
+  height: auto;
+  width: auto;
+}
+
 
 /* Inputs y selects */
 select, textarea {
@@ -157,7 +167,7 @@ input[type="reset"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 320px;
+  min-height: 320px;
 }
 
 .listadoImpresoras img {
@@ -236,6 +246,16 @@ section {
 @media screen and (max-width: 768px) {
   main {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .img-impresoras {
+    width: 100%;       /* que ocupe todo el ancho disponible */
+    max-width: 250px;  /* pero que no crezca más que 250px */
+    height: auto;      /* mantener proporción */
+    margin: 20px auto; /* centrada con espacio arriba y abajo */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
   aside {
@@ -245,10 +265,6 @@ section {
 
   section {
     width: 100%;
-  }
-
-  .logo-ancho {
-    max-width: 100%;
   }
 
   .listadoImpresoras {
@@ -263,7 +279,37 @@ footer {
   margin-top: 40px;
 }
 
+main p {  /* un poco más de separación entre imagen y texto */
+  margin: 8px 0;
+}
 
+main ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+main ul li {
+  background-color: rgb(215, 215, 250);
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+main a.boton-vermas {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.img-impresoras {
+  width: 250px;        /* tamaño fijo para escritorio */
+  height: auto;
+  display: block;
+  margin: 20px auto;   /* centrado con espacio arriba/abajo */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
 .listadoImpresoras button {
   margin-top: 8px;
@@ -280,13 +326,10 @@ footer {
   background-color: #0056b3;
 }
 
-
-
 .listadoImpresoras a {
   text-decoration: none; /* Quita el subrayado */
   display: inline-block; /* Permite aplicar padding/margen correctamente */
 }
-
 
 /* nota: En pantallas grandes, veo contenido a la izquierda y filtro a la derecha.
 En móviles, el filtro baja debajo del contenido. */
