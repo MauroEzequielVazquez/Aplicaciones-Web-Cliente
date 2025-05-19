@@ -1,7 +1,7 @@
 body {
   background: #ffffff;
   color: #000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -11,15 +11,14 @@ main {
   gap: 20px;
   padding: 20px;
   flex-wrap: wrap; /* agregado para que los elementos se acomoden mejor en pantallas pequeñas */
-   align-items:  center; 
-
+  align-items: center;
 }
 
 label {
-  color : #000;
+  color: #000;
 }
 
-fieldset{
+fieldset {
   color: #000;
 }
 /* Estilo al título principal */
@@ -36,19 +35,19 @@ fieldset{
   margin-top: 30px;
 }
 
-.filtros-color div{
+.filtros-color div {
   display: flex;
   justify-content: space-between;
 }
 
-.filtro-productos button{
+.filtro-productos button {
   margin-top: 20px;
 }
 
-.contenedor-principal{
+.contenedor-principal {
   display: flex;
 }
-.contenedor{
+.contenedor {
   flex-direction: column;
 }
 
@@ -61,7 +60,6 @@ fieldset{
   margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  
 }
 
 /* Párrafos hijos de div */
@@ -86,7 +84,7 @@ a:hover {
 
 /* Estilo unificado a h1 y h3 */
 :is(h1, h3) {
-  color:  #0056b3;
+  color: #0056b3;
   text-align: center;
 }
 
@@ -96,7 +94,7 @@ form {
   padding: 20px;
   margin: 20px 0;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-ancho {
@@ -104,9 +102,9 @@ form {
   width: auto;
 }
 
-
 /* Inputs y selects */
-select, textarea {
+select,
+textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -162,7 +160,7 @@ input[type="reset"]:hover {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -181,7 +179,6 @@ input[type="reset"]:hover {
   transform: scale(1.05);
 }
 
-
 /* Header */
 header {
   text-align: center;
@@ -195,7 +192,6 @@ table {
   border: 1px solid #000;
 }
 */
-
 
 .boton-vermas {
   display: inline-block;
@@ -215,13 +211,13 @@ table {
   background-color: #0056b3;
 }
 
-
 caption {
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #000;
   padding: 8px;
   text-align: center;
@@ -233,7 +229,7 @@ aside {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 300px;
   min-width: 225px;
 }
@@ -250,12 +246,12 @@ section {
   }
 
   .img-impresoras {
-    width: 100%;       /* que ocupe todo el ancho disponible */
-    max-width: 250px;  /* pero que no crezca más que 250px */
-    height: auto;      /* mantener proporción */
+    width: 100%; /* que ocupe todo el ancho disponible */
+    max-width: 250px; /* pero que no crezca más que 250px */
+    height: auto; /* mantener proporción */
     margin: 20px auto; /* centrada con espacio arriba y abajo */
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
   aside {
@@ -272,14 +268,31 @@ section {
   }
 }
 
-footer {
-  background-color: #f1f1f1;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1; /* Fondo claro, cambia si quieres */
+  padding: 10px 40px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  gap: 10px; /* Espacio entre elementos dentro del footer */
 }
 
-main p {  /* un poco más de separación entre imagen y texto */
+
+main {
+  padding-bottom: 10%; 
+}
+
+
+main p {
+  /* un poco más de separación entre imagen y texto */
   margin: 8px 0;
 }
 
@@ -302,13 +315,19 @@ main a.boton-vermas {
   margin-top: 20px;
 }
 
+
+
+.margen-arriba {
+  margin-top: 30px;
+}
+
 .img-impresoras {
-  width: 250px;        /* tamaño fijo para escritorio */
+  width: 250px; /* tamaño fijo para escritorio */
   height: auto;
   display: block;
-  margin: 20px auto;   /* centrado con espacio arriba/abajo */
+  margin: 20px auto; /* centrado con espacio arriba/abajo */
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .listadoImpresoras button {
@@ -332,18 +351,53 @@ main a.boton-vermas {
 }
 
 .pie-pagina {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
 }
 
 .logo-footer {
-  width: 180px;         /* Logo más grande */
+  width: 320px;
   height: auto;
-  margin-bottom: 15px;  /* Más espacio debajo del logo */
+  margin-bottom: 1em;
+}
+
+
+.footer-contenido {
+  display: flex;
+  align-items: center;
+  gap: 2em;
 }
 
 .footer-contenido p {
-  margin: 8px 0;        /* Más separación entre párrafos */
+  margin: 8px 0; /* Más separación entre párrafos */
 }
-/* nota: En pantallas grandes, veo contenido a la izquierda y filtro a la derecha.
-En móviles, el filtro baja debajo del contenido. */
+
+.footer-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  align-items: center;
+}
+
+.footer-texto a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-texto a:hover {
+  text-decoration: underline;
+}
+
+footer nav {
+  text-align: center;
+}
+
+.footer nav a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.footer nav a:hover {
+  text-decoration: underline;
+}
