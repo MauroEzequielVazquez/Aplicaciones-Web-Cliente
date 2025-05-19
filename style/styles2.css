@@ -331,5 +331,19 @@ main a.boton-vermas {
   display: inline-block; /* Permite aplicar padding/margen correctamente */
 }
 
+.pie-pagina {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+
+.logo-footer {
+  width: 180px;         /* Logo más grande */
+  height: auto;
+  margin-bottom: 15px;  /* Más espacio debajo del logo */
+}
+
+.footer-contenido p {
+  margin: 8px 0;        /* Más separación entre párrafos */
+}
 /* nota: En pantallas grandes, veo contenido a la izquierda y filtro a la derecha.
 En móviles, el filtro baja debajo del contenido. */
