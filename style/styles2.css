@@ -62,14 +62,14 @@ fieldset {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Párrafos hijos de div */
-div p {
+article h4 {
   background-color: rgb(215, 215, 250);
   padding: 8px;
   border-radius: 4px;
+  margin: 0; 
+  font-weight: normal; 
 }
 
-/* Enlaces mejorados */
 a {
   color: #0056b3;
   text-decoration: none;
@@ -97,10 +97,6 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.logo-ancho {
-  height: auto;
-  width: auto;
-}
 
 /* Inputs y selects */
 select,
@@ -155,7 +151,7 @@ input[type="reset"]:hover {
   justify-content: flex-start;
   margin-top: 20px;
 }
-.listadoImpresoras > div {
+.listadoImpresoras > article {
   background-color: #f0f8ff;
   padding: 10px;
   border-radius: 10px;
