@@ -170,12 +170,31 @@ const products = [
     alt: "HP S/F Laserjet Pro P1606",
     link: "../impresoras/impresora24.html",
         price: 100000,
+  },
+ {
+    title: "Brother M/F DCP 8155DN",
+    img: "https://www.stec.com.ar/cdn/shop/files/29S0051-2_29772d74-61be-48f6-8352-b6efb458875c.jpg?v=1724092523",
+    alt: "Brother M/F DCP 8155DN",
+    link: "../impresoras/impresora25.html",
+        price: 250000,
+  },
+   {
+    title: "Brother M/F DCP 8155DN",
+    img: "https://http2.mlstatic.com/D_NQ_NP_855324-MLA84040484925_042025-O.webp",
+    alt: "Brother M/F DCP 8155DN",
+    link: "../impresoras/impresora26.html",
+        price: 270000,
   }
+
+
+
+
+
 ];
 
 const container = document.querySelector('.listadoImpresoras'); // listadoimpresoras es la class del section que contenía el html de las card, o sea la class de la etiqueta PADRE!!
                                                         
-// función para CREAR TARJETAS
+// función para CREAR TARJETAS de impresoras
 // PRIMERO creamos la card que es un article, y dentro del article metemos las card
 function createProductCard(product) {
   const card = document.createElement('article'); // se llama card el elemento creado
@@ -195,10 +214,6 @@ function createProductCard(product) {
   link.textContent = 'Ver más';
 
 
-
-
-
-
   // ahora ya tenemos los elementos creados pero SUELTOS, entonces vamos a agregarlos a la variable card.appendChild y vamos a agregar a los hijos
   // card es la VARIABLE article, donde contengo toda la info de los prod
 
@@ -213,10 +228,38 @@ function createProductCard(product) {
 // luego hacemos un forEach y recorremos la variable products, para que vaya creando las tarjetas, por cada prod crea 1 tarjeta
 // en cada vuelta le va asignando a la variable product el elemento de la tarjeta
 products.forEach(product => {
-  const card = createProductCard(product); // le paso de parámetro el producto que recorro
-  container.appendChild(card); // luego debo INSERTARLO A MI DOM
+  const card = createProductCard(product);                       // le paso de parámetro el producto que recorro
+  container.appendChild(card);                                               // luego debo INSERTARLO A MI DOM
 });
                                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //manejo de eventos, boton click
