@@ -38,78 +38,78 @@ const toners = [
   },
   {
     title: "Tóner Alternativo CF283A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_719081-MLA53132433655_012023-O.webp",
+    img: "https://http2.mlstatic.com/D_NQ_NP_973244-MLA77095171285_062024-O.webp",
     alt: "Tóner 83A para HP",
     link: "#",
     price: 9000
   },
   {
     title: "Tóner Alternativo CF226A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_858646-MLA44466228691_012021-O.webp",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgGMWQ0arfGs0uoALLnFv2kV1E1zCfJfKC8A&s",
     alt: "Tóner 26A para HP",
     link: "#",
     price: 13500
   },
   {
     title: "Tóner Alternativo 78A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_969314-MLA70399805811_072023-O.webp",
+    img: "https://www.powerprinter.com.ar/web2023/801-home_default/toner-hp-78a-ce278a-negro-alternativo-gneiss.jpg",
     alt: "Tóner 78A para HP",
     link: "#",
     price: 9200
   },
   {
     title: "Tóner Alternativo 12A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_708514-MLA44524829049_012021-O.webp",
+    img: "https://www.soscomputacion.com.ar/26469/toner-alternativo-evertec-hp-12a-negro-hp-laserjet-1010-1012-1015-1018-1020-1022-1005-3015-3020-3030.jpg",
     alt: "Tóner 12A para HP",
     link: "#",
     price: 8500
   },
   {
-    title: "Tóner Alternativo TN2210",
-    img: "https://http2.mlstatic.com/D_NQ_NP_938050-MLA44186761261_112020-O.webp",
-    alt: "Tóner TN2210 para Brother",
+    title: "Tóner Alternativo TN580",
+    img: "https://diamondsystemar.vtexassets.com/arquivos/ids/160295-800-450?v=638544115572100000&width=800&height=450&aspect=true",
+    alt: "Tóner TN580 para Brother",
     link: "#",
     price: 10500
   },
   {
-    title: "Tóner Alternativo TN115",
-    img: "https://http2.mlstatic.com/D_NQ_NP_942362-MLA45410225926_032021-O.webp",
-    alt: "Tóner TN115 para Brother",
+    title: "Tóner Alternativo TN880",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMHeLmiwPgA_GGhwNvlp7oz4R3-EqnOlLEQ&s",
+    alt: "Tóner TN880 para Brother",
     link: "#",
     price: 9800
   },
   {
-    title: "Tóner Alternativo TN1035",
-    img: "https://http2.mlstatic.com/D_NQ_NP_981458-MLA52936185071_122022-O.webp",
-    alt: "Tóner TN1035 para Brother",
+    title: "Tóner Alternativo TN1060",
+    img: "https://axa.com.ar/webaxa/2995-home_default/toner-para-brother-tn-1060-alternativo.jpg",
+    alt: "Tóner TN1060 para Brother",
     link: "#",
     price: 9500
   },
   {
-    title: "Tóner Alternativo CF244A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_677518-MLA54477179809_032023-O.webp",
-    alt: "Tóner 44A para HP",
+    title: "Tóner Alternativo HP 105A",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGOH-97PFdsyzaUWKs1m_ktul6h82EYwtyA&s",
+    alt: "Tóner 105a para HP 105/107W",
     link: "#",
     price: 9300
   },
   {
-    title: "Tóner Alternativo CF232A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_820384-MLA44418892029_122020-O.webp",
-    alt: "Tóner CF232A Drum",
+    title: "Tóner Alternativo Xerox 3020/25",
+    img: "https://sistemasjunin.com.ar/wp-content/uploads/2024/10/pic_1586382744toner_xe.jpg",
+    alt: "Tóner  3020/25 para xerox",
     link: "#",
     price: 11500
   },
   {
-    title: "Tóner Alternativo CE285A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_620401-MLA44318297930_122020-O.webp",
-    alt: "Tóner 85A Alternativo",
+    title: "Drum Alternativo tn1060",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbaFW4gJsIN8JLruMJNqUqDtB3Q-tdAkaukA&s",
+    alt: "Drum Alternativo tn1060",
     link: "#",
     price: 9500
   },
   {
-    title: "Tóner Alternativo CB436A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_801173-MLA70398978919_072023-O.webp",
-    alt: "Tóner 36A para HP",
+    title: "Drum Alternativo tn410",
+    img: "https://http2.mlstatic.com/D_NQ_NP_2X_757214-MLU78335534840_082024-T.webp",
+    alt: "Drum Alternativo tn410",
     link: "#",
     price: 8700
   },
