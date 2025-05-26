@@ -13,21 +13,21 @@ const toners = [
     img: "https://http2.mlstatic.com/D_NQ_NP_973244-MLA77095171285_062024-O.webp",
     alt: "Tóner 79A para HP",
     link: "#",
-    price: 8700
+    price: 9000
   },
   {
     title: "Tóner Alternativo TN750",
     img: "https://http2.mlstatic.com/D_668323-MLA32407032384_102019-O.jpg",
     alt: "Tóner TN750 para Brother",
     link: "#",
-    price: 12000
+    price: 16000
   },
   {
     title: "Tóner Alternativo TN450",
     img: "https://diamondsystemar.vtexassets.com/arquivos/ids/160293/4505129450_1.jpg?v=638544099229930000",
     alt: "Tóner TN450 para Brother",
     link: "#",
-    price: 10000
+    price: 14500
   },
   {
     title: "Tóner Alternativo TN660",
@@ -62,42 +62,42 @@ const toners = [
     img: "https://www.soscomputacion.com.ar/26469/toner-alternativo-evertec-hp-12a-negro-hp-laserjet-1010-1012-1015-1018-1020-1022-1005-3015-3020-3030.jpg",
     alt: "Tóner 12A para HP",
     link: "#",
-    price: 8500
+    price: 9000
   },
   {
     title: "Tóner Alternativo TN580",
     img: "https://diamondsystemar.vtexassets.com/arquivos/ids/160295-800-450?v=638544115572100000&width=800&height=450&aspect=true",
     alt: "Tóner TN580 para Brother",
     link: "#",
-    price: 10500
+    price: 16000
   },
   {
     title: "Tóner Alternativo TN880",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMHeLmiwPgA_GGhwNvlp7oz4R3-EqnOlLEQ&s",
     alt: "Tóner TN880 para Brother",
     link: "#",
-    price: 9800
+    price: 16000
   },
   {
     title: "Tóner Alternativo TN1060",
     img: "https://axa.com.ar/webaxa/2995-home_default/toner-para-brother-tn-1060-alternativo.jpg",
     alt: "Tóner TN1060 para Brother",
     link: "#",
-    price: 9500
+    price: 9000
   },
   {
     title: "Tóner Alternativo HP 105A",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGOH-97PFdsyzaUWKs1m_ktul6h82EYwtyA&s",
     alt: "Tóner 105a para HP 105/107W",
     link: "#",
-    price: 9300
+    price: 11000
   },
   {
     title: "Tóner Alternativo Xerox 3020/25",
     img: "https://sistemasjunin.com.ar/wp-content/uploads/2024/10/pic_1586382744toner_xe.jpg",
     alt: "Tóner  3020/25 para xerox",
     link: "#",
-    price: 11500
+    price: 15000
   },
   {
     title: "Drum Alternativo tn1060",
@@ -114,16 +114,16 @@ const toners = [
     price: 8700
   },
   {
-    title: "Tóner Alternativo CF280A",
-    img: "https://http2.mlstatic.com/D_NQ_NP_947315-MLA52936104875_122022-O.webp",
-    alt: "Tóner 80A para HP",
+    title: "Drum Alternativo tn580",
+    img: "https://www.soscomputacion.com.ar/13798/toner-alternativo-para-brother-tn-600-2370-660-2320-2360-2540.jpg",
+    alt: "Drum Alternativo tn580",
     link: "#",
     price: 13800
   },
   {
-    title: "Tóner Alternativo TN350",
-    img: "https://http2.mlstatic.com/D_NQ_NP_898518-MLA44070652861_112020-O.webp",
-    alt: "Tóner TN350 para Brother",
+    title: "Tóner Alternativo TN360",
+    img: "https://bainformatica.com.ar/wp-content/uploads/2021/06/toner-alternativo-brother-tn360-1.jpg",
+    alt: "Tóner Alternativo TN360",
     link: "#",
     price: 9700
   },
@@ -140,22 +140,78 @@ const toners = [
     alt: "Tóner 35A para HP",
     link: "#",
     price: 9100
+  },
+   {
+    title: "Tóner Alternativo 35A",
+    img: "https://http2.mlstatic.com/D_NQ_NP_712149-MLA70399423949_072023-O.webp",
+    alt: "Tóner 35A para HP",
+    link: "#",
+    price: 9100
+  },
+   {
+    title: "Tóner Alternativo 35A",
+    img: "https://http2.mlstatic.com/D_NQ_NP_712149-MLA70399423949_072023-O.webp",
+    alt: "Tóner 35A para HP",
+    link: "#",
+    price: 9100
   }
+  ,
+   {
+    title: "Tóner Alternativo 35A",
+    img: "https://http2.mlstatic.com/D_NQ_NP_712149-MLA70399423949_072023-O.webp",
+    alt: "Tóner 35A para HP",
+    link: "#",
+    price: 9100
+  }
+  ,
+   {
+    title: "Tóner Alternativo 35A",
+    img: "https://http2.mlstatic.com/D_NQ_NP_712149-MLA70399423949_072023-O.webp",
+    alt: "Tóner 35A para HP",
+    link: "#",
+    price: 9100
+  }
+  
+  
+  
 ];
 
 
-const listado = document.querySelector('.listadoToners');
+const listado = document.querySelector('.listadoToners'); // Contenedor padre
 
-toners.forEach(toner => {
-  const card = document.createElement('div');
+function createTonerCard(toner) {
+  const card = document.createElement('article');
   card.classList.add('card');
 
-  card.innerHTML = `
-    <img src="${toner.img}" alt="${toner.alt}" style="width:100%; border-radius:6px;" />
-    <h3>${toner.title}</h3>
-    <p><strong>Precio: </strong>$${toner.price.toLocaleString()}</p>
-    <a href="${toner.link}" target="_blank" class="boton-vermas">Ver más</a>
-  `;
+  const img = document.createElement('img');
+  img.src = toner.img;
+  img.alt = toner.alt;
+  img.style.width = '100%';
+  img.style.borderRadius = '6px';
 
+  const title = document.createElement('h3');
+  title.textContent = toner.title;
+
+  const price = document.createElement('p');
+  price.innerHTML = '<strong>Precio: </strong>$' + toner.price.toLocaleString();
+
+  const link = document.createElement('a');
+  link.href = toner.link;
+  link.target = '_blank';
+  link.classList.add('boton-vermas');
+  link.textContent = 'Ver más';
+
+  // Agregar todos los elementos al article
+  card.appendChild(img);
+  card.appendChild(title);
+  card.appendChild(price);
+  card.appendChild(link);
+
+  return card;
+}
+
+// Recorremos el array y creamos las tarjetas
+toners.forEach(toner => {
+  const card = createTonerCard(toner);
   listado.appendChild(card);
 });
