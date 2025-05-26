@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <title>Catálogo de venta - impresoras</title>
     <link rel="stylesheet" href="../style/styles2.css" />
-
-</head>
+  </head>
 
   <body>
     <header class="encabezado">
@@ -17,16 +16,14 @@
       <h1 class="titulo">Listado de impresoras</h1>
     </header>
 
-
-   <div class="botones-centro">
-  <a href="catalogo-toners.html" class="boton-toners">Ver Tóners</a>
-</div>
+    <div class="botones-centro">
+      <a href="catalogo-toners.html" class="boton-toners">Ver Tóners</a>
+    </div>
 
     <div class="contenedor-principal">
       <!-- ASIDE para filtros -->
       <aside class="filtro-productos">
-        <!--aside se usa para contenido complementario-->
-        <h3 class="subtitulo">Filtrar por</h3>
+        <h2 class="subtitulo">Filtrar por</h2>
 
         <label for="busqueda">Buscar producto:</label>
         <input
@@ -36,32 +33,35 @@
           placeholder="Ej: HP LaserJet"
         />
 
-
-
         <br />
-        <label for="precio">Precio Máximo:</label>
+        <label for="precio-max">Precio Máximo:</label>
         <input
           type="number"
-          id="precio"
-          name="precio"
+          id="precio-max"
+          name="precio-max"
           step="100"
           value=""
-           placeholder="50000"
+          placeholder="50000"
         /><br /><br />
 
         <label for="precio-min">Precio Mínimo:</label>
-        <input  
+        <input
           type="number"
           id="precio-min"
           name="precio-min"
           step="100"
           value=""
-             placeholder="800000"
+          placeholder="800000"
         />
 
-        <button id = "btn-buscar-products" type="button">Buscar</button>
-         <button id = "btn-add-products" type="button">Agregar</button>
-         <button id = "btn-ver-products" type="button">Ver carrito</button>
+        <label> <input  id = "ofertas" type = "checkbox"> Ofertas</label>
+        <label> <input  id = "envio" type = "checkbox"> Envio</label>
+
+
+        <br /><br />
+          
+        <button id="btn-add-products" type="button">Agregar</button>
+        <button id="btn-ver-products" type="button">Ver carrito</button>
       </aside>
 
       <main class="contenedor">
@@ -130,57 +130,65 @@
           </select>
 
           <strong>Los más buscados:</strong>
-      
-         <section class="listadoImpresoras">    
 
-   <!-- cargue todas mis tarjetas mediante Js -->
-               
-     
-         </section>
+          <section class="listadoImpresoras">
+            <!-- cargue todas mis tarjetas mediante Js -->
+          </section>
 
-        <!-- Hipervínculos -->
-        <p class="margen-arriba">
-          Dejanos tu consulta y te contestaremos a la brevedad:
-          <a
-            href="http://127.0.0.1:5500/HTML/Ej-FormBasico-Contacto.html"
-            target="_blank"
-            >Contactate con nosotros</a
-          >
-        </p>
-
+          <!-- Hipervínculos -->
+          <p class="margen-arriba">
+            Dejanos tu consulta y te contestaremos a la brevedad:
+            <a
+              href="http://127.0.0.1:5500/HTML/Ej-FormBasico-Contacto.html"
+              target="_blank"
+              >Contactate con nosotros</a
+            >
+          </p>
         </section>
       </main>
     </div>
 
-
-<!-- Botón  de WhatsApp -->
-<a href="https://wa.me/541137802708" class="whatsapp" target="_blank" title="Contactanos por WhatsApp">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFET6R57kZIXnM6S828jeyS7r7RoV433BJMg&s" alt="WhatsApp" />
-</a>
-
+    <!-- Botón  de WhatsApp -->
+    <a
+      href="https://wa.me/541137802708"
+      class="whatsapp"
+      target="_blank"
+      title="Contactanos por WhatsApp"
+    >
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFET6R57kZIXnM6S828jeyS7r7RoV433BJMg&s"
+        alt="WhatsApp"
+      />
+    </a>
 
     <!--footer-->
-<footer class="footer">
- 
-  <div class="footer-banner">
-    <img src="https://buya.com.ar/wp-content/uploads/2025/05/BANNER_FOOTER_1.png" alt="logo de whatsapp">
-  </div>
+    <footer class="footer">
+      <div class="footer-banner">
+        <img
+          src="https://buya.com.ar/wp-content/uploads/2025/05/BANNER_FOOTER_1.png"
+          alt="logo de whatsapp"
+        />
+      </div>
 
-  <div class="footer-contenido">
-    <div class="footer-texto">
-      <p class="pie-pagina">© 2025 Movens - Todos los derechos reservados</p>
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="http://127.0.0.1:5500/HTML/Ej-FormBasico-Contacto.html">Dejanos tus datos y sumate a nuestra empresa</a>
-        <a href="https://copypro.com.ar/">Contactate con nosotros</a>
-        <a href="http://127.0.0.1:5500/HTML/MantenimientoCatalogo.html">Insumos</a>
-      </nav>
-    </div>
-  </div>
-</footer>
+      <div class="footer-contenido">
+        <div class="footer-texto">
+          <p class="pie-pagina">
+            © 2025 Movens - Todos los derechos reservados
+          </p>
+          <nav>
+            <a href="index.html">Inicio</a>
+            <a href="http://127.0.0.1:5500/HTML/Ej-FormBasico-Contacto.html"
+              >Dejanos tus datos y sumate a nuestra empresa</a
+            >
+            <a href="https://copypro.com.ar/">Contactate con nosotros</a>
+            <a href="http://127.0.0.1:5500/HTML/MantenimientoCatalogo.html"
+              >Insumos</a
+            >
+          </nav>
+        </div>
+      </div>
+    </footer>
 
-<script src="../scripts/app.js"></script>
-
-
+    <script src="../scripts/impresoras.js"></script>
   </body>
 </html>

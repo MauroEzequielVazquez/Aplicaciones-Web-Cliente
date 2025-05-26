@@ -7,6 +7,8 @@ const products = [
     alt: "Brother MFC-L5900DW",
     link: "../impresoras/impresora1.html",
     price: 340000,
+    deliveryfree :true,
+    oferta :true,
   },
   {
     title: "HP LaserJet S/F Pro M12w",
@@ -14,6 +16,8 @@ const products = [
     alt: "HP LaserJet Pro M12w",
     link: "../impresoras/impresora2.html",
     price: 135000,
+    deliveryfree :true,
+    oferta :false,
   },
   {
     title: "HP LaserJet S/F Pro P1102w",
@@ -21,6 +25,8 @@ const products = [
     alt: "HP LaserJet Pro P1102w",
     link: "../impresoras/impresora3.html",
     price: 140000,
+      deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Xerox M/F B235 Multifunción",
@@ -28,6 +34,8 @@ const products = [
     alt: "Xerox B235",
     link: "../impresoras/impresora4.html",
     price: 340000,
+      deliveryfree :true,
+    oferta :false,
     
   },
   {
@@ -36,13 +44,17 @@ const products = [
     alt: "Lexmark MX812DFE",
     link: "../impresoras/impresora5.html",
     price: 460000,
+     deliveryfree :false,
+    oferta :true,
   },
   {
     title: "HP LaserJet S/F Pro P1006",
     img: "https://img.drz.lazcdn.com/static/pk/p/dfa66d9eba0fd6b63394dda2185aacc4.jpg_720x720q80.jpg",
     alt: "HP LaserJet Pro P1006",
     link: "../impresoras/impresora6.html",
-    price: 100000,
+    price: 110000,
+    deliveryfree :true,
+    oferta :true,
     
   },
   {
@@ -50,14 +62,18 @@ const products = [
     img: "https://http2.mlstatic.com/D_NQ_NP_705358-MLA32285211836_092019-O.webp",
     alt: "Brother DCP 8080DN",
     link: "../impresoras/impresora7.html",
-        price: 100000,
+    price: 100000,
+   deliveryfree :false,
+    oferta :true,
   },
   {
     title: "Brother S/F 1212w",
     img: "https://images.fravega.com/f300/2f590ca0527ae3e804410a6a82de0c55.jpg.webp",
     alt: "Brother 1212w",
     link: "../impresoras/impresora8.html",
-        price: 100000,
+    price: 120000,
+    deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Oki S/F C562DN",
@@ -65,6 +81,8 @@ const products = [
     alt: "Oki C562DN",
     link: "../impresoras/impresora9.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Ricoh M/F 3710SF",
@@ -72,6 +90,8 @@ const products = [
     alt: "Ricoh 3710SF",
     link: "../impresoras/impresora10.html",
         price: 100000,
+          deliveryfree :false,
+    oferta :true,
   },
   {
     title: "Samsung S/F Xpress SL-2020W",
@@ -79,6 +99,8 @@ const products = [
     alt: "Samsung Xpress SL-2020W",
     link: "../impresoras/impresora11.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :true,
   },
   {
     title: "Samsung M/F Xpress SL-M2070W",
@@ -86,13 +108,17 @@ const products = [
     alt: "Samsung Multifunción Xpress SL-M2070W",
     link: "../impresoras/impresora12.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Minolta M/F SBizHub C251",
     img: "https://d1nz2cwxocqem8.cloudfront.net/image/380230487157/image_dar042ot512d503hv8mf55h45s/-FWEBP,Q75,-S3840",
     alt: "Impresora Multifunción BizHub C251",
     link: "../impresoras/impresora13.html",
-        price: 100000,
+    price: 100000,
+    deliveryfree :false,
+    oferta :true,
   },
   {
     title: "Brother S/F HL-1200",
@@ -100,6 +126,8 @@ const products = [
     alt: "Brother HL-1200",
     link: "../impresoras/impresora14.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "HP S/F Laserjet 107W",
@@ -107,6 +135,8 @@ const products = [
     alt: "HP Laserjet 107W",
     link: "../impresoras/impresora15.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Brother M/F DCP 7065DN",
@@ -114,6 +144,8 @@ const products = [
     alt: "Brother M/F DCP 7065DN",
     link: "../impresoras/impresora16.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Xerox S/F 3020",
@@ -121,6 +153,8 @@ const products = [
     alt: "Xerox 3020",
     link: "../impresoras/impresora17.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Ricoh S/F P311DN",
@@ -128,27 +162,35 @@ const products = [
     alt: "Ricoh S/F P311DN",
     link: "../impresoras/impresora18.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Brother M/F DCP-7055",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpKJ_1IPgL1KUJuGvMpPVE-Ata0bWc91CUxQ&s",
     alt: "Brother M/F DCP-7055",
     link: "../impresoras/impresora19.html",
-        price: 100000,
+    price: 100000,
+    deliveryfree:false,
+    oferta :false,
   },
   {
     title: "Lexmark M/F MX611DHE",
     img: "https://m.media-amazon.com/images/I/718pW7jkzbL._AC_UF894,1000_QL80_.jpg",
     alt: "Lexmark M/F MX611DHE",
     link: "../impresoras/impresora20.html",
-        price: 100000,
+    price: 100000,
+    deliveryfree : false,
+    oferta :true,
   },
   {
     title: "HP S/F Laserjet 107A",
     img: "https://images.fravega.com/f1000/2f0c3f7bb6de55993c77148eddac0140.jpg",
     alt: "HP S/F Laserjet 107A",
     link: "../impresoras/impresora21.html",
-        price: 100000,
+    price: 100000,
+    deliveryfree :true,
+    oferta :false,
   },
   {
     title: "Brother M/F DCP-1617NW",
@@ -156,6 +198,8 @@ const products = [
     alt: "Brother M/F DCP-1617NW",
     link: "../impresoras/impresora22.html",
         price: 100000,
+          deliveryfree :false,
+    oferta :false,
   },
   {
     title: "HP M/F Laserjet M201DW",
@@ -163,27 +207,35 @@ const products = [
     alt: "HP M/F Laserjet M201DW",
     link: "../impresoras/impresora23.html",
         price: 100000,
+          deliveryfree :true,
+    oferta :false,
   },
   {
     title: "HP S/F Laserjet Pro P1606",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1cbeOB-wUQQNfaUbCVHVrvlbDMe7-8qvgcQ&s",
     alt: "HP S/F Laserjet Pro P1606",
     link: "../impresoras/impresora24.html",
-        price: 100000,
+    price: 100000,
+    deliveryfree :true,
+    oferta :true,
   },
  {
     title: "Brother M/F DCP 8155DN",
     img: "https://www.stec.com.ar/cdn/shop/files/29S0051-2_29772d74-61be-48f6-8352-b6efb458875c.jpg?v=1724092523",
     alt: "Brother M/F DCP 8155DN",
     link: "../impresoras/impresora25.html",
-        price: 250000,
+    price: 250000,
+    deliveryfree :false,
+    oferta :true,
   },
    {
     title: "Brother M/F DCP 8155DN",
     img: "https://http2.mlstatic.com/D_NQ_NP_855324-MLA84040484925_042025-O.webp",
     alt: "Brother M/F DCP 8155DN",
     link: "../impresoras/impresora26.html",
-        price: 270000,
+    price: 270000,
+    deliveryfree :false,
+    oferta :true,
   }
 
 
@@ -194,6 +246,10 @@ const products = [
 
 const container = document.querySelector('.listadoImpresoras'); // listadoimpresoras es la class del section que contenía el html de las card, o sea la class de la etiqueta PADRE!!
                                                         
+// función para CREAR TARJETAS de impresoras
+// PRIMERO creamos la card que es un article, y dentro del article metemos las card
+
+
 // función para CREAR TARJETAS de impresoras
 // PRIMERO creamos la card que es un article, y dentro del article metemos las card
 function createProductCard(product) {
@@ -208,22 +264,42 @@ function createProductCard(product) {
   img.src = product.img;
   img.alt = product.alt;
 
+  const price = document.createElement('p');
+  price.textContent = 'Precio: $' + product.price;
+
   const link = document.createElement('a');
   link.href = product.link;
   link.classList.add('boton-vermas');
   link.textContent = 'Ver más';
 
+ 
+  const oferta = document.createElement('p');
+  if (product.oferta === true) {
+    oferta.textContent = '¡Oferta disponible!';
+    oferta.style.color = 'red';
+    oferta.style.fontWeight = 'bold';
+  }
+
+  const envio = document.createElement('p');
+  if (product.deliveryfree === true) {
+    envio.textContent = 'Envío gratis';
+    envio.style.color = 'green';
+  }
 
   // ahora ya tenemos los elementos creados pero SUELTOS, entonces vamos a agregarlos a la variable card.appendChild y vamos a agregar a los hijos
   // card es la VARIABLE article, donde contengo toda la info de los prod
 
   card.appendChild(title);
   card.appendChild(img);
+ // card.appendChild(price);  // no quiero mostrar el precio en la pantalla principal, que en las impresoras puedan aceder a detalles
+  card.appendChild(oferta); // solo se agrega si es true
+  card.appendChild(envio);  // solo se agrega si es true
   card.appendChild(link);
 
   return card; // puede tener o no return, y no tenés que especificar qué tipo de dato devuelve en JS, tenés que prestar atención
                // ya retorno la variable card con todos los elementos hijos cargados
 }
+
 
 // luego hacemos un forEach y recorremos la variable products, para que vaya creando las tarjetas, por cada prod crea 1 tarjeta
 // en cada vuelta le va asignando a la variable product el elemento de la tarjeta
@@ -240,29 +316,7 @@ products.forEach(product => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//manejo de eventos, boton click
+//manejo de eventos, boton click vistos en class 5
   //queryselector es como un buscador de elementos que tenia en html, una class, un id, un tipo de selector (footer, section, article, etc)
 
 const button = document.querySelector('#btn-add-products');
@@ -273,49 +327,83 @@ button.addEventListener('click', () => {
 
 
 
-
+// filtros clase 6
 
 const inputNombre = document.querySelector('#busqueda');
+const inputPrecioMax = document.querySelector('#precio-max');
 const inputPrecioMin = document.querySelector('#precio-min');
-const inputPrecioMax = document.querySelector('#precio');
+inputNombre.addEventListener("input", aplicarFiltros);
 
-// cuando aprieto enter en el input de buscar nombre
-inputNombre.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    filtrarProductos(); // llamo a una función para hacer el filtro
-  }
-});
 
-// también me sirve con el botón "Buscar"
-const botonBuscar = document.querySelector('#btn-buscar-products');
-botonBuscar.addEventListener('click', () => {
-  filtrarProductos();
-});
+
+
+
 
 // función para mostrar solo los productos filtrados
-function filtrarProductos() {
-  const texto = inputNombre.value.toLowerCase(); // convierto a minúsculas
-  const precioMin = parseInt(inputPrecioMin.value) || 0; // si no hay valor, usa 0
-  const precioMax = parseInt(inputPrecioMax.value) || Infinity; // si no hay valor, usa infinito
 
-  container.innerHTML = ''; // limpio lo que ya está mostrado
+function aplicarFiltros() {
+  const texto = inputNombre.value.toLowerCase();
+  const precioMin = parseInt(inputPrecioMin.value) || 0;
+  const precioMax = parseInt(inputPrecioMax.value) || Infinity;
+  const filtrarOferta = document.getElementById("ofertas").checked;
+  const filtrarEnvio = document.getElementById("envio").checked;
 
-  // filtro los productos
+  container.innerHTML = '';
+
   const productosFiltrados = products.filter(producto => {
     const coincideNombre = producto.title.toLowerCase().includes(texto);
     const coincidePrecio = producto.price >= precioMin && producto.price <= precioMax;
-    return coincideNombre && coincidePrecio;
+    const coincideOferta = !filtrarOferta || producto.oferta === true;
+    const coincideEnvio = !filtrarEnvio || producto.deliveryfree === true;
+
+    return coincideNombre && coincidePrecio && coincideOferta && coincideEnvio;
   });
 
-  // si no hay nada que mostrar
   if (productosFiltrados.length === 0) {
-    container.innerHTML = '<p>No se encontraron productos.</p>';
+    container.innerHTML = '<p> No se encontraron productos, por favor vuelva a intentar.</p>';
     return;
   }
 
-  // muestro los productos filtrados
   productosFiltrados.forEach(producto => {
     const card = createProductCard(producto);
     container.appendChild(card);
   });
 }
+
+
+//filtro  para  los check box de off y envio, mediante Eventos
+
+  document.getElementById("ofertas").addEventListener("change", aplicarFiltros);
+  document.getElementById("envio").addEventListener("change", aplicarFiltros);
+  renderPrinters(impresoras);
+
+
+
+
+
+
+
+// funciones de ej clase 6
+// const numbers = [1, 2, 3, 4, 5];
+// map examples
+/*
+const squaredNumbers = numbers.map(p => p * p);
+console.log('numeros', numbers);
+console.log('numeros al cuadrado', squaredNumbers);
+*/
+
+// reduce examples
+/*
+const sum = numbers.reduce((accumulator, p) => {
+    return accumulator + p;
+},0);
+
+console.log('original', numbers);
+console.log('suma', sum);
+*/
+
+// // find examples
+// const foundProduct = products.find(p => p.name.includes('a'));
+// const filteredProducts = products.filter(p => p.name.includes('a'));
+// console.log('producto encontrado', foundProduct);
+// console.log('productos filtrados', filteredProducts);
