@@ -1,18 +1,20 @@
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+
 body {
   background: #ffffff;
   color: #000;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  
 }
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  flex-wrap: wrap; /* agregado para que los elementos se acomoden mejor en pantallas pequeñas */
-  align-items: center;
-}
+
 
 label {
   color: #000;
@@ -55,7 +57,7 @@ fieldset {
   color: #333;
 }
 
-filtro-productos button {
+.filtro-productos button {
   background-color: #0077cc;
   color: white;
   border: none;
@@ -146,7 +148,10 @@ filtro-productos button {
 
 .contenedor-principal {
   display: flex;
+  gap: 20px;
 }
+
+
 .contenedor {
   flex-direction: column;
 }
@@ -159,8 +164,7 @@ filtro-productos button {
   display: block;
   margin: 0 auto;
   border-radius: 15px;
-  box-shadow: 0 4p
-  x 10px rgba(0, 0, 0, 0.2);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .tecnico {
@@ -342,7 +346,7 @@ td {
 
 aside {
   flex: 1;
-  background-color: #ffffff;
+  background-color: #f9faff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -355,27 +359,55 @@ section {
 }
 
 
-@media screen and (max-width: 768px) {
-  main {
-    flex-direction: column;
-    align-items: center;
+
+/*media para tables*/
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 992px) {
+  .contenedor-principal {
+    flex-direction: column; /* Apilar aside y main verticalmente */
   }
 
-  .img-impresoras {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-
-  @media screen and (max-width: 768px) {
   aside.filtro-productos {
-    max-width: 100%;
-    min-width: auto;
-    padding: 15px 10px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  main.contenedor {
+    width: 100%;
+  }
+
+  .listadoImpresoras {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 15px;
+  }
+}
+
+
+
+/*media para celus*/
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  /* Header y botones centrados con menos margen */
+  header.encabezado,
+  .botones-centro {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .listadoImpresoras {
+    grid-template-columns: 1fr; /* 1 columna para tarjetas */
+    gap: 10px;
+  }
+
+  aside.filtro-productos {
+    padding: 10px;
+  }
+
+  .slider-multiple .slider-track img {
+    max-width: 100px; /* reducir tamaño imágenes slider */
   }
 }
 
@@ -383,6 +415,60 @@ section {
 
 
 
+/*media para pantallas muuy chicas*/
+@media (max-width: 400px) {
+  aside.filtro-productos input,
+  aside.filtro-productos select,
+  aside.filtro-productos button {
+    width: 100%; /* Inputs y botones llenan el ancho */
+    box-sizing: border-box;
+  }
+}
+
+a:hover, button:hover {
+  background-color: #ccc;
+  color: #000;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+  }
+
+  aside.filtro-productos {
+    width: 100%;
+    order: -1; /* para que aparezca arriba */
+  }
+
+  .slider-multiple img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+  @media screen and (min-width: 768px) {
+  aside {
+    order: initial;
+  }
+}
+
+  .img-impresoras {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  aside.filtro-productos {
+    max-width: 100%;
+    min-width: auto;
+    padding: 15px 10px;
+  }
 
   aside {
     order: -1;
@@ -398,6 +484,28 @@ section {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .footer-contenido {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+
+@media screen and (max-width: 480px) { /*evitamos que el logo de ws tape contenidom en dispo mas pequeños*/
+  .whatsapp {
+    width: 35px;
+    height: 35px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+
+
+ 
+
 .footer {
   left: 0;
   width: 100%;
@@ -408,8 +516,6 @@ section {
   font-size: 14px;
   color: #333;
   border-top: 1px solid #ccc;
-
-  /* NUEVO: mostrar en columna */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,8 +533,16 @@ section {
 
 
 main {
-  padding-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap; /* agregado para que los elementos se acomoden mejor en pantallas pequeñas */
+  align-items: center;
+ padding-bottom: 10%;
 }
+
+
 
 main p {
   /* un poco más de separación entre imagen y texto */
@@ -453,6 +567,30 @@ main a.boton-vermas {
   display: inline-block;
   margin-top: 20px;
 }
+
+
+.boton-comprar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.boton-comprar:hover {
+  background-color: #0056b3;
+}
+
+/*objeto price*/
+.price {
+  font-weight: bold; 
+  font-family: 'Arial', sans-serif; 
+  color: #000; 
+}
+
 
 .margen-arriba {
   margin-top: 30px;
@@ -563,12 +701,14 @@ main a.boton-vermas {
 
 footer nav {
   text-align: center;
+    margin-top: 10px;
 }
 
 .footer nav a {
-  color: #0066cc;
+   color: #0066cc;
+  margin: 0 10px;
   text-decoration: none;
-  margin-right: 15px;
+  font-weight: 600;
 }
 
 .footer nav a:hover {
@@ -682,3 +822,75 @@ footer nav {
 .listadoToners img:hover {
   transform: scale(1.05);
 }
+
+
+.etiqueta {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.oferta {
+  background-color: #ffcccc;
+  color: #b30000;
+}
+
+.envio {
+  background-color: #ccffcc;
+  color: #006600;
+}
+
+.card img {
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+/*Img con mov*/
+
+
+.slider-multiple {
+  overflow: hidden;
+  width: 100%;
+  height: 150px;
+  background: #f8f8f8;
+}
+
+.slider-track {
+  display: flex;
+  width: calc(300px * 6); /* ancho imagen * cantidad total */
+  animation: scroll 20s linear infinite;
+}
+
+.slider-track img {
+  width: 300px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slider-track img {
+  width: 300px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+

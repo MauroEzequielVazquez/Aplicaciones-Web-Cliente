@@ -7,58 +7,90 @@
   <link rel="stylesheet" href="../style/styles2.css" />
 </head>
 <body>
-    
-  
-    <header class="encabezado">
-      <img
-        src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png"
-        alt="Logo Copypro"
-        class="logo-ancho"
-      />
-    
-    <h1> Tóners / Unidad de imagen</h1>
 
+  <header class="encabezado">
+    <img
+      src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png"
+      alt="Logo Copypro"
+      class="logo-ancho"
+    />
+    <h1>Tóners / Unidad de imagen</h1>
     <a href="index.html" class="boton-volver">← Volver al catálogo de impresoras</a>
   </header>
 
-  <main>
-    <section class="listadoToners">
-      <!-- Las tarjetas se cargarán aquí vía JS -->
-    </section>
-  </main>
+  <div class="contenedor-principal">
+    <!-- ASIDE para filtros -->
+    <aside class="filtro-productos">
+      <h2 class="subtitulo">Filtrar por</h2>
 
-  
-<!-- Botón  de WhatsApp -->
-<a href="https://wa.me/541137802708" class="whatsapp" target="_blank" title="Contactanos por WhatsApp">
-</a>
+      <label for="busqueda">Buscar producto:</label>
+      <input type="text" id="busqueda" name="busqueda" placeholder="Ej: HP LaserJet" />
 
-    
+      <br />
+      <label for="precio-max">Precio Máximo:</label>
+      <input type="number" id="precio-max" name="precio-max" step="100" placeholder="50000" />
+      <br /><br />
 
+      <label for="precio-min">Precio Mínimo:</label>
+      <input type="number" id="precio-min" name="precio-min" step="100" placeholder="800000" />
 
-    <!--footer-->
-<footer class="footer">
- 
-  <div class="footer-banner">
-    <img src="https://buya.com.ar/wp-content/uploads/2025/05/BANNER_FOOTER_1.png" alt="logo de whatsapp">
-  </div>
+      <br />
+      <label><input id="ofertas" type="checkbox" /> Ofertas</label>
+      <label><input id="envio" type="checkbox" /> Envío</label>
 
-  <div class="footer-contenido">
-    <div class="footer-texto">
-      <p class="pie-pagina">© 2025 Movens - Todos los derechos reservados</p>
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="http://127.0.0.1:5500/HTML/Ej-FormBasico-Contacto.html">Dejanos tus datos y sumate a nuestra empresa</a>
-        <a href="https://copypro.com.ar/">Contactate con nosotros</a>
-        <a href="http://127.0.0.1:5500/HTML/MantenimientoCatalogo.html">Insumos</a>
-      </nav>
+      <br /><br />
+      <button id="btn-add-products" type="button">Agregar</button>
+      <br /><br />
+      <button id="btn-ver-products" type="button">Ver carrito</button>
+    </aside>
+
+    <!-- MAIN contenido -->
+    <main class="contenedor">
+      <section class="listadoToners">
+        <!-- Las tarjetas se cargarán aquí vía JS -->
+      </section>
+    </main>
+  </div> <!-- <- FIN de contenedor-principal -->
+
+  <!-- Botón de WhatsApp -->
+  <a
+    href="https://wa.me/541137802708"
+    class="whatsapp"
+    target="_blank"
+    title="Contactanos por WhatsApp"
+  >
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFET6R57kZIXnM6S828jeyS7r7RoV433BJMg&s"
+      alt="WhatsApp"
+      width="60"
+      height="60"
+    />
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-banner">
+      <img
+        src="https://buya.com.ar/wp-content/uploads/2025/05/BANNER_FOOTER_1.png"
+        alt="banner footer"
+      />
     </div>
-  </div>
-</footer>
+
+    <div class="footer-contenido">
+      <div class="footer-texto">
+        <p class="pie-pagina">© 2025 Movens - Todos los derechos reservados</p>
+        <nav>
+          <a href="index.html">Inicio</a>
+          <a href="http://127.0.0.1:5500/HTML/Ej-FormBasico-Contacto.html">
+            Dejanos tus datos y sumate a nuestra empresa
+          </a>
+          <a href="https://copypro.com.ar/">Contactate con nosotros</a>
+          <a href="http://127.0.0.1:5500/HTML/MantenimientoCatalogo.html">Insumos</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
 
   <script src="../scripts/toner.js"></script>
 </body>
 </html>
-
-
-    
-    
