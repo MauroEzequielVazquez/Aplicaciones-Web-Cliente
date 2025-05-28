@@ -246,7 +246,15 @@ const products = [
     deliveryfree: true,
     oferta: false,
   },
-
+  {
+    title: "Hp S/F Laserjet Pro M401N",
+    img: "https://www.todoimpresoras.com/img/impresoras-hp/impresora-hp-laserjet-pro-m401.png",
+    alt: "Hp S/F Laserjet Pro M401N",
+    link: "../impresoras/impresora28.html",
+    price: 140000,
+      deliveryfree :true,
+    oferta :false,
+  },
 
 
 
@@ -387,6 +395,8 @@ function aplicarFiltros() {
 
 
 //func para limpiar  filtros
+
+
 
 const btnLimpiar = document.querySelector('#limpiar-filtros');
 btnLimpiar.addEventListener('click', () => {
