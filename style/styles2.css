@@ -269,13 +269,21 @@ input[type="reset"]:hover {
 }
 
 /* Galería de productos */
+
 .listadoImpresoras {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  justify-content: flex-start;
   margin-top: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
+
+
 .listadoImpresoras > article {
   background-color: #f0f8ff;
   padding: 10px;
@@ -436,48 +444,33 @@ a:hover, button:hover {
   transition: 0.3s;
 }
 
+/* Estilos para pantallas pequeñas */
 @media screen and (max-width: 768px) {
   main {
     flex-direction: column;
     align-items: center;
   }
 
-  @media screen and (max-width: 768px) {
   .contenedor-principal {
     flex-direction: column;
   }
 
   aside.filtro-productos {
     width: 100%;
-    order: -1; /* para que aparezca arriba */
-  }
-
-  .slider-multiple img {
+    order: -1; /* Aparece arriba */
     max-width: 100%;
-    height: auto;
-  }
-}
-
-  @media screen and (min-width: 768px) {
-  aside {
-    order: initial;
-  }
-}
-
-  .img-impresoras {
-    width: 100%;
-    max-width: 250px;
-  }
-
-  aside.filtro-productos {
-    max-width: 100%;
-    min-width: auto;
     padding: 15px 10px;
   }
 
   aside {
-    order: -1;
     width: 100%;
+    order: -1;
+  }
+
+  .slider-multiple img,
+  .img-impresoras {
+    max-width: 100%;
+    height: auto;
   }
 
   section {
@@ -488,6 +481,14 @@ a:hover, button:hover {
     justify-content: center;
   }
 }
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 769px) {
+  aside {
+    order: initial;
+  }
+}
+
 
 @media screen and (min-width: 768px) {
   .footer-contenido {
@@ -574,7 +575,7 @@ main a.boton-vermas {
 }
 
 
-.boton-comprar {
+.boton-agregar {
   background-color: #007bff;
   color: white;
   border: none;
@@ -585,7 +586,7 @@ main a.boton-vermas {
   font-weight: bold;
 }
 
-.boton-comprar:hover {
+.boton-agregar:hover {
   background-color: #0056b3;
 }
 
@@ -943,3 +944,30 @@ footer nav {
 }
 
 
+/*estilos para las tarjetas*/
+.promo-container {
+  position: relative;
+  display: inline-block; /* para que el span quede relativo a la imagen */
+}
+
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.etiqueta.oferta {
+  background-color: #e60000; /* rojo fuerte */
+  box-shadow: 0 0 8px #e60000;
+}
+
+.etiqueta.envio {
+  background-color: #009933; /* verde fuerte */
+  box-shadow: 0 0 8px #009933;
+}
