@@ -27,7 +27,6 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     price: 135000,
     deliveryfree :true,
     oferta :false,
-     comprar: true 
   },
   {
     name: "HP LaserJet S/F Pro P1102w",
@@ -309,11 +308,14 @@ function createProductCard(product) {
     envio.style.color = 'green';
   }
 
-  // botón comprar (lo mostramos siempre, porque lo vas a usar para un futuro carrito)
-  const botonComprar = document.createElement('button');
-  botonComprar.textContent = 'Comprar';
-  botonComprar.classList.add('boton-comprar');
-  // podés agregar un eventListener en el futuro para que agregue al carrito
+const botonComprar = document.createElement('button');
+botonComprar.textContent = 'Agregar';
+botonComprar.classList.add('Agregar');
+
+// evento para agregar a la lista visible
+botonComprar.addEventListener('click', () => {
+  agregarAlListado(product); // usamos la función definida abajo para mostrar en pantalla
+});
 
   // ahora ya tenemos los elementos creados pero SUELTOS, entonces vamos a agregarlos a la variable card.appendChild y vamos a agregar a los hijos
   // // card es la VARIABLE article, donde contengo toda la info de los prod
@@ -346,7 +348,7 @@ function renderProductCards(products) {
   });
 }
 
-// función para obtener productos desde Airtable
+// función para obtener / insertar productos desde Airtable
 async function fetchProductsFromAirtable() {
   try {
     const response = await fetch(API_URL, {
@@ -357,7 +359,7 @@ async function fetchProductsFromAirtable() {
 
     const data = await response.json();
 
-    // Mapeamos los datos al formato que usabas antes
+    // Mapeamos los datos al formato que uso con las impre 
     const products = data.records.map(record => ({
       name: record.fields.name,
       img: record.fields.img,
@@ -368,7 +370,7 @@ async function fetchProductsFromAirtable() {
       oferta: record.fields.oferta
     }));
 
-    renderProductCards(products); // Esta es tu función para crear tarjetas
+    renderProductCards(products); // REUTILIZAMOS la función para crear tarjetas
   } catch (error) {
     console.error("Error al obtener productos desde Airtable:", error);
   }
@@ -376,6 +378,70 @@ async function fetchProductsFromAirtable() {
 
 // llamamos a la función para obtener y mostrar productos
 fetchProductsFromAirtable();
+
+
+
+
+// // FUNCIÓN para agregar una tarjeta visual al carrito
+
+const listaAgregados = document.getElementById('lista-agregados');
+
+function agregarAlListado(producto) {
+  const li = document.createElement('li');
+  li.classList.add('card');
+
+  // img del producto
+  const img = document.createElement('img');
+  img.src = producto.img;
+  img.alt = producto.alt;
+  img.style.width = '100px'; // Podés ajustar a gusto
+
+  // nombre del producto
+  const name = document.createElement('h4');
+  name.textContent = producto.name;
+
+  li.appendChild(img);
+  li.appendChild(name);
+
+  listaAgregados.appendChild(li);
+}
+
+
+//func para vaciar carrito
+const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
+const listaAgregado = document.getElementById('lista-agregados');
+
+btnVaciarCarrito.addEventListener('click', () => {
+  listaAgregados.innerHTML = ''; // limpia todo el contenido del carrito
+});
+
+btnVaciarCarrito.addEventListener('click', () => {
+  listaAgregados.innerHTML = ''; // limpia todo el contenido del carrito
+});
+
+
+//Carrito de compras
+const botonToggle = document.getElementById('toggle-carrito');
+const carrito = document.getElementById('carrito');
+
+botonToggle.addEventListener('click', () => {
+  carrito.classList.toggle('visible'); // solo una clase para mostrar/ocultar
+});
+
+
+
+//CLASE 9 - LOCAL STORAGE para armar el carrito de comprsa
+
+// Ejemplo para agregar un producto al carrito
+// function agregarAlCarrito(producto) {
+//   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+//   carrito.push(producto);
+//   localStorage.setItem('carrito', JSON.stringify(carrito));
+// }
+
+
+
+
 
 
 

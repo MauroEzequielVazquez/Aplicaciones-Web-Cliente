@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito de Compras</title>
+ <link rel="stylesheet" href="../style/styles2.css" />
+</head>
+<body>
+
+  <!-- Título principal de la página -->
+  <h1>Tu carrito</h1> 
+
+  <!-- Contenedor donde se mostrarán los productos del carrito -->
+  <div id="carrito-contenido"></div>
+
+  <!-- Script para obtener y mostrar los productos guardados en localStorage -->
+  <script>
+    // Obtener el div donde mostraremos los productos
+    const carritoContenido = document.getElementById('carrito-contenido');
+
+    // Leer el carrito guardado en localStorage (si no existe, se usa un array vacío)
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Verificar si el carrito está vacío
+    if (carrito.length === 0) {
+      // Mostrar mensaje si no hay productos en el carrito
+      carritoContenido.innerHTML = '<p>Tu carrito está vacío.</p>';
+    } else {
+      // Si hay productos, recorrer el array y crear tarjetas HTML para cada uno
+      carritoContenido.innerHTML = carrito.map(producto => `
+        <div class="tarjeta-producto">
+          <h3>${producto.nombre}</h3>
+          <p>Precio: ${producto.precio}</p>
+          <img src="${producto.imagen}" alt="${producto.nombre}" width="100" />
+        </div>
+      `).join('');  // Unir todas las tarjetas en un solo string
+    }
+  </script>
+
+</body>
+</html>

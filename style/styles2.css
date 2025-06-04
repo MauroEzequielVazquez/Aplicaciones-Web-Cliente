@@ -363,7 +363,7 @@ section {
 /* Ajustes para pantallas medianas (tablets) */
 @media (max-width: 992px) {
   .contenedor-principal {
-    flex-direction: column; /* Apilar aside y main verticalmente */
+    flex-direction: column; 
   }
 
   aside.filtro-productos {
@@ -377,7 +377,7 @@ section {
 
   .listadoImpresoras {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 15px;
   }
 }
@@ -404,9 +404,9 @@ section {
 
 /*media para celus*/
 
-/* Ajustes para pantallas pequeñas (móviles) */
+/* Ajustes para pantallas pequeñas como los celus */
 @media (max-width: 600px) {
-  /* Header y botones centrados con menos margen */
+
   header.encabezado,
   .botones-centro {
     text-align: center;
@@ -414,13 +414,13 @@ section {
   }
 
   .listadoImpresoras {
-    grid-template-columns: 1fr; /* 1 columna para tarjetas */
+    grid-template-columns: 1fr; 
     gap: 10px;
   }
 
 
   .slider-multiple .slider-track img {
-    max-width: 100px; /* reducir tamaño imágenes slider */
+    max-width: 100px; 
   }
 }
 
@@ -433,7 +433,7 @@ section {
   aside.filtro-productos input,
   aside.filtro-productos select,
   aside.filtro-productos button {
-    width: 100%; /* Inputs y botones llenan el ancho */
+    width: 100%; 
     box-sizing: border-box;
   }
 }
@@ -543,7 +543,7 @@ main {
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  flex-wrap: wrap; /* agregado para que los elementos se acomoden mejor en pantallas pequeñas */
+  flex-wrap: wrap; 
   align-items: center;
  padding-bottom: 10%;
 }
@@ -600,7 +600,7 @@ main a.boton-vermas {
 /*loog por dejabo del aside*/
 .promo-container {
   margin-top: 10px;
-  height: 50vh; /* 50% del alto de la ventana del navegador */
+  height: 50vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -622,7 +622,7 @@ main a.boton-vermas {
   }
 
   section {
-    flex: 2; /* ocupa más espacio */
+    flex: 2; 
     min-width: 50vw; /* asegura al menos media pantalla */
   }
 
@@ -631,12 +631,6 @@ main a.boton-vermas {
     max-width: 400px;
   }
 }
-
-
-
-
-
-
 
 
 
@@ -670,7 +664,7 @@ main a.boton-vermas {
   grid-template-columns: repeat(
     auto-fit,
     minmax(250px, 1fr)
-  ); /*auto-fit: el navegador calcula cuántas columnas puede meter según el ancho de la pantall*/
+  ); /*auto-fit: el navegador calcula cuántas columnas puede meter según el ancho de la pantalla*/
   gap: 1.5rem;
   padding: 1rem;
 }
@@ -970,4 +964,143 @@ footer nav {
 .etiqueta.envio {
   background-color: #009933; /* verde fuerte */
   box-shadow: 0 0 8px #009933;
+}
+
+
+/* agregamos stylos para las tarjetas del carrito*/
+#productos-agregados ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+#productos-agregados li.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+
+/*carrito*/
+#carrito {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  border-left: 2px solid #ccc;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+#carrito.visible {
+  display: block;
+}
+
+#toggle-carrito {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  font-size: 20px;        
+  border-radius: 50%;     
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+#toggle-carrito:hover {
+  background-color: #0056b3;
+}
+
+/*ocultamos el carrito*/
+.oculto {
+  display: none;
+}
+
+
+#carrito-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Tarjeta individual de producto */
+.tarjeta-producto {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  background-color: #fff;
+}
+
+/* Imagen del producto */
+.tarjeta-producto img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+/* Nombre del producto */
+.tarjeta-producto h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+}
+
+/* Precio */
+.tarjeta-producto p.precio {
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+
+/* Botón para eliminar producto (si agregás alguno) */
+.tarjeta-producto button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.tarjeta-producto button:hover {
+  background-color: #c0392b;
+}
+
+/* Evitamos que las tarjetas  del carrito se superpongan con el botón */
+.contenedor-tarjetas {
+  padding-right: 60px;
+}
+
+#btn-vaciar-carrito {
+  background-color: #e74c3c; 
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#btn-vaciar-carrito:hover {
+  background-color: #c0392b; 
 }

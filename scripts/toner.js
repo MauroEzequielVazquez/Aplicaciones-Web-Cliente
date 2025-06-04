@@ -260,8 +260,8 @@ function createTonerCard(toner) {
   }
 
   const botonComprar = document.createElement('button');
-  botonComprar.textContent = 'Comprar';
-  botonComprar.classList.add('boton-comprar');
+  botonComprar.textContent = 'Agregar';
+  botonComprar.classList.add('Agregar');
   // Aquí podés agregar eventListener para carrito en el futuro
 
   // Agrego los elementos al card (article)
@@ -276,8 +276,9 @@ function createTonerCard(toner) {
   return card;
 }
 
-// Función para renderizar las tarjetas (usa el array pasado)
+// Función para renderizar las tarjetas 
 function renderTonerCards(tonersList) {
+  
   // Limpio antes de agregar para evitar duplicados
   listado.innerHTML = '';
   tonersList.forEach(toner => {
