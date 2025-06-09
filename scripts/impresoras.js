@@ -10,6 +10,9 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; //uso de
 // Lista de productos
 
 /*const products = [        //LISTA DE PROD HARDCODEADOS
+
+
+
   {   // en los prod, PONEMOS LOS MISMOS DATOS QUE TENEMOS EN html
     name: "Brother M/F MFC-L5900DW",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpCtcTWWsVZur7UZ9QFRYoWbohZps3ZkUrLw&s",
@@ -356,18 +359,18 @@ alert("❌ Hubo un problema al subir el producto.");
 }
 
 
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("Agregar")) {
-    const nombreProducto = event.target.dataset.name;
-    const producto = products.find(p => p.name === nombreProducto);
+// document.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("Agregar")) {
+//     const nombreProducto = event.target.dataset.name;
+//     const producto = products.find(p => p.name === nombreProducto);
 
-    if (producto) {
-      subirProductoAirtable(producto);
-    } else {
-      alert("❗ Producto no encontrado en la lista.");
-    }
-  }
-});
+//     if (producto) {
+//       subirProductoAirtable(producto);
+//     } else {
+//       alert("❗ Producto no encontrado en la lista.");
+//     }
+//   }
+// });
 
  
 
@@ -421,7 +424,7 @@ async function fetchProductsFromAirtable() {
     const data = await response.json();
 
     // Mapeamos los datos al formato que uso con las impre 
-    const products = data.records.map(record => ({
+    products = data.records.map(record => ({
       name: record.fields.name,
       img: record.fields.img,
       alt: record.fields.alt,
@@ -439,8 +442,6 @@ async function fetchProductsFromAirtable() {
 
 // llamamos a la función para obtener y mostrar productos
 fetchProductsFromAirtable();
-
-
 
 
 // // FUNCIÓN para agregar una tarjeta visual al carrito
@@ -488,6 +489,17 @@ const carrito = document.getElementById('carrito');
 botonToggle.addEventListener('click', () => {
   carrito.classList.toggle('visible'); // solo una clase para mostrar/ocultar
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
