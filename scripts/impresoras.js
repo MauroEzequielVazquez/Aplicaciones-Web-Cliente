@@ -9,7 +9,7 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; //uso de
 
 // Lista de productos
 
-const products = [        //LISTA DE PROD HARDCODEADOS
+/*const products = [        //LISTA DE PROD HARDCODEADOS
   {   // en los prod, PONEMOS LOS MISMOS DATOS QUE TENEMOS EN html
     name: "Brother M/F MFC-L5900DW",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpCtcTWWsVZur7UZ9QFRYoWbohZps3ZkUrLw&s",
@@ -61,7 +61,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://img.drz.lazcdn.com/static/pk/p/dfa66d9eba0fd6b63394dda2185aacc4.jpg_720x720q80.jpg",
     alt: "HP LaserJet Pro P1006",
     link: "../impresoras/impresora6.html",
-    price: 110000,
+    price: 1100000,
     deliveryfree :false,
     oferta :true,
     
@@ -71,7 +71,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://http2.mlstatic.com/D_NQ_NP_705358-MLA32285211836_092019-O.webp",
     alt: "Brother DCP 8080DN",
     link: "../impresoras/impresora7.html",
-    price: 100000,
+    price: 180000,
    deliveryfree :false,
     oferta :true,
   },
@@ -116,7 +116,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://datacop.com.ar/images/stories/datacop/multifuncion-samsung-xpress-sl-m2070w-wi-fi.jpg",
     alt: "Samsung Multifunción Xpress SL-M2070W",
     link: "../impresoras/impresora12.html",
-        price: 100000,
+        price: 185000,
           deliveryfree :true,
     oferta :false,
   },
@@ -125,7 +125,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://d1nz2cwxocqem8.cloudfront.net/image/380230487157/image_dar042ot512d503hv8mf55h45s/-FWEBP,Q75,-S3840",
     alt: "Impresora Multifunción BizHub C251",
     link: "../impresoras/impresora13.html",
-    price: 100000,
+    price: 750000,
     deliveryfree :false,
     oferta :true,
   },
@@ -143,7 +143,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://my-media.apjonlinecdn.com/catalog/product/4/Z/4ZB78A-1_T1678955593.png",
     alt: "HP Laserjet 107W",
     link: "../impresoras/impresora15.html",
-        price: 100000,
+        price: 140000,
           deliveryfree :true,
     oferta :false,
   },
@@ -152,7 +152,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9bbxkCskUGtdG99LllCTDnEdB3SLKGVuJ8g&s",
     alt: "Brother M/F DCP 7065DN",
     link: "../impresoras/impresora16.html",
-        price: 100000,
+        price: 170000,
           deliveryfree :true,
     oferta :false,
   },
@@ -161,7 +161,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://images.fravega.com/f1000/86818c9c27df7404060e689606d19211.jpg",
     alt: "Xerox 3020",
     link: "../impresoras/impresora17.html",
-        price: 100000,
+        price: 120000,
           deliveryfree :true,
     oferta :false,
   },
@@ -170,7 +170,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlq9b7gM9kKKP31rxmHRnzMy_ZHnIzW_Bzk7dBiIajp0gTmPmz0cpWoiisEBBv4i7BiD4&usqp=CAU",
     alt: "Ricoh S/F P311DN",
     link: "../impresoras/impresora18.html",
-        price: 100000,
+        price: 240000,
           deliveryfree :true,
     oferta :false,
   },
@@ -179,7 +179,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpKJ_1IPgL1KUJuGvMpPVE-Ata0bWc91CUxQ&s",
     alt: "Brother M/F DCP-7055",
     link: "../impresoras/impresora19.html",
-    price: 100000,
+    price: 135000,
     deliveryfree: true,
     oferta :false,
   },
@@ -188,7 +188,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://m.media-amazon.com/images/I/718pW7jkzbL._AC_UF894,1000_QL80_.jpg",
     alt: "Lexmark M/F MX611DHE",
     link: "../impresoras/impresora20.html",
-    price: 100000,
+    price: 230000,
     deliveryfree : false,
     oferta :true,
   },
@@ -197,7 +197,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://images.fravega.com/f1000/2f0c3f7bb6de55993c77148eddac0140.jpg",
     alt: "HP S/F Laserjet 107A",
     link: "../impresoras/impresora21.html",
-    price: 100000,
+    price: 110000,
     deliveryfree :true,
     oferta :false,
   },
@@ -206,7 +206,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://www.venex.com.ar/products_images/1500648885_1617nw2.jpg",
     alt: "Brother M/F DCP-1617NW",
     link: "../impresoras/impresora22.html",
-        price: 100000,
+        price: 140000,
           deliveryfree :false,
     oferta :true,
   },
@@ -215,7 +215,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c04421076.png?imdensity=1&impolicy=Png_Res",
     alt: "HP M/F Laserjet M201DW",
     link: "../impresoras/impresora23.html",
-        price: 100000,
+        price: 140000,
           deliveryfree :true,
     oferta :false,
   },
@@ -224,14 +224,14 @@ const products = [        //LISTA DE PROD HARDCODEADOS
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1cbeOB-wUQQNfaUbCVHVrvlbDMe7-8qvgcQ&s",
     alt: "HP S/F Laserjet Pro P1606",
     link: "../impresoras/impresora24.html",
-    price: 100000,
+    price: 115000,
     deliveryfree :false,
     oferta :true,
   },
  {
     name: "Lexmark S/F Ms431Dn",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqsHa65icXPnK8ttIIADcB0QPRUZ9VYgHVxw&s",
-    alt: "Brother M/F DCP 8155DN",
+    alt: "Lexmark S/F Ms431Dn",
     link: "../impresoras/impresora25.html",
     price: 250000,
     deliveryfree :false,
@@ -249,6 +249,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
    {
     name: "Hp S/F Laserjet 1020",
     img: "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c02920588.png",
+    alt : "Hp S/F Laserjet 1020"
     link: "../impresoras/impresora27.html",
     price: 85000,
     deliveryfree: true,
@@ -256,7 +257,7 @@ const products = [        //LISTA DE PROD HARDCODEADOS
   },
   {
     name: "Hp S/F Laserjet Pro M401N",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQverMSFy1NuKaES43M4RIJnTsG8Df1fGcftQ&s  ",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQverMSFy1NuKaES43M4RIJnTsG8Df1fGcftQ&s",
     alt: "Hp S/F Laserjet Pro M401N",
     link: "../impresoras/impresora28.html",
     price: 140000,
@@ -267,8 +268,8 @@ const products = [        //LISTA DE PROD HARDCODEADOS
 
 
 ];
-
-
+*/
+let products = [];
 
 const container = document.querySelector('.listadoImpresoras'); // listadoimpresoras es la class del section que contenía el html de las card, o sea la class de la etiqueta PADRE!!
 
@@ -316,6 +317,66 @@ botonComprar.classList.add('Agregar');
 botonComprar.addEventListener('click', () => {
   agregarAlListado(product); // usamos la función definida abajo para mostrar en pantalla
 });
+
+//airtable clase 8
+
+async function subirProductoAirtable(producto) {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        fields: {
+          name: producto.name,
+          img: producto.img,
+          alt: producto.alt,
+          link: producto.link,
+          price: producto.price,
+          deliveryfree: producto.deliveryfree,
+          oferta: producto.oferta
+        }
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(`✅ Producto "${producto.name}" subido correctamente a Airtable.`);
+    } else {
+      console.error("⛔ Error al subir:", data);
+      alert("❌ Hubo un problema al subir el producto.");
+    }
+  } catch (error) {
+ console.error("⛔ Error al subir:", data);
+alert("❌ Hubo un problema al subir el producto.");
+  }
+}
+
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("Agregar")) {
+    const nombreProducto = event.target.dataset.name;
+    const producto = products.find(p => p.name === nombreProducto);
+
+    if (producto) {
+      subirProductoAirtable(producto);
+    } else {
+      alert("❗ Producto no encontrado en la lista.");
+    }
+  }
+});
+
+ 
+
+//opcional,  Botón para subir todos los productos desde el <aside>
+
+document.getElementById("btn-add-products").addEventListener("click", () => {
+  products.forEach(p => subirProductoAirtable(p));
+});
+
 
   // ahora ya tenemos los elementos creados pero SUELTOS, entonces vamos a agregarlos a la variable card.appendChild y vamos a agregar a los hijos
   // // card es la VARIABLE article, donde contengo toda la info de los prod
