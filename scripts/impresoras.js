@@ -357,27 +357,13 @@ alert("❌ Hubo un problema al subir el producto.");
   }
 }
 
-
-// document.addEventListener("click", (event) => {
-//   if (event.target.classList.contains("Agregar")) {
-//     const nombreProducto = event.target.dataset.name;
-//     const producto = products.find(p => p.name === nombreProducto);
-
-//     if (producto) {
-//       subirProductoAirtable(producto);
-//     } else {
-//       alert("❗ Producto no encontrado en la lista.");
-//     }
-//   }
-// });
-
  
 
-//opcional,  Botón para subir todos los productos desde el <aside>
+//opcional,  Botón para subir todos los productos desde el <aside> -- x ahora lo cancelo xq me trae problemS
 
-document.getElementById("btn-add-products").addEventListener("click", () => {
-  products.forEach(p => subirProductoAirtable(p));
-});
+// document.getElementById("btn-add-products").addEventListener("click", () => {
+//   products.forEach(p => subirProductoAirtable(p));
+// });
 
 
   // ahora ya tenemos los elementos creados pero SUELTOS, entonces vamos a agregarlos a la variable card.appendChild y vamos a agregar a los hijos
@@ -443,7 +429,7 @@ async function fetchProductsFromAirtable() {
 fetchProductsFromAirtable();
 
 
-// // FUNCIÓN para agregar una tarjeta visual al carrito
+ // FUNCIÓN para agregar una tarjeta visual al carrito
 
 const listaAgregados = document.getElementById('lista-agregados');
 
@@ -488,11 +474,6 @@ const carrito = document.getElementById('carrito');
 botonToggle.addEventListener('click', () => {
   carrito.classList.toggle('visible'); // solo una clase para mostrar/ocultar
 });
-
-
-
-
-
 
 
 

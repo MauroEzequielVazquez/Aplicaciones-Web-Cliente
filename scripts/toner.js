@@ -110,3 +110,67 @@ async function fetchTonersFromAirtable() {
 
 // Llamada a la función al cargar
 fetchTonersFromAirtable();
+
+
+
+
+
+
+
+
+
+ // FUNCIÓN para agregar una tarjeta visual al carrito
+
+const listaAgregados = document.getElementById('lista-agregados');
+
+function agregarAlListado(producto) {
+  const li = document.createElement('li');
+  li.classList.add('card');
+
+  // img del producto
+  const img = document.createElement('img');
+  img.src = producto.img;
+  img.alt = producto.alt;
+  img.style.width = '100px'; // Podés ajustar a gusto
+
+  // nombre del producto
+  const name = document.createElement('h4');
+  name.textContent = producto.name;
+
+  li.appendChild(img);
+  li.appendChild(name);
+
+  listaAgregados.appendChild(li);
+}
+
+
+//func para vaciar carrito
+const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
+const listaAgregado = document.getElementById('lista-agregados');
+
+btnVaciarCarrito.addEventListener('click', () => {
+  listaAgregados.innerHTML = ''; // limpia todo el contenido del carrito
+});
+
+btnVaciarCarrito.addEventListener('click', () => {
+  listaAgregados.innerHTML = ''; // limpia todo el contenido del carrito
+});
+
+
+//Carrito de compras
+const botonToggle = document.getElementById('toggle-carrito');
+const carrito = document.getElementById('carrito');
+
+botonToggle.addEventListener('click', () => {
+  carrito.classList.toggle('visible'); // solo una clase para mostrar/ocultar
+});
+
+
+
+
+
+
+
+
+
+
