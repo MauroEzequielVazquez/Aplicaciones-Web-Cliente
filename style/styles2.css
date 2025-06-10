@@ -1104,3 +1104,43 @@ footer nav {
 #btn-vaciar-carrito:hover {
   background-color: #c0392b; 
 }
+
+
+
+/* / 10 de junio */
+
+
+.contenedor-principal {
+  display: flex;
+  gap: 1rem; /* espacio entre aside y main */
+}
+
+
+@media (min-width: 769px) {
+  .contenedor-principal {
+    flex-direction: row;
+  }
+
+  aside {
+    order: 0; 
+  }
+
+  main {
+    order: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+  }
+
+  main {
+    order: 1; 
+  }
+
+  aside {
+    order: 2;
+  }
+}
