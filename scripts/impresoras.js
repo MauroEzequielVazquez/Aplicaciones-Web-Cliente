@@ -1,4 +1,3 @@
-
   //Datos necesarios para la conexion con
 const API_TOKEN = 'patoDnA94PcsyXfG8.20391abef63a0d69f6fc71858cdb1fc1e659873cbed9d9e3d833fe7d5b3bb0df'; // me lo da al crearlo, y darle permisos
 const BASE_ID = 'app39tUWtvfGkwzJH'; //lo saco desde airtable, desde app..hasta Jh /app39tUWtvfGkwzJH/
@@ -592,6 +591,4 @@ botonToggle.addEventListener('click', () => {
 // };
 
 // getProducts();
-
-
 
