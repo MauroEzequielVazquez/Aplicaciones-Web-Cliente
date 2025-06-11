@@ -359,7 +359,7 @@ alert("❌ Hubo un problema al subir el producto.");
 
  
 
-//opcional,  Botón para subir todos los productos desde el <aside> -- x ahora lo cancelo xq me trae problemS
+//opcional,  Botón para subir todos los productos desde el <aside> -- x ahora lo cancelo xq me trae problemas
 
 // document.getElementById("btn-add-products").addEventListener("click", () => {
 //   products.forEach(p => subirProductoAirtable(p));

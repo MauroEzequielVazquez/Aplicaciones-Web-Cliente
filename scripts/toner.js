@@ -4,6 +4,8 @@ const BASE_ID = 'appFi1FhfH9IQqyZc'; // ID real de tu base "catalogoToners"
 const TABLE_NAME = 'Toners'; // Nombre exacto de la tabla con T mayúscula
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
+
+
 // Variable para almacenar los datos
 let toners = [];
 
@@ -67,9 +69,9 @@ function createTonerCard(toner) {
 }
 
 // Función para renderizar las tarjetas
-function renderTonerCards(tonersList) {
+function renderTonerCards(toners) {
   listado.innerHTML = '';
-  tonersList.forEach(toner => {
+  toners.forEach(toner => {
     const card = createTonerCard(toner);
     listado.appendChild(card);
   });
@@ -101,7 +103,7 @@ async function fetchTonersFromAirtable() {
       oferta: record.fields.oferta
     }));
 
-    console.log(tonersList); // 👉 Te ayuda a ver si algún price viene undefined
+    console.log(tonersList); // 👉 
     renderTonerCards(tonersList);
   } catch (error) {
     console.error("Error al obtener tóners desde Airtable:", error);

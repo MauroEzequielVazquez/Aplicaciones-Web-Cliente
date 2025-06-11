@@ -1,11 +1,5 @@
 
-//manejo de eventos, boton click vistos en class 5
-  //queryselector es como un buscador de elementos que tenia en html, una class, un id, un tipo de selector (footer, section, article, etc)
-
-const button = document.querySelector('#btn-add-toners');
-
-
-
+const button = document.querySelector('#btn-add-products');
 
 
 // filtros clase 6
@@ -16,10 +10,6 @@ const inputPrecioMin = document.querySelector('#precio-min');
 inputNombre.addEventListener("input", aplicarFiltros);
 inputPrecioMin.addEventListener("input", aplicarFiltros);
 inputPrecioMax.addEventListener("input", aplicarFiltros);
-
-
-
-
 
 
 // función para mostrar solo los productos filtrados
