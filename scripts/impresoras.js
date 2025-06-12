@@ -1,10 +1,10 @@
-  //Datos necesarios para la conexion con
-const API_TOKEN = 'patoDnA94PcsyXfG8.20391abef63a0d69f6fc71858cdb1fc1e659873cbed9d9e3d833fe7d5b3bb0df '; // me lo da al crearlo, y darle permisos
-const BASE_ID = 'app39tUWtvfGkwzJH'; //lo saco desde airtable, desde app..hasta Jh /app39tUWtvfGkwzJH/
-const TABLE_NAME = 'Products';  // nombre que le puse a mi tabla
-const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; //uso de backticks , NO son commilas simples
-                                                           // es mas legible la interpolacion que la concatenacion de string
- 
+
+// Datos necesarios para la conexión con Airtable
+const API_TOKEN = 'patNJ4WpU1pTMJAs0.21cf37035400de9bea5324d4d3aa30b3c3c235b8aa2d99926925bd7de5fa4ac1';
+const BASE_ID = 'appy5Akrxlk1wQUzj'; //
+const TABLE_NAME = 'tabla'; // 
+const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+
 
 // Lista de productos
 
@@ -271,17 +271,15 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; //uso de
 
 ];
 */
-let products = [];
+// let products = [];
 
-const container = document.querySelector('.listadoImpresoras'); // listadoimpresoras es la class del section que contenía el html de las card, o sea la class de la etiqueta PADRE!!
+const container = document.querySelector('.listadoImpresoras'); // listadoImpresoras es el section padre de las cards
 
-// // función para CREAR TARJETAS de impresoras
-// // PRIMERO creamos la card que es un article, y dentro del article metemos las card
+// Función para crear una tarjeta de producto
 function createProductCard(product) {
-  const card = document.createElement('article'); // se llama card el elemento creado
-  card.classList.add('card'); // la LISTA va agregando a las impresoras que cree en los prod
+  const card = document.createElement('article');
+  card.classList.add('card');
 
-  // Luego creo los campos de esas tarjetas, LOS MISMOS que tenía en html
   const name = document.createElement('h4');
   name.textContent = product.name;
 
@@ -290,7 +288,7 @@ function createProductCard(product) {
   img.alt = product.alt;
 
   const price = document.createElement('p');
-  price.classList.add('price') /*para manipularla en css*/
+  price.classList.add('price');
   price.textContent = 'Precio: $' + product.price;
 
   const link = document.createElement('a');
@@ -311,17 +309,65 @@ function createProductCard(product) {
     envio.style.color = 'green';
   }
 
-const botonComprar = document.createElement('button');
-botonComprar.textContent = 'Agregar';
-botonComprar.classList.add('Agregar');
+  const botonComprar = document.createElement('button');
+  botonComprar.textContent = 'Agregar';
+  botonComprar.classList.add('Agregar');
 
-// evento para agregar a la lista visible
-botonComprar.addEventListener('click', () => {
-  agregarAlListado(product); // usamos la función definida abajo para mostrar en pantalla
-});
+  botonComprar.addEventListener('click', () => {
+    agregarAlListado(product);
+  });
 
-//airtable clase 8
+  card.appendChild(name);
+  card.appendChild(img);
+  card.appendChild(price);
+  card.appendChild(oferta);
+  card.appendChild(envio);
+  card.appendChild(link);
+  card.appendChild(botonComprar);
 
+  return card;
+}
+
+// Función para renderizar todas las tarjetas
+function renderProductCards(products) {
+  container.innerHTML = ''; // Limpiamos primero por si hay algo ya
+  products.forEach(product => {
+    const card = createProductCard(product);
+    container.appendChild(card);
+  });
+}
+
+// Función para obtener productos desde Airtable
+async function fetchProductsFromAirtable() {
+  try {
+    const response = await fetch(API_URL, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`
+      }
+    });
+
+    const data = await response.json();
+
+    products = data.records.map(record => ({
+      name: record.fields.name || 'Sin nombre',
+      img: record.fields.img || 'https://via.placeholder.com/150', //para que me levante las
+      alt: record.fields.alt || 'Producto',
+      link: record.fields.link || '#',
+      price: record.fields.price || 0,
+      deliveryfree: record.fields.deliveryfree || false,
+      oferta: record.fields.oferta || false
+    }));
+
+    renderProductCards(products);
+  } catch (error) {
+    console.error("Error al obtener productos desde Airtable:", error);
+  }
+}
+
+// Llamamos a la función al cargar
+fetchProductsFromAirtable();
+
+// Función para subir producto a Airtable (por si la necesitás)
 async function subirProductoAirtable(producto) {
   try {
     const response = await fetch(API_URL, {
@@ -333,7 +379,7 @@ async function subirProductoAirtable(producto) {
       body: JSON.stringify({
         fields: {
           name: producto.name,
-          img: producto.img,
+          img: [{ url: producto.img }],
           alt: producto.alt,
           link: producto.link,
           price: producto.price,
@@ -352,98 +398,23 @@ async function subirProductoAirtable(producto) {
       alert("❌ Hubo un problema al subir el producto.");
     }
   } catch (error) {
- console.error("⛔ Error al subir:", data);
-alert("❌ Hubo un problema al subir el producto.");
+    console.error("⛔ Error al subir:", error);
+    alert("❌ Hubo un problema al subir el producto.");
   }
 }
 
- 
-
-//opcional,  Botón para subir todos los productos desde el <aside> -- x ahora lo cancelo xq me trae problemas
-
-// document.getElementById("btn-add-products").addEventListener("click", () => {
-//   products.forEach(p => subirProductoAirtable(p));
-// });
-
-
-  // ahora ya tenemos los elementos creados pero SUELTOS, entonces vamos a agregarlos a la variable card.appendChild y vamos a agregar a los hijos
-  // // card es la VARIABLE article, donde contengo toda la info de los prod
-  card.appendChild(name);
-  card.appendChild(img);
-  card.appendChild(price);  // no quiero mostrar el precio en la pantalla principal, que en las impresoras puedan aceder a detalles
-  card.appendChild(oferta); // solo se agrega si es true
-  card.appendChild(envio);  
-  card.appendChild(link);
-  card.appendChild(botonComprar); // lo agregamos al final
-
-  return card; // puede tener o no return, y no tenés que especificar qué tipo de dato devuelve en JS, tenés que prestar atención
-               // ya retorno la variable card con todos los elementos hijos cargados
-}
-
-// luego hacemos un forEach y recorremos la variable products, para que vaya creando las tarjetas, por cada prod crea 1 tarjeta
-// en cada vuelta le va asignando a la variable product el elemento de la tarjeta
-products.forEach(product => {
-  const card = createProductCard(product);                       // le paso de parámetro el producto que recorro
-  container.appendChild(card);                                   // luego debo INSERTARLO A MI DOM
-});
-
-
-
-// función para renderizar la lista de tarjetas en pantalla
-function renderProductCards(products) {
-  products.forEach(product => {
-    const card = createProductCard(product);             // le paso de parámetro el producto que recorro
-    container.appendChild(card);                         // luego debo INSERTARLO A MI DOM
-  });
-}
-
-// función para obtener / insertar productos desde Airtable
-async function fetchProductsFromAirtable() {
-  try {
-    const response = await fetch(API_URL, {
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`
-      }
-    });
-
-    const data = await response.json();
-
-    // Mapeamos los datos al formato que uso con las impre 
-    products = data.records.map(record => ({
-      name: record.fields.name,
-      img: record.fields.img,
-      alt: record.fields.alt,
-      link: record.fields.link,
-      price: record.fields.price,
-      deliveryfree: record.fields.deliveryfree,
-      oferta: record.fields.oferta
-    }));
-
-    renderProductCards(products); // REUTILIZAMOS la función para crear tarjetas
-  } catch (error) {
-    console.error("Error al obtener productos desde Airtable:", error);
-  }
-}
-
-// llamamos a la función para obtener y mostrar productos
-fetchProductsFromAirtable();
-
-
- // FUNCIÓN para agregar una tarjeta visual al carrito
-
+// AGREGAR AL CARRITO (aside)
 const listaAgregados = document.getElementById('lista-agregados');
 
 function agregarAlListado(producto) {
   const li = document.createElement('li');
   li.classList.add('card');
 
-  // img del producto
   const img = document.createElement('img');
   img.src = producto.img;
   img.alt = producto.alt;
-  img.style.width = '100px'; // Podés ajustar a gusto
+  img.style.width = '100px';
 
-  // nombre del producto
   const name = document.createElement('h4');
   name.textContent = producto.name;
 
@@ -453,28 +424,20 @@ function agregarAlListado(producto) {
   listaAgregados.appendChild(li);
 }
 
-
-//func para vaciar carrito
+// BOTÓN para vaciar el carrito
 const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
-const listaAgregado = document.getElementById('lista-agregados');
 
 btnVaciarCarrito.addEventListener('click', () => {
-  listaAgregados.innerHTML = ''; // limpia todo el contenido del carrito
+  listaAgregados.innerHTML = '';
 });
 
-btnVaciarCarrito.addEventListener('click', () => {
-  listaAgregados.innerHTML = ''; // limpia todo el contenido del carrito
-});
-
-
-//Carrito de compras
+// BOTÓN para mostrar/ocultar carrito
 const botonToggle = document.getElementById('toggle-carrito');
 const carrito = document.getElementById('carrito');
 
 botonToggle.addEventListener('click', () => {
-  carrito.classList.toggle('visible'); // solo una clase para mostrar/ocultar
+  carrito.classList.toggle('visible');
 });
-
 
 
 
