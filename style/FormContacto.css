@@ -106,3 +106,43 @@ a.boton-vermas:hover {
   background-color: #1976d2;
   color: #fff;
 }
+
+
+
+/*Actualizo el form */
+
+/* Fondo de tecnico toda la pantalla */
+/* body {
+  margin: 0; /
+  height: 100vh; 
+  background-image: url('../img/fondo-contacto.jpg');
+  background-size: cover; 
+  background-position: center center; 
+  font-family: Arial, sans-serif;
+  color: white; 
+} */
+
+/* Opcional: darle un fondo semitransparente al formulario para legibilidad */
+/* form {
+  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 40px auto; 
+  box-sizing: border-box;
+} */
+
+/* 
+form {
+  background-image: url('../img/fondo-contacto.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  max-width: 500px;
+  margin: 40px auto;
+  box-sizing: border-box;
+}
+ */

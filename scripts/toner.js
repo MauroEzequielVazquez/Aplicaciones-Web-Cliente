@@ -54,14 +54,21 @@ function createTonerCard(toner) {
   }
 
   const botonComprar = document.createElement('button');
-  botonComprar.textContent = 'Agregar';
+  botonComprar.textContent = 'Agregar al carrito';
+  botonComprar.classList.add('boton-comprar');
   botonComprar.classList.add('Agregar');
+
+   botonComprar.addEventListener('click', () => {
+    agregarAlListado(toner);
+  });
 
   card.appendChild(name);
   card.appendChild(img);
   card.appendChild(price);
-  card.appendChild(link);
+  // card.appendChild(link);
   card.appendChild(botonComprar);
+
+  
 
   return card;
 }
@@ -136,17 +143,17 @@ fetchTonersFromAirtable();
 // FUNCIÓN para agregar una tarjeta visual al carrito
 const listaAgregados = document.getElementById('lista-agregados');
 
-function agregarAlListado(producto) {
+function agregarAlListado(record) {
   const li = document.createElement('li');
   li.classList.add('card');
 
   const img = document.createElement('img');
-  img.src = producto.img;
-  img.alt = producto.alt;
+  img.src = record.img;
+  img.alt = record.alt;
   img.style.width = '100px';
 
   const name = document.createElement('h4');
-  name.textContent = producto.name;
+  name.textContent = record.name;
 
   li.appendChild(img);
   li.appendChild(name);

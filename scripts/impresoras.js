@@ -314,7 +314,7 @@ function createProductCard(product) {
   botonComprar.classList.add('Agregar');
 
   botonComprar.addEventListener('click', () => {
-    agregarAlListado(product);
+    agregarAlListado(record);
   });
 
   card.appendChild(name);
@@ -367,7 +367,7 @@ async function fetchProductsFromAirtable() {
 // Llamamos a la función al cargar
 fetchProductsFromAirtable();
 
-// Función para subir producto a Airtable (por si la necesitás)
+// Función para subir producto a Airtable 
 async function subirProductoAirtable(producto) {
   try {
     const response = await fetch(API_URL, {
@@ -406,7 +406,7 @@ async function subirProductoAirtable(producto) {
 // AGREGAR AL CARRITO (aside)
 const listaAgregados = document.getElementById('lista-agregados');
 
-function agregarAlListado(producto) {
+function agregarAlListado(record) {
   const li = document.createElement('li');
   li.classList.add('card');
 
