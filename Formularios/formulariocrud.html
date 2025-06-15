@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión de Productos - Airtable</title>
+  <link rel="stylesheet" href="../Style/crud.css">
+  <style>
+    form {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      max-width: 500px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    .producto {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Administrar Productos</h1>
+
+  <!-- Formulario para Crear/Editar -->
+  <form id="formulario-producto">
+    <input type="hidden" id="recordId" />
+
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" required />
+
+    <label for="img">Imagen (URL):</label>
+    <input type="text" id="img" required />
+
+    <label for="alt">Texto alternativo:</label>
+    <input type="text" id="alt" required />
+
+    <label for="link">Enlace del producto:</label>
+    <input type="text" id="link" required />
+
+    <label for="price">Precio:</label>
+    <input type="number" id="price" required />
+
+    <label><input type="checkbox" id="deliveryfree"> Envío gratis</label>
+    <label><input type="checkbox" id="oferta"> En oferta</label>
+
+    <button type="submit">Guardar Producto</button>
+  </form>
+
+  <!-- Lista de productos -->
+  <div id="lista-productos"></div>
+
+  <!-- Tu script aquí -->
+  <script src="../scripts/crud.js"></script>
+</body>
+</html>

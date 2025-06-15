@@ -314,7 +314,7 @@ function createProductCard(product) {
   botonComprar.classList.add('Agregar');
 
   botonComprar.addEventListener('click', () => {
-    agregarAlListado(record);
+    agregarAlListado(product);
   });
 
   card.appendChild(name);
@@ -402,26 +402,30 @@ async function subirProductoAirtable(producto) {
     alert("❌ Hubo un problema al subir el producto.");
   }
 }
+ 
 
 // AGREGAR AL CARRITO (aside)
 const listaAgregados = document.getElementById('lista-agregados');
 
-function agregarAlListado(record) {
+function agregarAlListado(product) {
   const li = document.createElement('li');
   li.classList.add('card');
 
   const img = document.createElement('img');
-  img.src = producto.img;
-  img.alt = producto.alt;
+  img.src = product.img;
+  img.alt = product.alt;
   img.style.width = '100px';
 
   const name = document.createElement('h4');
-  name.textContent = producto.name;
+  name.textContent = product.name;
 
   li.appendChild(img);
   li.appendChild(name);
 
   listaAgregados.appendChild(li);
+
+  localStorage.setItem('carrito', JSON.stringify([...JSON.parse(localStorage.getItem('carrito') || '[]'), product]));
+  alert(`✅ Producto "${product.name}" agregado al carrito.`);
 }
 
 // BOTÓN para vaciar el carrito
@@ -429,6 +433,8 @@ const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
 
 btnVaciarCarrito.addEventListener('click', () => {
   listaAgregados.innerHTML = '';
+  localStorage.removeItem('carrito');
+  alert('🗑️ Carrito vaciado correctamente.');
 });
 
 // BOTÓN para mostrar/ocultar carrito
@@ -441,24 +447,29 @@ botonToggle.addEventListener('click', () => {
 
 
 
+// Función para cargar los productos del carrito desde localStorage y renderizarlos
+function cargarCarritoDesdeLocalStorage() {
+  const carritoJSON = localStorage.getItem('carrito');
+  if (carritoJSON) {
+    const carrito = JSON.parse(carritoJSON);
+    carrito.forEach(product => {
+      const li = document.createElement('li');
+      li.classList.add('card');
+      const img = document.createElement('img');
+      img.src = product.img;
+      img.alt = product.alt;
+      img.style.width = '100px';
+      const name = document.createElement('h4');
+      name.textContent = product.name;
+      li.appendChild(img);
+      li.appendChild(name);
+      listaAgregados.appendChild(li);
+    });
+  }
+}
 
-
-
-
-
-//CLASE 9 - LOCAL STORAGE para armar el carrito de comprsa
-
-// Ejemplo para agregar un producto al carrito
-// function agregarAlCarrito(producto) {
-//   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-//   carrito.push(producto);
-//   localStorage.setItem('carrito', JSON.stringify(carrito));
-// }
-
-
-
-
-
+// Llamamos a la función al cargar la página
+cargarCarritoDesdeLocalStorage();
 
 
 // //clase 7  : probamos el llamado de prod mediante una Api
