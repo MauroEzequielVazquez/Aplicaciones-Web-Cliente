@@ -1,6 +1,5 @@
 // Datos necesarios para la conexión con Airtable
-const API_TOKEN =
-  "pat2xiwj49oM4teRw.01c87e6aabfc9c2cf2d3673fe58a8faeb01007005e0f36d8b026b567aa58619b";
+const API_TOKEN ="pat2xiwj49oM4teRw.01c87e6aabfc9c2cf2d3673fe58a8faeb01007005e0f36d8b026b567aa58619b";
 const BASE_ID = "appFi1FhfH9IQqyZc"; // ID real de tu base "catalogoToners"
 const TABLE_NAME = "Toners"; // Nombre exacto de la tabla con T mayúscula
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;

@@ -499,7 +499,7 @@ a:hover, button:hover {
 }
 
 
-@media screen and (max-width: 480px) { /*evitamos que el logo de ws tape contenidom en dispo mas pequeños*/
+@media screen and (max-width: 480px) { 
   .whatsapp {
     width: 35px;
     height: 35px;
@@ -575,7 +575,7 @@ main a.boton-vermas {
 }
 
 
-.boton-agregar {
+.boton-comprar {
   background-color: #007bff;
   color: white;
   border: none;
@@ -910,7 +910,7 @@ footer nav {
 
 .slider-track {
   display: flex;
-  width: calc(300px * 6); /* ancho imagen * cantidad total */
+  width: calc(300px * 6); 
   animation: scroll 20s linear infinite;
 }
 
@@ -941,7 +941,7 @@ footer nav {
 /*estilos para las tarjetas*/
 .promo-container {
   position: relative;
-  display: inline-block; /* para que el span quede relativo a la imagen */
+  display: inline-block; 
 }
 
 .etiqueta {
@@ -1069,7 +1069,7 @@ footer nav {
   margin: 0;
 }
 
-/* Botón para eliminar producto (si agregás alguno) */
+/* Botón para eliminar producto  */
 .tarjeta-producto button {
   margin-top: 10px;
   padding: 6px 12px;
