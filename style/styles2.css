@@ -167,6 +167,7 @@ fieldset {
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+
 .tecnico {
   width: 150px;
   height: auto;
@@ -509,34 +510,91 @@ a:hover, button:hover {
 }
 
 
-
- 
-
 .footer {
-  left: 0;
-  width: 100%;
-  background-color: #f1f1f1;
-  padding: 10px 40px;
-  box-sizing: border-box;
+  background: linear-gradient(135deg, #008cba, #3a3a5a);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
   text-align: center;
-  font-size: 14px;
-  color: #333;
-  border-top: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
 }
 
+.footer-imagen {
+  margin-bottom: 30px;
+}
 
-.footer-banner img {
-  width: 100%;
+.footer-imagen img {
+  max-width: 110%;
   height: auto;
-  display: block;
-  border-radius: 0;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
+.footer-imagen img:hover {
+  transform: scale(1.02);
+}
+.footer-bottom {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.95rem;
+  color: #fff; 
+}
+
+.footer-bottom p {
+  margin: 0 0 15px 0;
+}
+
+.footer-bottom nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-bottom a {
+  color: #fff; 
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  opacity: 0.8; 
+}
+
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.redes-sociales a {
+  color: #fff; 
+  transition: opacity 0.3s ease;
+}
+
+.redes-sociales a:hover {
+  opacity: 0.8;
+}
+
+.footer-bottom nav a,
+.redes-sociales a {
+  color: #fff !important; 
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.footer-bottom nav a:hover,
+.footer-bottom nav a:focus,
+.redes-sociales a:hover,
+.redes-sociales a:focus {
+  opacity: 0.8;
+  text-decoration: underline;
+}
 
 main {
   display: flex;
