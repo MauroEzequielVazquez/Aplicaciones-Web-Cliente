@@ -159,7 +159,7 @@ fieldset {
 /* Logo de Copypro */
 .logo-ancho {
   width: 100%;
-  max-width: 480px;
+  max-width: 580px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -509,9 +509,10 @@ a:hover, button:hover {
   }
 }
 
+/* === Footer con texto blanco y redes sociales visibles === */
 
 .footer {
-  background: linear-gradient(135deg, #008cba, #3a3a5a);
+  background: linear-gradient(135deg, #008cba, #3a3a5a); /* Azul profesional */
   padding: 40px 20px;
   font-family: 'Segoe UI', sans-serif;
   color: white;
@@ -533,18 +534,21 @@ a:hover, button:hover {
 .footer-imagen img:hover {
   transform: scale(1.02);
 }
-.footer-bottom {
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.95rem;
-  color: #fff; 
+
+.footer-contenido {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.footer-bottom p {
+.pie-pagina {
   margin: 0 0 15px 0;
+  font-size: 1rem;
+  color: #ffffff;
 }
 
-.footer-bottom nav {
+.footer nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -552,15 +556,19 @@ a:hover, button:hover {
   margin-bottom: 20px;
 }
 
-.footer-bottom a {
-  color: #fff; 
+.footer nav a,
+.footer nav a:visited,
+.footer nav a:link,
+.footer nav a:active {
+  color: #ffffff !important; /* Texto blanco en todos los estados */
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.3s ease;
 }
 
-.footer-bottom a:hover {
-  opacity: 0.8; 
+.footer nav a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 .redes-sociales {
@@ -571,8 +579,11 @@ a:hover, button:hover {
   margin-bottom: 10px;
 }
 
-.redes-sociales a {
-  color: #fff; 
+.redes-sociales a,
+.redes-sociales a:visited,
+.redes-sociales a:link,
+.redes-sociales a:active {
+  color: #ffffff !important;
   transition: opacity 0.3s ease;
 }
 
@@ -580,22 +591,17 @@ a:hover, button:hover {
   opacity: 0.8;
 }
 
-.footer-bottom nav a,
-.redes-sociales a {
-  color: #fff !important; 
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
-}
 
-.footer-bottom nav a:hover,
-.footer-bottom nav a:focus,
-.redes-sociales a:hover,
-.redes-sociales a:focus {
-  opacity: 0.8;
-  text-decoration: underline;
-}
+@media (max-width: 768px) {
+  .redes-sociales {
+    font-size: 20px;
+    gap: 15px;
+  }
 
+  .footer-bottom nav {
+    gap: 10px;
+  }
+}
 main {
   display: flex;
   flex-direction: column;
@@ -1230,3 +1236,32 @@ footer nav {
 }
 
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+  max-width: 150px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #0056b3;
+}
