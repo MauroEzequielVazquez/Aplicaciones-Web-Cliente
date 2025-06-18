@@ -5,8 +5,6 @@ const TABLE_NAME = "tabla";
 
 // Obtener ID del producto desde la URL
 const RECORD_ID = new URLSearchParams(window.location.search).get("id");
-
-// URL de la API
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${RECORD_ID}`; 
 
 // Elementos del DOM
@@ -46,7 +44,7 @@ async function cargarDetalleProducto() {
       specs: {
         type: data.fields.type || "No especificado",
         functions: data.fields.functions || "No especificado",
-        duplex: data.fields.duploFace ? "Sí" : "No",
+        duplex: data.fields.duploFace ? "Sí" : "No", // 👈 Aquí lo guardas como 'duplex'
         connection: data.fields.connection || "No especificado",
         speed: data.fields.speed || "No especificado",
         resolution: data.fields.resolution || "No especificado"
@@ -70,24 +68,28 @@ async function cargarDetalleProducto() {
  */
 function actualizarDOM(product) {
   // Título
-  titulo.textContent = product.name;
+  if (titulo) titulo.textContent = product.name;
 
   // Imagen
-  imgProducto.src = product.img;
-  imgProducto.alt = product.alt;
+  if (imgProducto) {
+    imgProducto.src = product.img;
+    imgProducto.alt = product.alt;
+  }
 
   // Especificaciones
-  listaEspec.innerHTML = `
-    <li><strong>Tipo:</strong> ${product.specs.type}</li>
-    <li><strong>Funciones:</strong> ${product.specs.functions}</li>
-    <li><strong>Doble cara automática:</strong> ${product.specs.duplex}</li>
-    <li><strong>Conectividad:</strong> ${product.specs.connection}</li>
-    <li><strong>Velocidad:</strong> ${product.specs.speed}</li>
-    <li><strong>Resolución:</strong> ${product.specs.resolution}</li>
-    <li><strong>Precio:</strong> ${product.price}</li>
-  `;
+  if (listaEspec) {
+    listaEspec.innerHTML = `
+      <li><strong>Tipo:</strong> ${product.specs.type}</li>
+      <li><strong>Funciones:</strong> ${product.specs.functions}</li>
+      <li><strong>Doble cara automática:</strong> ${product.specs.duplex}</li> <!-- ✅ Correcto -->
+      <li><strong>Conectividad:</strong> ${product.specs.connection}</li>
+      <li><strong>Velocidad:</strong> ${product.specs.speed}</li>
+      <li><strong>Resolución:</strong> ${product.specs.resolution}</li>
+      <li><strong>Precio:</strong> ${product.price}</li>
+    `;
+  }
 
-  // Enlace de volver
+  // Botón de volver
   if (btnVolver) {
     btnVolver.href = "../HTML/index.html"; // Puedes cambiar esto si usas otra ruta
   }
@@ -105,4 +107,12 @@ function mostrarError(mensaje) {
 }
 
 // Ejecutar función al cargar la página
-window.addEventListener("DOMContentLoaded", cargarDetalleProducto);
+window.addEventListener("DOMContentLoaded", () => {
+  console.log({
+    titulo,
+    imgProducto,
+    listaEspec,
+    btnVolver
+  });
+  cargarDetalleProducto();
+});
