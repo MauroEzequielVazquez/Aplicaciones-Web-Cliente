@@ -338,19 +338,38 @@ function renderProductCards(products) {
 }
 
 // Función para obtener productos desde Airtable
+
 async function fetchProductsFromAirtable() {
   try {
     const response = await fetch(API_URL, {
       headers: {
-        Authorization: `Bearer ${API_TOKEN}`
+        Authorization: `Bearer ${API_TOKEN}`,
+        "Content-Type": "application/json"
       }
     });
 
+    if (!response.ok) {
+      throw new Error(`Error HTTP! status: ${response.status}`);
+    }
+
     const data = await response.json();
 
-    products = data.records.map(record => ({
+    // Diagnóstico: ver qué llega desde Airtable
+    console.log("Datos desde Airtable:", data.records);
+
+    // Filtro por categoría - más flexible
+    const impresorasFiltradas = data.records.filter(record => {
+      const categoria = record.fields.categoria;
+      return categoria && categoria.trim().toLowerCase() === "impresora";
+    });
+
+    // Diagnóstico: ver cuántas impresoras pasan el filtro
+    console.log("Productos filtrados:", impresorasFiltradas);
+
+    // Mapear solo las impresoras
+    products = impresorasFiltradas.map(record => ({
       name: record.fields.name || 'Sin nombre',
-      img: record.fields.img || 'https://via.placeholder.com/150', //para que me levante las
+      img: record.fields.img || 'https://via.placeholder.com/150',       
       alt: record.fields.alt || 'Producto',
       link: record.fields.link || '#',
       price: record.fields.price || 0,
@@ -359,50 +378,20 @@ async function fetchProductsFromAirtable() {
     }));
 
     renderProductCards(products);
+
   } catch (error) {
     console.error("Error al obtener productos desde Airtable:", error);
+    document.querySelector('.listadoImpresoras').innerHTML = `
+      <p>❌ Hubo un error al cargar las impresoras. Verifica la consola.</p>
+    `;
   }
 }
 
 // Llamamos a la función al cargar
 fetchProductsFromAirtable();
 
-// Función para subir producto a Airtable 
-async function subirProductoAirtable(producto) {
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${API_TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        fields: {
-          name: producto.name,
-          img: [{ url: producto.img }],
-          alt: producto.alt,
-          link: producto.link,
-          price: producto.price,
-          deliveryfree: producto.deliveryfree,
-          oferta: producto.oferta
-        }
-      })
-    });
 
-    const data = await response.json();
 
-    if (response.ok) {
-      alert(`✅ Producto "${producto.name}" subido correctamente a Airtable.`);
-    } else {
-      console.error("⛔ Error al subir:", data);
-      alert("❌ Hubo un problema al subir el producto.");
-    }
-  } catch (error) {
-    console.error("⛔ Error al subir:", error);
-    alert("❌ Hubo un problema al subir el producto.");
-  }
-}
- 
 
 // AGREGAR AL CARRITO (aside)
 const listaAgregados = document.getElementById('lista-agregados');
@@ -425,7 +414,7 @@ function agregarAlListado(product) {
   listaAgregados.appendChild(li);
 
   localStorage.setItem('carrito', JSON.stringify([...JSON.parse(localStorage.getItem('carrito') || '[]'), product]));
-  alert(`✅ Producto "${product.name}" agregado al carrito.`);
+  // alert(`✅ Producto "${product.name}" agregado al carrito.`);
 }
 
 // BOTÓN para vaciar el carrito
