@@ -7,28 +7,29 @@
     <link rel="stylesheet" href="../style/styles2.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <body>
     <header class="encabezado">
       <img
-        src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png"
+        src="https://copypro.com.ar/wp-content/uploads/2019/02/logo.png" 
         alt="Logo Copypro"
         class="logo-ancho"
       />
       <h1>Tóners / Unidad de imagen</h1>
-      <a href="index.html" class="boton-volver"
-        >← Volver al catálogo de impresoras</a
-      >
+      <a href="index.html" class="boton-volver">← Volver al catálogo de impresoras</a>
     </header>
 
     <div class="contenedor-principal">
-      <!-- ASIDE para filtros -->
+      <!-- Filtros -->
       <aside class="filtro-productos">
         <h2 class="subtitulo">Filtrar por</h2>
 
-        <label for="busqueda">Nombre:</label>
+        <label for="busqueda">Buscar producto:</label>
         <input
           type="text"
           id="busqueda"
@@ -43,7 +44,7 @@
           id="precio-max"
           name="precio-max"
           step="100"
-          placeholder="50000"
+          placeholder="500000"
         />
         <br /><br />
 
@@ -53,38 +54,23 @@
           id="precio-min"
           name="precio-min"
           step="100"
-          placeholder="800000"
+          placeholder="1000"
         />
-
-        <br />
-        <label><input id="ofertas" type="checkbox" /> Ofertas</label>
-        <label><input id="envio" type="checkbox" /> Envío</label>
-
         <br /><br />
+
+        <label><input id="ofertas" type="checkbox" /> Ofertas</label><br />
+        <label><input id="envio" type="checkbox" /> Envío gratis</label><br /><br />
+
         <button id="btn-add-products" type="button">Agregar</button>
         <br /><br />
-        <button id="btn-ver-products" type="button">Ver carrito</button>
-        <!-- <br /><br />
-
-        <button
-          id="btn-ver-products"
-          type="button"
-          onclick="window.location.href='carrito.html'"
-        >
-          🛒 Ver carrito
-        </button> -->
-
-        <br /><br />
         <button id="limpiar-filtros">Limpiar filtros</button>
+        <br /><br />
+        <a href="../Formularios/crudimpresoras.html" target="_blank">
+          <button id="ver-crud">Administrador</button>
+        </a>
       </aside>
 
-      <aside id="carrito" class="oculto">
-        <button id="btn-vaciar-carrito">Vaciar carrito</button>
-        <ul id="lista-agregados"></ul>
-      </aside>
-
-      <button id="toggle-carrito">🛒</button>
-      <!-- MAIN contenido -->
+      <!-- Contenido Principal -->
       <main class="contenedor">
         <section class="listadoToners">
           <!-- Las tarjetas se cargarán aquí vía JS -->
@@ -94,11 +80,17 @@
           <ul id="lista-agregados"></ul>
         </section>
       </main>
+
+      <!-- Carrito -->
+      <button id="toggle-carrito">🛒</button>
+      <aside id="carrito" class="oculto">
+        <button id="btn-vaciar-carrito">🗑️ Vaciar carrito</button>
+        <ul id="lista-agregados-en-carrito"></ul>
+      </aside>
     </div>
-    <!-- <- FIN de contenedor-principal -->
 
     <!-- Botón de WhatsApp -->
-    <a href="https://wa.me/541137802708" class="whatsapp" target="_blank">
+    <a href="https://wa.me/541137802708"  class="whatsapp" target="_blank">
       <img
         src="https://icongr.am/fontawesome/whatsapp.svg?size=40&color=25d366"
         alt="Contacto por WhatsApp"
@@ -114,14 +106,12 @@
         />
       </div>
 
-      <!-- Contenido principal de mi footer -->
       <div class="footer-contenido">
         <div class="footer-columnas">
           <div class="footer-columna">
             <h3>ASESORAMIENTO</h3>
             <p>
-              Comunícate con nosotros para recibir asesoramiento sobre nuestros
-              servicios y productos.
+              Comunícate con nosotros para recibir asesoramiento sobre nuestros servicios y productos.
             </p>
           </div>
           <div class="footer-columna">
@@ -129,6 +119,9 @@
             <p>
               Email: copypro@impresoras.com.ar<br />
               Teléfono: 11-3780-2708
+                 <a href="../Formularios/Ej-FormBasico-Contacto.html" target="_blank"
+              >Contactate con nosotros</a
+            >
             </p>
           </div>
           <div class="footer-columna">
@@ -142,7 +135,7 @@
                 <i class="fab fa-facebook"></i> Facebook
               </a>
               <a
-                href="https://www.instagram.com/copypro.ar?igsh=MTNxMzRtdGUwY282cA%3D%3D"
+                href="https://www.instagram.com/copypro.ar?igsh=MTNxMzRtdGUwY282cA=="
                 target="_blank"
                 title="Síguenos en Instagram"
               >
@@ -154,6 +147,8 @@
         <p class="pie-pagina">© 2025 Movens - Todos los derechos reservados</p>
       </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="../scripts/toner.js"></script>
   </body>
 </html>

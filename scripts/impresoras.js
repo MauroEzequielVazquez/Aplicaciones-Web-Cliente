@@ -310,18 +310,17 @@ function createProductCard(product) {
   }
 
   const botonComprar = document.createElement('button');
-  botonComprar.textContent = 'Agregar';
+  botonComprar.textContent = 'Agregar al carrito';
   botonComprar.classList.add('Agregar');
-
-  botonComprar.addEventListener('click', () => {
+ botonComprar.addEventListener('click', () => {
     agregarAlListado(product);
   });
 
   card.appendChild(name);
+    card.appendChild(oferta);
+  card.appendChild(envio);
   card.appendChild(img);
   card.appendChild(price);
-  card.appendChild(oferta);
-  card.appendChild(envio);
   card.appendChild(link);
   card.appendChild(botonComprar);
 
@@ -368,6 +367,7 @@ async function fetchProductsFromAirtable() {
 
     // Mapear solo las impresoras
     products = impresorasFiltradas.map(record => ({
+      id: record.id, // Importante: uso el ID único de Airtable para pder después usarlo el el carrito
       name: record.fields.name || 'Sin nombre',
       img: record.fields.img || 'https://via.placeholder.com/150',       
       alt: record.fields.alt || 'Producto',
@@ -393,29 +393,25 @@ fetchProductsFromAirtable();
 
 
 
-// AGREGAR AL CARRITO (aside)
+// AGREGAR AL CARRITO 
 const listaAgregados = document.getElementById('lista-agregados');
 
+
 function agregarAlListado(product) {
-  const li = document.createElement('li');
-  li.classList.add('card');
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  const img = document.createElement('img');
-  img.src = product.img;
-  img.alt = product.alt;
-  img.style.width = '100px';
+  const yaExiste = carrito.some(p => p.id === product.id);
 
-  const name = document.createElement('h4');
-  name.textContent = product.name;
-
-  li.appendChild(img);
-  li.appendChild(name);
-
-  listaAgregados.appendChild(li);
-
-  localStorage.setItem('carrito', JSON.stringify([...JSON.parse(localStorage.getItem('carrito') || '[]'), product]));
-  // alert(`✅ Producto "${product.name}" agregado al carrito.`);
+  if (!yaExiste) {
+    carrito.push(product);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    cargarCarritoDesdeLocalStorage();
+    alert(`✅ "${product.name}" agregado al carrito.`);
+  } else {
+    alert("⚠️ Ya está en el carrito.");
+  }
 }
+
 
 // BOTÓN para vaciar el carrito
 const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
@@ -438,25 +434,45 @@ botonToggle.addEventListener('click', () => {
 
 // Función para cargar los productos del carrito desde localStorage y renderizarlos
 function cargarCarritoDesdeLocalStorage() {
-  const carritoJSON = localStorage.getItem('carrito');
-  if (carritoJSON) {
-    const carrito = JSON.parse(carritoJSON);
-    carrito.forEach(product => {
-      const li = document.createElement('li');
-      li.classList.add('card');
-      const img = document.createElement('img');
-      img.src = product.img;
-      img.alt = product.alt;
-      img.style.width = '100px';
-      const name = document.createElement('h4');
-      name.textContent = product.name;
-      li.appendChild(img);
-      li.appendChild(name);
-      listaAgregados.appendChild(li);
-    });
-  }
-}
+  const listaAgregados = document.getElementById("lista-agregados");
+  if (!listaAgregados) return;
 
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  listaAgregados.innerHTML = "";
+
+  carrito.forEach((product) => {
+    const li = document.createElement("li");
+    li.classList.add("card");
+
+    const img = document.createElement("img");
+    img.src = product.img;
+    img.alt = product.alt;
+    img.style.width = "100px";
+
+    const name = document.createElement("h4");
+    name.textContent = product.name;
+
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "Eliminar";
+    btnEliminar.style.backgroundColor = "#e74c3c";
+    btnEliminar.style.color = "white";
+    btnEliminar.style.border = "none";
+    btnEliminar.style.padding = "4px 8px";
+    btnEliminar.style.cursor = "pointer";
+
+    btnEliminar.addEventListener("click", () => {
+      const nuevoCarrito = carrito.filter(item => item.id !== product.id);
+      localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
+      cargarCarritoDesdeLocalStorage();
+    });
+
+    li.appendChild(img);
+    li.appendChild(name);
+    li.appendChild(btnEliminar);
+    listaAgregados.appendChild(li);
+  });
+}
 // Llamamos a la función al cargar la página
 cargarCarritoDesdeLocalStorage();
 
