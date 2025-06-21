@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <title>Gestión de Productos - Airtable</title>
   <link rel="stylesheet" href="../Style/crud.css">
-  <style>
-    </style>
 </head>
 <body>
 
@@ -30,29 +28,26 @@
     <label for="price">Precio:</label>
     <input type="number" id="price" required />
 
-    <label for="category">categoria:</label>
+    <label for="category">Categoría:</label>
     <input type="text" id="category" required />
 
-     <label for="type">type:</label>
-    <input type="text" id="type" /> 
+    <label for="type">Tipo:</label>
+    <input type="text" id="type" />
 
-    <label for="functions">functions:</label>
+    <label for="functions">Funciones:</label>
     <input type="text" id="functions" /> 
-    
-     <label for="type">type:</label>
-    <input type="text" id="type" /> 
 
-      <label for="duplex">duplex:</label>
+    <label for="duplex">¿Doble faz (duplex)?</label>
     <input type="checkbox" id="duplex" /> 
 
-      <label for="speed">speed:</label>
+    <label for="speed">Velocidad:</label>
     <input type="text" id="speed" /> 
 
-    <label><input type="checkbox" id="duplex"> duplex</label>
+    <label for="deliveryfree">¿Envío gratis?</label>
+    <input type="checkbox" id="deliveryfree" /> 
 
-    <label><input type="checkbox" id="deliveryfree"> Envío gratis</label>
-    <label><input type="checkbox" id="deliveryfree"> Envío gratis</label>
-   
+    <label for="oferta">¿Está en oferta?</label>
+    <input type="checkbox" id="oferta" /> 
 
     <button type="submit">Guardar Producto</button>
   </form>
@@ -60,8 +55,8 @@
   <!-- Lista de productos -->
   <div id="lista-productos"></div>
 
-  <!-- Tu script aquí -->
+  <!-- Scripts -->
   <script src="../scripts/crud.js"></script>
-   <script src="../scripts/crud-toner.js"></script>
+  <script src="../scripts/crud-toner.js"></script>
 </body>
 </html>

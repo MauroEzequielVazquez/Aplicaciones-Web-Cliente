@@ -11,9 +11,9 @@ const contenedorCarrito = document.getElementById("carrito");
 const botonToggle = document.getElementById("toggle-carrito");
 const btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
 
-let products = []; // Variable global para los tóners
+// let products = []; // Variable global para los tóners
 
-// Función principal - obtiene productos desde Airtable
+// Obtenemos los productos desde Airtable
 async function fetchTonersFromAirtable() {
   try {
     const response = await fetch(API_URL, {
@@ -52,7 +52,7 @@ async function fetchTonersFromAirtable() {
   }
 }
 
-// Crea una tarjeta de producto
+// Creamos una tarjeta de producto
 function createTonerCard(toner) {
   const card = document.createElement("article");
   card.classList.add("card");
@@ -103,7 +103,7 @@ function createTonerCard(toner) {
   return card;
 }
 
-// Renderiza las tarjetas
+// Renderizamos las tarjetas
 function renderTonerCards(toners) {
   listado.innerHTML = "";
 
@@ -118,7 +118,7 @@ function renderTonerCards(toners) {
   });
 }
 
-// Agrega al carrito sin duplicar
+// Agregamos al carrito los toner pero sin duplicar - el agregar lo silencio
 function agregarAlListado(toner) {
   let carritoData = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -128,7 +128,7 @@ function agregarAlListado(toner) {
     carritoData.push(toner);
     localStorage.setItem("carrito", JSON.stringify(carritoData));
     cargarCarritoDesdeLocalStorage();
-    alert(`✅ "${toner.name}" agregado al carrito.`);
+    // alert(`✅ "${toner.name}" agregado al carrito.`);
   } else {
     alert("⚠️ Ya está en el carrito.");
   }
