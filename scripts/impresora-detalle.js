@@ -37,6 +37,7 @@ async function cargarDetalleProducto() {
 
     // Extraer campos del producto
     const product = {
+      id : data.id,
       name: data.fields.name || "Sin nombre",
       img: data.fields.img?.[0]?.url || "https://via.placeholder.com/300x300?text=Sin+Imagen",
       alt: data.fields.alt || "Producto sin descripción",

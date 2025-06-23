@@ -1,9 +1,5 @@
 
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 
 
 body {
@@ -23,6 +19,8 @@ label {
 fieldset {
   color: #000;
 }
+
+
 /* Estilo al título principal */
 .titulo {
   color: #0056b3;
@@ -185,6 +183,10 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 
 
 
@@ -269,7 +271,6 @@ input[type="reset"]:hover {
   background-color: #005fa3;
 }
 
-/* Galería de productos */
 
 .listadoImpresoras {
   display: grid;
@@ -510,8 +511,8 @@ a:hover, button:hover {
   }
 }
 
-/* === Footer con texto blanco y redes sociales visibles === */
-/* === Footer - Responsive mejorado === */
+/* Footer con texto blanco y redes sociales visibles */
+/* Footer - Responsive mejorado */
 .footer {
   background: linear-gradient(135deg, #008cba, #3a3a5a);
   color: white;
@@ -605,7 +606,7 @@ a:hover, button:hover {
   color: #ffffff;
 }
 
-/* === Media Queries mejorados === */
+/* Media Queries mejorados  */
 
 @media (max-width: 768px) {
   .footer-imagen img {
@@ -737,7 +738,7 @@ main a.boton-vermas {
 .promo-img {
   max-height: 100%;
   max-width: 100%;
-  object-fit: contain; /* para que no se deforme */
+  object-fit: contain; /* para que no se deforme, evito que supere el tamaño */
   border-radius: 10px;
 }
 
@@ -1110,7 +1111,7 @@ footer nav {
 }
 
 .etiqueta.envio {
-  background-color: #009933; /* verde fuerte */
+  background-color: #009933;
   box-shadow: 0 0 8px #009933;
 }
 
@@ -1189,6 +1190,40 @@ footer nav {
 }
 
 
+
+
+#lista-agregados {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 80px; /* deja espacio para el botón y total se ve mejor */
+}
+
+#carrito li.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+
+
+
+#lista-agregados {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+/* Contenedor del resumen: total + botón */
+#carrito-resumen {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
 /* Tarjeta individual de producto */
 .tarjeta-producto {
   border: 1px solid #ccc;
@@ -1262,8 +1297,29 @@ footer nav {
 
 .contenedor-principal {
   display: flex;
-  gap: 1rem; /* espacio entre aside y main */
+  gap: 1rem; 
 }
+
+
+/* media para que las tarjetas no se muesstren en pantallas pequeñas */
+
+@media screen and (max-width: 768px) {
+  .promo-container {
+    display: none;
+  }
+}
+
+.promo-container {
+  margin-bottom: 20px; /* Espaciado entre imágenes  asi saco los br */
+}
+
+ /* dentro del bloque meto las tarjetas container */
+@media screen and (max-width: 768px) {
+  .promo-bloque {
+    display: none;
+  }
+}
+
 
 
 @media (min-width: 769px) {
@@ -1296,15 +1352,15 @@ footer nav {
 }
 
 
-pruebo para ver si funciona - si  me gusta mas como antes lo saco,, a prueba
-
+/*  dejo las tarjetas un poco mas cerca del margen derecho */
+/* 
 .listadoImpresoras {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   align-items: stretch;
-}
+} */
 
 .tarjeta {
   flex: 0 1 250px;
@@ -1353,3 +1409,121 @@ pruebo para ver si funciona - si  me gusta mas como antes lo saco,, a prueba
 }
 
 
+/* Lista dentro del carrito  */
+#lista-agregados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada item del carrito */
+#lista-agregados li.card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fafafa;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* Imagen producto carrito */
+#lista-agregados li.card img {
+  width: 70px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+/* Nombre del producto */
+#lista-agregados li.card h4 {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+/* Contenedor para cantidad y botones */
+#lista-agregados li.card .cantidad-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Botones sumar y restar */
+#lista-agregados li.card button.cantidad-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+#lista-agregados li.card button.cantidad-btn:hover {
+  background-color: #0056b3;
+}
+
+#lista-agregados li.card button.cantidad-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Botón eliminar */
+#lista-agregados li.card button.eliminar-btn {
+  background-color: #e74c3c;
+  margin-left: 6px;
+}
+
+#lista-agregados li.card button.eliminar-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Texto cantidad */
+#lista-agregados li.card .cantidad-text {
+  min-width: 25px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Precio unitario o subtotal del producto */
+#lista-agregados li.card .subtotal-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  margin-left: 10px;
+}
+
+/* Total general debajo del carrito */
+#total-carrito {
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: right;
+  color: #34495e;
+}
+
+/* Botón finalizar compra */
+#finalizar-compra {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 0;
+  background-color: #27ae60;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#finalizar-compra:hover {
+  background-color: #1e8449;
+}

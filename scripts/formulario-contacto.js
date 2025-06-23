@@ -1,6 +1,6 @@
 const API_TOKEN = "path1DtAr4aENVq7v.41e34e680be1615623778d7f0b4e90c24784aba9952a8e087ac9ed3c82e0ca9d";
 const BASE_ID = "app9gyrQZXACBIE6Y";
-const TABLE_NAME = "tblmyUgxsS6rhHjM2";
+const TABLE_NAME = "tblmyUgxsS6rhHjM2"; //id interna de la tabla, NO FALLA, la puedo ver en el navegador desp de el base id, esta entre las proximas //
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 const form = document.querySelector("form");
