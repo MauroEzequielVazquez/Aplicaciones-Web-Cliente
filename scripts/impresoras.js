@@ -292,7 +292,8 @@ function createProductCard(product) {
   price.textContent = 'Precio: $' + product.price;
 
   const link = document.createElement('a');
-  link.href = product.link;
+link.href = `../impresoras/impresora-detalle.html?id=${product.id}`;
+
   link.classList.add('boton-vermas');
   link.textContent = 'Ver más';
 
@@ -538,7 +539,6 @@ function cargarCarritoDesdeLocalStorage() {
 
     listaAgregados.appendChild(li);
   });
-
   
 
   // Mostrar total general y botón finalizar compra debajo del carrito
