@@ -69,24 +69,25 @@
           <button id="ver-crud">Administrador</button>
         </a>
       </aside>
+<!-- Contenido Principal -->
+  <main class="contenedor">
+    <section class="listadoToners">
+      <!-- Las tarjetas se cargan acá vía airtable -->
+    </section>
 
-      <!-- Contenido Principal -->
-      <main class="contenedor">
-        <section class="listadoToners">
-          <!-- Las tarjetas se cargarán aquí vía JS -->
-        </section>
+    <section id="productos-agregados">
+      <ul id="lista-agregados"></ul>
+    </section>
+  </main>
+</div>
 
-        <section id="productos-agregados">
-          <ul id="lista-agregados"></ul>
-        </section>
-      </main>
-
-      <!-- Carrito -->
-      <button id="toggle-carrito">🛒</button>
-      <aside id="carrito" class="oculto">
-        <button id="btn-vaciar-carrito">🗑️ Vaciar carrito</button>
-        <ul id="lista-agregados-en-carrito"></ul>
-      </aside>
+<!-- Carrito y botón toggle -->
+<button id="toggle-carrito">🛒</button>
+<aside id="carrito" class="oculto">
+  <button id="btn-vaciar-carrito">🗑️ Vaciar carrito</button>
+  <ul id="lista-agregados-en-carrito"></ul>
+</aside>
+   
     </div>
 
     <!-- Botón de WhatsApp -->

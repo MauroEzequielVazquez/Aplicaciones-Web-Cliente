@@ -334,6 +334,20 @@ header {
   background-color: #0056b3;
 }
 
+
+
+.btn-eliminar {
+  background-color: #e74c3c; 
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background-color: #c0392b; 
+}
 caption {
   font-weight: bold;
   margin-bottom: 10px;
@@ -1149,6 +1163,8 @@ footer nav {
   display: none;
 }
 
+
+
 #carrito.visible {
   display: block;
 }
@@ -1158,7 +1174,7 @@ footer nav {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 1100;
   cursor: pointer;
 
   background-color: #007bff;
@@ -1527,3 +1543,41 @@ footer nav {
 #finalizar-compra:hover {
   background-color: #1e8449;
 }
+
+
+
+@media screen and (max-width: 768px) {
+  /* Contenedor principal en columna */
+  .contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  
+  .filtro-productos {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+
+  main.contenedor {
+    width: 100%;
+  }
+
+
+  .card, .tarjeta {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+
+  .card img, .tarjeta img {
+    width: 100%;
+    height: auto;
+  }
+  }
+  

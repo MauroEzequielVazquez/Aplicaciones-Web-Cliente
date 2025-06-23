@@ -1,19 +1,22 @@
-// Datos necesarios para la conexión con Airtable
+// Datos de conexión Airtable
 const API_TOKEN = 'patNJ4WpU1pTMJAs0.21cf37035400de9bea5324d4d3aa30b3c3c235b8aa2d99926925bd7de5fa4ac1';
 const BASE_ID = 'appy5Akrxlk1wQUzj';
 const TABLE_NAME = 'tabla';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
-// Elementos del DOM
+// DOM
 const listado = document.querySelector(".listadoToners");
 const listaAgregados = document.getElementById("lista-agregados-en-carrito");
 const contenedorCarrito = document.getElementById("carrito");
 const botonToggle = document.getElementById("toggle-carrito");
 const btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
 
-// let products = []; // Variable global para los tóners
 
-// Obtenemos los productos desde Airtable
+
+// Variable global productos cargados desde Airtable
+let products = [];
+
+// Traer tóners de Airtable
 async function fetchTonersFromAirtable() {
   try {
     const response = await fetch(API_URL, {
@@ -23,12 +26,11 @@ async function fetchTonersFromAirtable() {
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const data = await response.json();
 
+    // Filtrar solo los tóners
     const tonersFiltrados = data.records.filter(record => {
       const categoria = record.fields.categoria;
       return categoria && categoria.trim().toLowerCase() === "toner";
@@ -52,7 +54,7 @@ async function fetchTonersFromAirtable() {
   }
 }
 
-// Creamos una tarjeta de producto
+// Crear tarjeta producto
 function createTonerCard(toner) {
   const card = document.createElement("article");
   card.classList.add("card");
@@ -66,7 +68,7 @@ function createTonerCard(toner) {
 
   const price = document.createElement("p");
   price.classList.add("price");
-  price.textContent = "Precio: $" + toner.price;
+  price.textContent = "Precio: $" + toner.price.toLocaleString();
 
   const link = document.createElement("a");
   link.href = toner.link;
@@ -80,16 +82,16 @@ function createTonerCard(toner) {
     agregarAlListado(toner);
   });
 
-  const oferta = document.createElement("p");
-  if (toner.oferta === true) {
+  if (toner.oferta) {
+    const oferta = document.createElement("p");
     oferta.textContent = "¡Oferta Disponible!";
     oferta.style.color = "red";
     oferta.style.fontWeight = "bold";
     card.appendChild(oferta);
   }
 
-  const envio = document.createElement("p");
-  if (toner.deliveryfree === true) {
+  if (toner.deliveryfree) {
+    const envio = document.createElement("p");
     envio.textContent = "Envío gratis";
     envio.style.color = "green";
     card.appendChild(envio);
@@ -103,7 +105,7 @@ function createTonerCard(toner) {
   return card;
 }
 
-// Renderizamos las tarjetas
+// Renderizar tarjetas
 function renderTonerCards(toners) {
   listado.innerHTML = "";
 
@@ -112,66 +114,176 @@ function renderTonerCards(toners) {
     return;
   }
 
-  toners.forEach((toner) => {
+  toners.forEach(toner => {
     const card = createTonerCard(toner);
     listado.appendChild(card);
   });
 }
 
-// Agregamos al carrito los toner pero sin duplicar - el agregar lo silencio
+// Agregar al carrito (con cantidad = 1 si no está, o sumar si ya está)
 function agregarAlListado(toner) {
   let carritoData = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  const yaExiste = carritoData.some(p => p.id === toner.id);
+  const index = carritoData.findIndex(p => p.id === toner.id);
 
-  if (!yaExiste) {
-    carritoData.push(toner);
-    localStorage.setItem("carrito", JSON.stringify(carritoData));
-    cargarCarritoDesdeLocalStorage();
-    // alert(`✅ "${toner.name}" agregado al carrito.`);
+  if (index === -1) {
+    // Si no está, se agrega con cantidad 1
+    carritoData.push({ ...toner, cantidad: 1 });
   } else {
-    alert("⚠️ Ya está en el carrito.");
+    //Si ya está, aumenta ña cantidad
+    carritoData[index].cantidad++;
   }
+
+  localStorage.setItem("carrito", JSON.stringify(carritoData));
+  cargarCarritoDesdeLocalStorage();
 }
 
-// Cargar y mostrar carrito desde localStorage
+// Mostrar carrito con cantidades, subtotales y total
+
 function cargarCarritoDesdeLocalStorage() {
   if (!listaAgregados) return;
 
   const carritoData = JSON.parse(localStorage.getItem("carrito")) || [];
   listaAgregados.innerHTML = "";
 
-  carritoData.forEach((product) => {
-    const li = document.createElement("li");
-    li.classList.add("card");
+  if (carritoData.length === 0) {
+    listaAgregados.innerHTML = "<p>El carrito está vacío.</p>";
+    return;
+  }
 
+  let totalGeneral = 0;
+
+  carritoData.forEach(product => {
+    const li = document.createElement("li");
+    li.classList.add("card", "carrito-item");
+
+    // Imagen
     const img = document.createElement("img");
     img.src = product.img;
     img.alt = product.alt;
-    img.style.width = "100px";
+    img.style.width = "80px";
 
+    // Nombre
     const name = document.createElement("h4");
     name.textContent = product.name;
 
-    const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "Eliminar";
-    btnEliminar.style.backgroundColor = "#e74c3c";
-    btnEliminar.style.color = "white";
-    btnEliminar.style.border = "none";
-    btnEliminar.style.padding = "4px 8px";
-    btnEliminar.style.cursor = "pointer";
+    // Precio unitario
+    const price = document.createElement("p");
+    price.textContent = "Precio unitario: $" + product.price.toLocaleString();
 
-    btnEliminar.addEventListener("click", () => {
-      const nuevoCarrito = carritoData.filter(item => item.id !== product.id);
-      localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
-      cargarCarritoDesdeLocalStorage();
+    // Cantidad con botones + y -
+    const divCantidad = document.createElement("div");
+    divCantidad.classList.add("cantidad-control");
+
+    const btnMenos = document.createElement("button");
+    btnMenos.textContent = "-";
+    btnMenos.classList.add("btn-cantidad");
+    btnMenos.addEventListener("click", () => {
+      disminuirCantidad(product.id);
     });
 
+    const spanCantidad = document.createElement("span");
+    spanCantidad.textContent = product.cantidad;
+
+    const btnMas = document.createElement("button");
+    btnMas.textContent = "+";
+    btnMas.classList.add("btn-cantidad");
+    btnMas.addEventListener("click", () => {
+      aumentarCantidad(product.id);
+    });
+
+    divCantidad.appendChild(btnMenos);
+    divCantidad.appendChild(spanCantidad);
+    divCantidad.appendChild(btnMas);
+
+    // Subtotal
+    const subtotal = product.price * product.cantidad;
+    totalGeneral += subtotal;
+
+    const subtotalP = document.createElement("p");
+    subtotalP.textContent = "Subtotal: $" + subtotal.toLocaleString();
+
+    // Botón eliminar producto
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "Eliminar";
+    btnEliminar.classList.add("btn-eliminar");
+    btnEliminar.addEventListener("click", () => {
+      eliminarDelCarrito(product.id);
+    });
+
+    // Armar item carrito
     li.appendChild(img);
     li.appendChild(name);
+    li.appendChild(price);
+    li.appendChild(divCantidad);
+    li.appendChild(subtotalP);
     li.appendChild(btnEliminar);
+
     listaAgregados.appendChild(li);
   });
+
+  // 👉 Agrego botón "Finalizar compra"
+  const finalizarExistente = document.getElementById("finalizar-compra");
+  if (finalizarExistente) finalizarExistente.remove();
+
+  const botonFinalizar = document.createElement("button");
+  botonFinalizar.id = "finalizar-compra";
+  botonFinalizar.textContent = "Finalizar compra";
+  botonFinalizar.style.marginTop = "10px";
+  botonFinalizar.style.padding = "10px 20px";
+  botonFinalizar.style.cursor = "pointer";
+  botonFinalizar.style.backgroundColor = "#27ae60";
+  botonFinalizar.style.color = "white";
+  botonFinalizar.style.border = "none";
+  botonFinalizar.style.borderRadius = "5px";
+
+  botonFinalizar.addEventListener("click", () => {
+    alert(`Gracias por tu compra! Total a pagar: $${totalGeneral.toLocaleString()}`);
+    localStorage.removeItem("carrito");
+    cargarCarritoDesdeLocalStorage();
+  });
+
+  listaAgregados.parentElement.appendChild(botonFinalizar);
+
+  // 👉 Mostrar total general
+  const totalExistente = document.querySelector(".total-general");
+  if (totalExistente) totalExistente.remove();
+
+  const totalDiv = document.createElement("div");
+  totalDiv.classList.add("total-general");
+  totalDiv.textContent = "Total: $" + totalGeneral.toLocaleString();
+
+  listaAgregados.appendChild(totalDiv);
+}
+
+
+
+
+
+// Funciones para modificar cantidades
+function aumentarCantidad(id) {
+  let carritoData = JSON.parse(localStorage.getItem("carrito")) || [];
+  const index = carritoData.findIndex(p => p.id === id);
+  if (index !== -1) {
+    carritoData[index].cantidad++;
+    localStorage.setItem("carrito", JSON.stringify(carritoData));
+    cargarCarritoDesdeLocalStorage();
+  }
+}
+
+function disminuirCantidad(id) {
+  let carritoData = JSON.parse(localStorage.getItem("carrito")) || [];
+  const index = carritoData.findIndex(p => p.id === id);
+  if (index !== -1) {
+    if (carritoData[index].cantidad > 1) {
+      carritoData[index].cantidad--;
+    } else {
+      // Si la cantidad es 1 y se quiere disminuir, eliminar producto
+      carritoData.splice(index, 1);
+    }
+    localStorage.setItem("carrito", JSON.stringify(carritoData));
+    cargarCarritoDesdeLocalStorage();
+  }
 }
 
 // Eliminar producto por ID
@@ -191,14 +303,12 @@ if (btnVaciarCarrito) {
   });
 }
 
-// Mostrar u ocultar carrito
-if (botonToggle && contenedorCarrito) {
-  botonToggle.addEventListener("click", () => {
-    contenedorCarrito.classList.toggle("visible");
-  });
-}
-
-// Filtro de tóners
+// Toggle carrito visible / oculto
+botonToggle.addEventListener("click", () => {
+  contenedorCarrito.classList.toggle("visible");
+  contenedorCarrito.classList.toggle("oculto");
+});
+// Filtro tóners
 function filtrarToners() {
   const busqueda = document.getElementById("busqueda").value.toLowerCase();
   const precioMin = parseFloat(document.getElementById("precio-min").value) || 0;
@@ -219,7 +329,7 @@ function filtrarToners() {
   renderTonerCards(filtrados);
 }
 
-// Al cargar la página
+// Init página
 document.addEventListener("DOMContentLoaded", () => {
   fetchTonersFromAirtable();
   cargarCarritoDesdeLocalStorage();

@@ -418,12 +418,11 @@ function agregarAlListado(product) {
 // BOTÓN para vaciar el carrito
 const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
 
-btnVaciarCarrito.addEventListener('click', () => {
-  listaAgregados.innerHTML = '';
-  localStorage.removeItem('carrito');
-  alert('🗑️ Carrito vaciado correctamente.');
-});
-
+btnVaciarCarrito.addEventListener("click", () => {
+  localStorage.removeItem("carrito");
+  cargarCarritoDesdeLocalStorage();
+  alert("🗑️ Carrito vaciado correctamente.");
+})
 // BOTÓN para mostrar/ocultar carrito
 const botonToggle = document.getElementById('toggle-carrito');
 const carrito = document.getElementById('carrito');
@@ -539,6 +538,8 @@ function cargarCarritoDesdeLocalStorage() {
 
     listaAgregados.appendChild(li);
   });
+
+  
 
   // Mostrar total general y botón finalizar compra debajo del carrito
 
