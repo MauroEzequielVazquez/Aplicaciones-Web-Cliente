@@ -1602,3 +1602,33 @@ footer nav {
     max-width: 350px;
   }
 }
+
+@media (max-width: 600px) {
+  .listadoToners {
+    justify-content: center;
+  }
+
+  .listadoToners > article {
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .card img {
+    max-height: 140px;
+    object-fit: contain;
+  }
+
+  .card h4 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .boton-comprar {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+}
