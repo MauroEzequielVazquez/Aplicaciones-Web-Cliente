@@ -353,11 +353,9 @@ async function fetchProductsFromAirtable() {
     }
 
     const data = await response.json();
-
-    // Diagnóstico: ver qué llega desde Airtable
     console.log("Datos desde Airtable:", data.records);
-
-    // Filtro por categoría - más flexible
+    
+   // Filtro por categoría 
     const impresorasFiltradas = data.records.filter(record => {
       const categoria = record.fields.categoria;
       return categoria && categoria.trim().toLowerCase() === "impresora";

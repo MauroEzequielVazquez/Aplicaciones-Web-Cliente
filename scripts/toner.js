@@ -14,7 +14,7 @@ const btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
 
 
 // Variable global productos cargados desde Airtable
-let products = [];
+// let products = [];
 
 // Traer tóners de Airtable
 async function fetchTonersFromAirtable() {
@@ -39,7 +39,7 @@ async function fetchTonersFromAirtable() {
     products = tonersFiltrados.map(record => ({
       id: record.id,
       name: record.fields.name || "Sin nombre",
-      img: record.fields.img || "https://via.placeholder.com/150",
+      img: record.fields.img || "https://mediaserver.goepson.com/ImConvServlet/imconv/61dcb6a700968d5fe27870dc9e72d7151805d623/1200Wx1200H?use=banner&hybrisId=B2C&assetDescr=L8050_aberta",
       alt: record.fields.alt || "Producto sin imagen",
       // link: record.fields.link || "#",
       price: record.fields.price || 0,
