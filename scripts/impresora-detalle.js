@@ -34,7 +34,11 @@ async function cargarDetalleProducto() {
     const product = {
       id: data.id,
       name: data.fields.name || "Sin nombre",
-      img: data.fields.img?.[0]?.url || "https://via.placeholder.com/300x300?text=Sin+Imagen",
+img: typeof data.fields.img === 'string'
+      ? data.fields.img
+      : (Array.isArray(data.fields.img) && data.fields.img.length > 0
+      ? data.fields.img[0].url
+      : "https://via.placeholder.com/300x300?text=Sin+Imagen"),
       alt: data.fields.alt || "Producto sin descripción",
       price: data.fields.price
         ? `$${Number(data.fields.price).toLocaleString("es-AR")}`

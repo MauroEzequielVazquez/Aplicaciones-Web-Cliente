@@ -1425,14 +1425,14 @@ footer nav {
 }
 
 
-/* Lista dentro del carrito  */
+
 #lista-agregados {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Cada item del carrito */
+
 #lista-agregados li.card {
   display: flex;
   align-items: center;
@@ -1489,7 +1489,7 @@ footer nav {
   cursor: not-allowed;
 }
 
-/* Botón eliminar */
+
 #lista-agregados li.card button.eliminar-btn {
   background-color: #e74c3c;
   margin-left: 6px;
@@ -1499,7 +1499,7 @@ footer nav {
   background-color: #c0392b;
 }
 
-/* Texto cantidad */
+
 #lista-agregados li.card .cantidad-text {
   min-width: 25px;
   text-align: center;
@@ -1507,7 +1507,7 @@ footer nav {
   color: #333;
 }
 
-/* Precio unitario o subtotal del producto */
+
 #lista-agregados li.card .subtotal-text {
   font-size: 0.9rem;
   font-weight: 600;
@@ -1515,7 +1515,7 @@ footer nav {
   margin-left: 10px;
 }
 
-/* Total general debajo del carrito */
+
 #total-carrito {
   margin-top: 15px;
   font-weight: 700;
@@ -1524,7 +1524,7 @@ footer nav {
   color: #34495e;
 }
 
-/* Botón finalizar compra */
+
 #finalizar-compra {
   display: block;
   width: 100%;
@@ -1547,7 +1547,6 @@ footer nav {
 
 
 @media screen and (max-width: 768px) {
-  /* Contenedor principal en columna */
   .contenedor-principal {
     display: flex;
     flex-direction: column;
@@ -1581,5 +1580,25 @@ footer nav {
   }
   }
   
+.producto-detalle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
-  
+.producto-detalle img {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Responsive para pantallas chicas */
+@media (max-width: 600px) {
+  .producto-detalle img {
+    width: 90%;
+    max-width: 350px;
+  }
+}

@@ -370,7 +370,7 @@ async function fetchProductsFromAirtable() {
     products = impresorasFiltradas.map(record => ({
       id: record.id, // Importante: uso el ID único de Airtable para pder después usarlo el el carrito
       name: record.fields.name || 'Sin nombre',
-      img: record.fields.img || 'https://via.placeholder.com/150',       
+      img: (Array.isArray(record.fields.img) ? record.fields.img[0]?.url : record.fields.img),    
       alt: record.fields.alt || 'Producto',
       link: record.fields.link || '#',
       price: record.fields.price || 0,

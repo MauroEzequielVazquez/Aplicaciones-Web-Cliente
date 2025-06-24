@@ -41,7 +41,7 @@ async function fetchTonersFromAirtable() {
       name: record.fields.name || "Sin nombre",
       img: record.fields.img || "https://via.placeholder.com/150",
       alt: record.fields.alt || "Producto sin imagen",
-      link: record.fields.link || "#",
+      // link: record.fields.link || "#",
       price: record.fields.price || 0,
       deliveryfree: record.fields.deliveryfree || false,
       oferta: record.fields.oferta || false,
@@ -70,10 +70,10 @@ function createTonerCard(toner) {
   price.classList.add("price");
   price.textContent = "Precio: $" + toner.price.toLocaleString();
 
-  const link = document.createElement("a");
-  link.href = toner.link;
-  link.classList.add("boton-vermas");
-  link.textContent = "Ver más";
+  // const link = document.createElement("a");
+  // link.href = toner.link;
+  // link.classList.add("boton-vermas");
+  // link.textContent = "Ver más";
 
   const botonComprar = document.createElement("button");
   botonComprar.textContent = "Agregar al carrito";
