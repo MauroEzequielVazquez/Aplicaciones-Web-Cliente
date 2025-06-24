@@ -442,7 +442,7 @@ function cargarCarritoDesdeLocalStorage() {
 
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  listaAgregados.innerHTML = "";
+  listaAgregados.innerHTML = "<p>El carrito está vacío.</p>";
 
   let totalGeneral = 0;
 
