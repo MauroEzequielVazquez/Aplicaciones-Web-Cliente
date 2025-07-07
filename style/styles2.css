@@ -1206,15 +1206,7 @@ footer nav {
 }
 
 
-
-
-#lista-agregados {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-bottom: 80px; /* deja espacio para el botón y total se ve mejor */
-}
-
+  
 #carrito li.card {
   display: flex;
   flex-direction: column;
@@ -1231,7 +1223,20 @@ footer nav {
   flex-grow: 1;
   overflow-y: auto;
   max-height: 70vh;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+#lista-agregados-en-carrito {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 70vh;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 
 /* Contenedor del resumen: total + botón */
 #carrito-resumen {
@@ -1426,14 +1431,10 @@ footer nav {
 
 
 
-#lista-agregados {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
 
-#lista-agregados li.card {
+#lista-agregados li.card
+#lista-agregados-en-carrito li.card {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1444,16 +1445,21 @@ footer nav {
   margin-bottom: 10px;
 }
 
+
+
 /* Imagen producto carrito */
-#lista-agregados li.card img {
+#lista-agregados li.card img,
+#lista-agregados-en-carrito li.card img {
   width: 70px;
   height: auto;
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
+
 /* Nombre del producto */
-#lista-agregados li.card h4 {
+#lista-agregados li.card h4,
+#lista-agregados-en-carrito li.card h4 {
   flex-grow: 1;
   margin: 0;
   font-size: 1rem;
@@ -1461,14 +1467,18 @@ footer nav {
 }
 
 /* Contenedor para cantidad y botones */
-#lista-agregados li.card .cantidad-container {
+#lista-agregados li.card .cantidad-container,
+#lista-agregados-en-carrito li.card .cantidad-container{
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
+
+
 /* Botones sumar y restar */
-#lista-agregados li.card button.cantidad-btn {
+#lista-agregados li.card button.cantidad-btn,
+#lista-agregados-en-carrito li.card button.cantidad-btn {
   background-color: #007bff;
   border: none;
   color: white;
@@ -1480,27 +1490,35 @@ footer nav {
   user-select: none;
 }
 
-#lista-agregados li.card button.cantidad-btn:hover {
+
+
+
+#lista-agregados li.card button.cantidad-btn:hover,
+#lista-agregados-en-carrito li.card button.cantidad-btn:hover {
   background-color: #0056b3;
 }
 
-#lista-agregados li.card button.cantidad-btn:disabled {
+#lista-agregados li.card button.cantidad-btn:disabled,
+#lista-agregados-en-carrito li.card button.cantidad-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
 
-#lista-agregados li.card button.eliminar-btn {
+#lista-agregados li.card button.eliminar-btn,
+  #lista-agregados-en-carrito li.card button.eliminar-btn {
   background-color: #e74c3c;
   margin-left: 6px;
 }
 
-#lista-agregados li.card button.eliminar-btn:hover {
+#lista-agregados li.card button.eliminar-btn:hover.
+#lista-agregados-en-carrito li.card button.eliminar-btn:hover {
   background-color: #c0392b;
 }
 
 
-#lista-agregados li.card .cantidad-text {
+#lista-agregados li.card .cantidad-tex,
+#lista-agregados-en-carrito li.card .cantidad-tex {
   min-width: 25px;
   text-align: center;
   font-weight: 600;
@@ -1508,7 +1526,8 @@ footer nav {
 }
 
 
-#lista-agregados li.card .subtotal-text {
+#lista-agregados li.card .subtotal-text,
+#lista-agregados-en-carrito li.card .subtotal-text {
   font-size: 0.9rem;
   font-weight: 600;
   color: #555;
@@ -1516,7 +1535,8 @@ footer nav {
 }
 
 
-#total-carrito {
+#total-carrito,
+.total-toner {
   margin-top: 15px;
   font-weight: 700;
   font-size: 1.2rem;
@@ -1631,4 +1651,50 @@ footer nav {
     font-size: 0.95rem;
     padding: 8px 12px;
   }
+}
+
+
+
+  .carrito-img {
+    max-width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-cantidad {
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.btn-eliminar {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.btn-finalizar {
+  margin-top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.total-toner {
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: right;
+  color: #344
 }

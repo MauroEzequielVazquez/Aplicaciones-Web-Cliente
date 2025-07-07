@@ -14,7 +14,7 @@ const btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
 
 
 // Variable global productos cargados desde Airtable
-// let products = [];
+let products = [];
 
 // Traer tóners de Airtable
 async function fetchTonersFromAirtable() {
@@ -127,10 +127,8 @@ function agregarAlListado(toner) {
   const index = carritoData.findIndex(p => p.id === toner.id);
 
   if (index === -1) {
-    // Si no está, se agrega con cantidad 1
     carritoData.push({ ...toner, cantidad: 1 });
   } else {
-    //Si ya está, aumenta ña cantidad
     carritoData[index].cantidad++;
   }
 
@@ -138,40 +136,45 @@ function agregarAlListado(toner) {
   cargarCarritoDesdeLocalStorage();
 }
 
-// Mostrar carrito con cantidades, subtotales y total
-
 function cargarCarritoDesdeLocalStorage() {
   if (!listaAgregados) return;
 
   const carritoData = JSON.parse(localStorage.getItem("carrito")) || [];
   listaAgregados.innerHTML = "";
 
+  const totalExistente = document.querySelector(".total-toner");
+  if (totalExistente) totalExistente.remove();
+
+  const finalizarExistente = document.getElementById("finalizar-compra");
+  if (finalizarExistente) finalizarExistente.remove();
+
   if (carritoData.length === 0) {
     listaAgregados.innerHTML = "<p>El carrito está vacío.</p>";
+
+    const totalDiv = document.createElement("div");
+    totalDiv.classList.add("total-toner");
+    totalDiv.textContent = "Total: $0";
+    listaAgregados.appendChild(totalDiv);
     return;
   }
 
-  let totalGeneral = 0;
+  let totaltoner = 0;
 
   carritoData.forEach(product => {
     const li = document.createElement("li");
     li.classList.add("card", "carrito-item");
 
-    // Imagen
     const img = document.createElement("img");
     img.src = product.img;
     img.alt = product.alt;
-    img.style.width = "80px";
+    img.classList.add("carrito-img");
 
-    // Nombre
     const name = document.createElement("h4");
     name.textContent = product.name;
 
-    // Precio unitario
     const price = document.createElement("p");
     price.textContent = "Precio unitario: $" + product.price.toLocaleString();
 
-    // Cantidad con botones + y -
     const divCantidad = document.createElement("div");
     divCantidad.classList.add("cantidad-control");
 
@@ -196,14 +199,12 @@ function cargarCarritoDesdeLocalStorage() {
     divCantidad.appendChild(spanCantidad);
     divCantidad.appendChild(btnMas);
 
-    // Subtotal
     const subtotal = product.price * product.cantidad;
-    totalGeneral += subtotal;
+    totaltoner += subtotal;
 
     const subtotalP = document.createElement("p");
     subtotalP.textContent = "Subtotal: $" + subtotal.toLocaleString();
 
-    // Botón eliminar producto
     const btnEliminar = document.createElement("button");
     btnEliminar.textContent = "Eliminar";
     btnEliminar.classList.add("btn-eliminar");
@@ -211,7 +212,6 @@ function cargarCarritoDesdeLocalStorage() {
       eliminarDelCarrito(product.id);
     });
 
-    // Armar item carrito
     li.appendChild(img);
     li.appendChild(name);
     li.appendChild(price);
@@ -222,39 +222,25 @@ function cargarCarritoDesdeLocalStorage() {
     listaAgregados.appendChild(li);
   });
 
-  // 👉 Agrego botón "Finalizar compra"
-  const finalizarExistente = document.getElementById("finalizar-compra");
-  if (finalizarExistente) finalizarExistente.remove();
+  const totalDiv = document.createElement("div");
+  totalDiv.classList.add("total-toner");
+  totalDiv.textContent = "Total: $" + totaltoner.toLocaleString();
+  listaAgregados.appendChild(totalDiv);
 
   const botonFinalizar = document.createElement("button");
   botonFinalizar.id = "finalizar-compra";
   botonFinalizar.textContent = "Finalizar compra";
-  botonFinalizar.style.marginTop = "10px";
-  botonFinalizar.style.padding = "10px 20px";
-  botonFinalizar.style.cursor = "pointer";
-  botonFinalizar.style.backgroundColor = "#27ae60";
-  botonFinalizar.style.color = "white";
-  botonFinalizar.style.border = "none";
-  botonFinalizar.style.borderRadius = "5px";
+  botonFinalizar.classList.add("btn-finalizar");
 
   botonFinalizar.addEventListener("click", () => {
-    alert(`Gracias por tu compra! Total a pagar: $${totalGeneral.toLocaleString()}`);
+    alert(`Gracias por tu compra! Total a pagar: $${totaltoner.toLocaleString()}`);
     localStorage.removeItem("carrito");
     cargarCarritoDesdeLocalStorage();
   });
 
   listaAgregados.parentElement.appendChild(botonFinalizar);
-
-  // 👉 Mostrar total general
-  const totalExistente = document.querySelector(".total-general");
-  if (totalExistente) totalExistente.remove();
-
-  const totalDiv = document.createElement("div");
-  totalDiv.classList.add("total-general");
-  totalDiv.textContent = "Total: $" + totalGeneral.toLocaleString();
-
-  listaAgregados.appendChild(totalDiv);
 }
+
 
 
 

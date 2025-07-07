@@ -401,7 +401,7 @@ function agregarAlListado(product) {
 
   const index = carrito.findIndex(p => p.id === product.id);
 
-  if (index === -1) {
+  if (index === -1) {  
     // Si no existe, lo agrego con cantidad 1
     carrito.push({...product, cantidad: 1});
   } else {
@@ -440,7 +440,25 @@ function cargarCarritoDesdeLocalStorage() {
 
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  listaAgregados.innerHTML = "<p>El carrito está vacío.</p>";
+  listaAgregados.innerHTML = "";
+
+  const totalExistente = document.getElementById("tota-carrito");
+  if (totalExistente) totalExistente.remove();
+
+  const finalizarExistente = document.getElementById("finalizar-compra");
+  if (finalizarExistente) finalizarExistente.remove();
+
+  if (carrito.length === 0) {
+    listaAgregados.innerHTML = "<p>El carrito está vacío.</p>";
+
+    const totalDiv = document.createElement("div");
+    totalDiv.id = "total-carrito";
+    totalDiv.classList.add("total-carrito");
+    totalDiv.textContent = "total: $0";
+    listaAgregados.parentElement.appendChild(totalDiv);
+
+    return;
+  }
 
   let totalGeneral = 0;
 
@@ -448,66 +466,51 @@ function cargarCarritoDesdeLocalStorage() {
     const li = document.createElement("li");
     li.classList.add("card");
 
-    // Imagen
     const img = document.createElement("img");
     img.src = product.img;
     img.alt = product.alt;
-    img.style.width = "100px";
+    img.classList.add("card-img");
 
-    // Nombre
     const name = document.createElement("h4");
     name.textContent = product.name;
 
-    // Precio unitario
     const price = document.createElement("p");
     price.textContent = `Precio unitario: $${product.price}`;
 
-    // Cantidad con botones
     const cantidadContainer = document.createElement("div");
-    cantidadContainer.style.display = "flex";
-    cantidadContainer.style.alignItems = "center";
-    cantidadContainer.style.gap = "10px";
+    cantidadContainer.classList.add("cantidad-container");
 
     const btnMenos = document.createElement("button");
     btnMenos.textContent = "-";
-    btnMenos.style.padding = "2px 8px";
-    btnMenos.style.cursor = "pointer";
+    btnMenos.classList.add("btn-cantidad");
 
     const spanCantidad = document.createElement("span");
     spanCantidad.textContent = product.cantidad;
 
     const btnMas = document.createElement("button");
     btnMas.textContent = "+";
-    btnMas.style.padding = "2px 8px";
-    btnMas.style.cursor = "pointer";
+    btnMas.classList.add("btn-cantidad");
 
     cantidadContainer.appendChild(btnMenos);
     cantidadContainer.appendChild(spanCantidad);
     cantidadContainer.appendChild(btnMas);
 
-    // Subtotal producto
     const subtotal = product.price * product.cantidad;
     totalGeneral += subtotal;
 
     const subtotalP = document.createElement("p");
     subtotalP.textContent = `Subtotal: $${subtotal}`;
 
-    // Botón eliminar
     const btnEliminar = document.createElement("button");
     btnEliminar.textContent = "Eliminar";
-    btnEliminar.style.backgroundColor = "#e74c3c";
-    btnEliminar.style.color = "white";
-    btnEliminar.style.border = "none";
-    btnEliminar.style.padding = "4px 8px";
-    btnEliminar.style.cursor = "pointer";
+    btnEliminar.classList.add("btn-eliminar");
 
-    // Eventos botones
+    // Eventos
     btnMenos.addEventListener("click", () => {
       if (product.cantidad > 1) {
         product.cantidad--;
         carrito[index] = product;
       } else {
-        // Si la cantidad es 1 y se presiona "-", se elimina del carrito
         carrito.splice(index, 1);
       }
       localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -527,7 +530,6 @@ function cargarCarritoDesdeLocalStorage() {
       cargarCarritoDesdeLocalStorage();
     });
 
-    // Agregamos al li
     li.appendChild(img);
     li.appendChild(name);
     li.appendChild(price);
@@ -537,49 +539,31 @@ function cargarCarritoDesdeLocalStorage() {
 
     listaAgregados.appendChild(li);
   });
-  
 
-  // Mostrar total general y botón finalizar compra debajo del carrito
+  const totalDiv = document.createElement("div");
+  totalDiv.id = "total-carrito";
+  totalDiv.classList.add("total-carrito");
+  totalDiv.textContent = `total: $${totalGeneral}`;
+  listaAgregados.parentElement.appendChild(totalDiv);
 
-  // Primero, eliminamos si ya existe el contenedor de total y finalizar para evitar duplicados
-  const totalExistente = document.getElementById("total-carrito");
-  if (totalExistente) totalExistente.remove();
+  const botonFinalizar = document.createElement("button");
+  botonFinalizar.id = "finalizar-compra";
+  botonFinalizar.textContent = "Finalizar compra";
+  botonFinalizar.classList.add("btn-finalizar");
 
-  const finalizarExistente = document.getElementById("finalizar-compra");
-  if (finalizarExistente) finalizarExistente.remove();
+  botonFinalizar.addEventListener("click", () => {
+    alert(`Gracias por tu compra! total: $${totalGeneral}`);
+    localStorage.removeItem("carrito");
+    cargarCarritoDesdeLocalStorage();
+  });
 
-  if (carrito.length > 0) {
-    const totalDiv = document.createElement("div");
-    totalDiv.id = "total-carrito";
-    totalDiv.style.marginTop = "15px";
-    totalDiv.style.fontWeight = "bold";
-    totalDiv.textContent = `Total a pagar: $${totalGeneral}`;
+  listaAgregados.parentElement.appendChild(botonFinalizar);
 
-    listaAgregados.parentElement.appendChild(totalDiv);
 
-    const botonFinalizar = document.createElement("button");
-    botonFinalizar.id = "finalizar-compra";
-    botonFinalizar.textContent = "Finalizar compra";
-    botonFinalizar.style.marginTop = "10px";
-    botonFinalizar.style.padding = "10px 20px";
-    botonFinalizar.style.cursor = "pointer";
-    botonFinalizar.style.backgroundColor = "#27ae60";
-    botonFinalizar.style.color = "white";
-    botonFinalizar.style.border = "none";
-    botonFinalizar.style.borderRadius = "5px";
-
-    botonFinalizar.addEventListener("click", () => {
-      alert(`Gracias por tu compra! Total a pagar: $${totalGeneral}`);
-      localStorage.removeItem("carrito");
-      cargarCarritoDesdeLocalStorage();
-    });
-
-    listaAgregados.parentElement.appendChild(botonFinalizar);
-  }
 }
-  
 
-cargarCarritoDesdeLocalStorage(); // al recargar la página, se muestren los productos del carrito si estaban guardados
+cargarCarritoDesdeLocalStorage();
+// al recargar la página, se muestren los productos del carrito si estaban guardados
 
 // //clase 7  : probamos el llamado de prod mediante una Api
 
