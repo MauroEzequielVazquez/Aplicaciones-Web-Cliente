@@ -61,6 +61,7 @@ function createTonerCard(toner) {
 
   const name = document.createElement("h4");
   name.textContent = toner.name;
+    card.appendChild(name);
 
   const img = document.createElement("img");
   img.src = toner.img;
@@ -97,7 +98,7 @@ function createTonerCard(toner) {
     card.appendChild(envio);
   }
 
-  card.appendChild(name);
+
   card.appendChild(img);
   card.appendChild(price);
   card.appendChild(botonComprar);

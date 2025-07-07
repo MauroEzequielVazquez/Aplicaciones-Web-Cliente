@@ -297,6 +297,13 @@ link.href = `../impresoras/impresora-detalle.html?id=${product.id}`;
   link.classList.add('boton-vermas');
   link.textContent = 'Ver más';
 
+   const botonComprar = document.createElement('button');
+  botonComprar.textContent = 'Agregar al carrito';
+  botonComprar.classList.add('Agregar');
+  botonComprar.addEventListener('click', () => {
+    agregarAlListado(product);
+  });
+
   const oferta = document.createElement('p');
   if (product.oferta === true) {
     oferta.textContent = '¡Oferta disponible!';
@@ -310,12 +317,7 @@ link.href = `../impresoras/impresora-detalle.html?id=${product.id}`;
     envio.style.color = 'green';
   }
 
-  const botonComprar = document.createElement('button');
-  botonComprar.textContent = 'Agregar al carrito';
-  botonComprar.classList.add('Agregar');
- botonComprar.addEventListener('click', () => {
-    agregarAlListado(product);
-  });
+ 
 
   card.appendChild(name);
   card.appendChild(oferta);
