@@ -965,7 +965,7 @@ footer nav {
 .listadoToners,
 .listadoImpresoras {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px; 
   max-width: 1200px; 
   margin: 20px auto;
@@ -1585,11 +1585,13 @@ footer nav {
 }
 
 @media (max-width: 600px) {
-  .listadoToners {
+  .listadoToners,
+  .listadoImpresoras {
     justify-content: center;
   }
 
-  .listadoToners > article {
+  .listadoToners > article,
+  .listadoImpresoras > article {
     width: 90%;
     max-width: 320px;
     margin: 0 auto;
@@ -1608,7 +1610,8 @@ footer nav {
     font-size: 1rem;
   }
 
-  .boton-comprar {
+  .boton-comprar,
+  .boton-agregar {
     font-size: 0.95rem;
     padding: 8px 12px;
   }
