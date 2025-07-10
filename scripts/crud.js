@@ -59,7 +59,7 @@ form.addEventListener("submit", async (e) => {
     img: document.getElementById("img").value,
     alt: document.getElementById("alt").value,
     price: parseFloat(document.getElementById("price").value),
-    categoria: document.getElementById("categoria").value,
+   categoria: document.getElementById("category").value,
     type: document.getElementById("type").value,
     functions: document.getElementById("functions").value,
     duplex: document.getElementById("duplex").checked,
@@ -97,7 +97,7 @@ async function createProduct(product) {
           img: product.img,
           alt: product.alt,
           price: product.price,
-          categoria: product.categoria,
+         categoria: product.category,
           type: product.type,
           functions: product.functions,
           duplex: product.duplex,
@@ -130,7 +130,7 @@ async function updateProduct(recordId, product) {
           img: product.img,
           alt: product.alt,
           price: product.price,
-          categoria: product.categoria,
+         categoria: product.category,
           type: product.type,
           functions: product.functions,
           duplex: product.duplex,
@@ -142,11 +142,7 @@ async function updateProduct(recordId, product) {
     });
 
     if (res.ok) alert("✅ Producto actualizado");
-   else {
-  const errorText = await res.text();
-  console.error("❌ Error al actualizar:", errorText);
-  alert("❌ Error al actualizar:\n" + errorText);
-}
+    else alert("❌ Error al actualizar");
   } catch (err) {
     console.error(err);
   }
@@ -184,7 +180,7 @@ window.editarProducto = (recordId) => {
     document.getElementById("price").value = prod.price;
     document.getElementById("deliveryfree").checked = prod.deliveryfree;
     document.getElementById("oferta").checked = prod.oferta;
-    document.getElementById("categoria").value = prod.categoria || "";
+    document.getElementById("category").value = prod.category || "";
     document.getElementById("type").value = prod.type || "";
     document.getElementById("functions").value = prod.functions || "";
     document.getElementById("duplex").checked = prod.duplex || false;
