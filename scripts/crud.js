@@ -58,9 +58,8 @@ form.addEventListener("submit", async (e) => {
     name: document.getElementById("name").value,
     img: document.getElementById("img").value,
     alt: document.getElementById("alt").value,
-    link: document.getElementById("link").value,
     price: parseFloat(document.getElementById("price").value),
-    category: document.getElementById("category").value,
+    categoria: document.getElementById("categoria").value,
     type: document.getElementById("type").value,
     functions: document.getElementById("functions").value,
     duplex: document.getElementById("duplex").checked,
@@ -97,9 +96,8 @@ async function createProduct(product) {
           name: product.name,
           img: product.img,
           alt: product.alt,
-          link: product.link,
           price: product.price,
-          category: product.category,
+          categoria: product.categoria,
           type: product.type,
           functions: product.functions,
           duplex: product.duplex,
@@ -131,9 +129,8 @@ async function updateProduct(recordId, product) {
           name: product.name,
           img: product.img,
           alt: product.alt,
-          link: product.link,
           price: product.price,
-          category: product.category,
+          categoria: product.categoria,
           type: product.type,
           functions: product.functions,
           duplex: product.duplex,
@@ -145,7 +142,11 @@ async function updateProduct(recordId, product) {
     });
 
     if (res.ok) alert("✅ Producto actualizado");
-    else alert("❌ Error al actualizar");
+   else {
+  const errorText = await res.text();
+  console.error("❌ Error al actualizar:", errorText);
+  alert("❌ Error al actualizar:\n" + errorText);
+}
   } catch (err) {
     console.error(err);
   }
@@ -180,11 +181,10 @@ window.editarProducto = (recordId) => {
     document.getElementById("name").value = prod.name;
     document.getElementById("img").value = prod.img[0]?.url || "";
     document.getElementById("alt").value = prod.alt;
-    document.getElementById("link").value = prod.link;
     document.getElementById("price").value = prod.price;
     document.getElementById("deliveryfree").checked = prod.deliveryfree;
     document.getElementById("oferta").checked = prod.oferta;
-    document.getElementById("category").value = prod.category || "";
+    document.getElementById("categoria").value = prod.categoria || "";
     document.getElementById("type").value = prod.type || "";
     document.getElementById("functions").value = prod.functions || "";
     document.getElementById("duplex").checked = prod.duplex || false;

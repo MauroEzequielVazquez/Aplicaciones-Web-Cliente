@@ -444,7 +444,7 @@ function cargarCarritoDesdeLocalStorage() {
 
   listaAgregados.innerHTML = "";
 
-  const totalExistente = document.getElementById("tota-carrito");
+  const totalExistente = document.getElementById("total-carrito");
   if (totalExistente) totalExistente.remove();
 
   const finalizarExistente = document.getElementById("finalizar-compra");
