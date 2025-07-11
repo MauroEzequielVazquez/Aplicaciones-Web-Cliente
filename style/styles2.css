@@ -4,7 +4,7 @@
 
 body {
   background: #ffffff;
-  color: #000;
+  color:;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
@@ -391,7 +391,8 @@ section {
     padding: 10px;
   }
 
-  .listadoImpresoras {
+  .listadoImpresoras,
+  .listadoToners {
     grid-template-columns: 1fr; 
     gap: 10px;
   }
@@ -650,8 +651,9 @@ main {
   padding: 20px;
   flex-wrap: wrap; 
   align-items: center;
- padding-bottom: 10%;
+ padding-bottom: 30px;
 }
+
 
 
 
@@ -763,14 +765,7 @@ main a.boton-vermas {
   transition: background-color 0.3s ease;
 }
 
-.listadoImpresoras {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  grid-auto-rows: minmax(250px, auto);
-  gap: 1.5rem;
-  padding: 1rem;
-  justify-items: center;
-}
+
 
 .card {
   width: 100%;
@@ -968,7 +963,7 @@ footer nav {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px; 
   max-width: 1200px; 
-  margin: 20px auto;
+ margin: 20px 0 20px 40px;
   padding: 0 10px; 
 }
 
@@ -1292,6 +1287,8 @@ footer nav {
 }
 
 
+
+
 /* media para que las tarjetas no se muesstren en pantallas pequeñas */
 
 @media screen and (max-width: 768px) {
@@ -1394,7 +1391,7 @@ footer nav {
 
 
 
-#lista-agregados li.card
+#lista-agregados li.card,
 #lista-agregados-en-carrito li.card {
   display: flex;
   align-items: center;
@@ -1472,7 +1469,7 @@ footer nav {
   margin-left: 6px;
 }
 
-#lista-agregados li.card button.eliminar-btn:hover.
+#lista-agregados li.card button.eliminar-btn:hover,
 #lista-agregados-en-carrito li.card button.eliminar-btn:hover {
   background-color: #c0392b;
 }
