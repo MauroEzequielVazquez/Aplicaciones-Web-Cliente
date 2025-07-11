@@ -4,7 +4,7 @@
 
 body {
   background: #ffffff;
-  color:;
+  color: #000;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
@@ -391,8 +391,7 @@ section {
     padding: 10px;
   }
 
-  .listadoImpresoras,
-  .listadoToners {
+  .listadoImpresoras {
     grid-template-columns: 1fr; 
     gap: 10px;
   }
@@ -487,8 +486,7 @@ a:hover, button:hover {
   }
 }
 
-/* Footer con texto blanco y redes sociales visibles */
-/* Footer - Responsive mejorado */
+
 .footer {
   background: linear-gradient(135deg, #008cba, #3a3a5a);
   color: white;
@@ -651,9 +649,8 @@ main {
   padding: 20px;
   flex-wrap: wrap; 
   align-items: center;
- padding-bottom: 30px;
+ padding-bottom: 10%;
 }
-
 
 
 
@@ -706,7 +703,7 @@ main a.boton-vermas {
 
 .promo-container {
   margin-top: 10px;
-  height: 50vh; 
+  height: 40vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -765,7 +762,14 @@ main a.boton-vermas {
   transition: background-color 0.3s ease;
 }
 
-
+.listadoImpresoras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-auto-rows: minmax(250px, auto);
+  gap: 1.5rem;
+  padding: 1rem;
+  justify-items: center;
+}
 
 .card {
   width: 100%;
@@ -862,19 +866,24 @@ main a.boton-vermas {
 }
 
 footer nav {
-  text-align: center;
-    margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .footer nav a {
-   color: #0066cc;
-  margin: 0 10px;
+ color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease;
 }
 
 .footer nav a:hover {
   text-decoration: underline;
+    opacity: 0.8;
 }
 
 .footer-contenido {
@@ -963,7 +972,7 @@ footer nav {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px; 
   max-width: 1200px; 
- margin: 20px 0 20px 40px;
+  margin: 20px auto;
   padding: 0 10px; 
 }
 
@@ -1140,7 +1149,6 @@ footer nav {
   right: 20px;
   z-index: 1100;
   cursor: pointer;
-
   background-color: #007bff;
   color: white;
   border: none;
@@ -1287,8 +1295,6 @@ footer nav {
 }
 
 
-
-
 /* media para que las tarjetas no se muesstren en pantallas pequeñas */
 
 @media screen and (max-width: 768px) {
@@ -1307,6 +1313,179 @@ footer nav {
     display: none;
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* 
+
+agregando */
+
+/* pantallas chicas */
+
+@media screen and (max-width: 480px) {
+  .titulo {
+    font-size: 24px;
+  }
+
+  .filtro-productos {
+    padding: 15px;
+  }
+
+  .filtro-productos label,
+  .filtro-productos input,
+  .filtro-productos select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .listadoImpresoras,
+  .listadoToners {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .card img {
+    max-height: 120px;
+  }
+
+  .card h4 {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 0.9rem;
+  }
+
+  .boton-vermas {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .slider-multiple .slider-track img {
+    width: 150px;
+  }
+}
+
+
+
+/* tablets */
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .listadoImpresoras,
+  .listadoToners {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .card img {
+    max-height: 140px;
+  }
+
+  .card h4 {
+    font-size: 1.1rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .filtro-productos {
+    width: 100%;
+    order: -1;
+  }
+
+  main.contenedor {
+    width: 100%;
+  }
+
+  aside.filtro-productos {
+    margin-bottom: 20px;
+  }
+
+  .slider-multiple .slider-track img {
+    width: 200px;
+  }
+}
+
+
+
+/* medianas */
+
+
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .contenedor-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filtro-productos {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .listadoImpresoras {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .card img {
+    max-height: 160px;
+  }
+
+  .slider-multiple .slider-track img {
+    width: 250px;
+  }
+}
+
+/* grandes */
+@media screen and (min-width: 993px) {
+  .contenedor-principal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .filtro-productos {
+    flex: 1;
+    max-width: 300px;
+  }
+
+  main.contenedor {
+    flex: 3;
+  }
+
+  .listadoImpresoras,
+  .listadoToners {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .card img {
+    max-height: 180px;
+  }
+
+  .card h4 {
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+
+  .slider-multiple .slider-track img {
+    width: 300px;
+  }
+}
+
 
 
 
@@ -1391,7 +1570,7 @@ footer nav {
 
 
 
-#lista-agregados li.card,
+#lista-agregados li.card
 #lista-agregados-en-carrito li.card {
   display: flex;
   align-items: center;
@@ -1469,7 +1648,7 @@ footer nav {
   margin-left: 6px;
 }
 
-#lista-agregados li.card button.eliminar-btn:hover,
+#lista-agregados li.card button.eliminar-btn:hover.
 #lista-agregados-en-carrito li.card button.eliminar-btn:hover {
   background-color: #c0392b;
 }
